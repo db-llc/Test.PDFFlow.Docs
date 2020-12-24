@@ -117,46 +117,28 @@ function showdiv( divname )
     <p>
       <font size="+1"><code>class <b>DocumentBuilder</b></code></font>
     </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>object</code></td>
+      </tr>
+    </table>
     <p><b>Brief</b></p>
-    <p>Class lets you to create a new PDF document, add and configure sections and build a document</p>
-    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
-The namespace is <a href="Gehtsoft.PDFFlow.Builder.html"><code>Gehtsoft.PDFFlow.Builder</code></a>.</p><p></p>
+    <p>The class for creating a new PDF document, adding and configuring one or more sections of the document, and building a document.</p><p></p>
 <table class="tmain" width="100%">
   <tr>
     <td colspan="2" class="thdr"><b>Static Public Methods</b></td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.New.0.html">New</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.New.DlG.html">New</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Creates an Instance of DocumentBuilder</p>
-    </td>
-  </tr>
-</table><p></p>
-<table class="tmain" width="100%">
-  <tr>
-    <td colspan="2" class="thdr"><b>Public Properties</b></td>
-  </tr>
-  <tr>
-    <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Scope.0.html">Scope</a></p>
-    </td>
-    <td class="tmain" width="69%">
-      <p>Creates new scope in AppContext instance</p>
-    </td>
-  </tr>
-</table><p></p>
-<table class="tmain" width="100%">
-  <tr>
-    <td colspan="2" class="thdr"><b>Public Constructors</b></td>
-  </tr>
-  <tr>
-    <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.DocumentBuilder.0.html">DocumentBuilder</a></p>
-    </td>
-    <td class="tmain" width="69%">
-      <p>Constructor</p>
+      <p>Creates a new instance of <code>DocumentBuilder</code>.</p>
     </td>
   </tr>
 </table><p></p>
@@ -166,58 +148,98 @@ The namespace is <a href="Gehtsoft.PDFFlow.Builder.html"><code>Gehtsoft.PDFFlow.
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.0.html">AddDefaultSection</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.gcA.html">AddSection</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Adds a new section with margins 20, paper size A4, portrait orientation and arabic numeration style. Returns <code>Section</code>.</p>
+      <p>Adds a section to the document, allows configuring the section and returns the <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a>.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.1.html">AddDefaultSection</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.vg9.html">AddSection</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Adds a new section with margins 20, paper size A4, portrait orientation and arabic numeration style. Has action for configuring Section's properties</p>
+      <p>Adds a previously created section to the document and returns the <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a>.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.1.html">AddSection</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSectionToDocument.MV3.html">AddSectionToDocument</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Adds a new section and lets you to set up section's properties using configurer</p>
+      <p>Adds a section to the document, allows configuring the section and returns the <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html"><code>DocumentBuilder</code></a>.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.0.html">AddSection</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSectionToDocument.swF.html">AddSectionToDocument</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Adds a new section</p>
+      <p>Adds a previously created section to the document and returns the <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html"><code>DocumentBuilder</code></a>.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.2.html">AddSection</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.ApplyStyle.Nq2.html">ApplyStyle</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Adds instance of previously created Section to the document</p>
+      <p>Applies a style to the document.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.1.html">Build</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.AN.html">Build</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Builds a document into a file</p>
+      <p>Generates a PDF document and saves it to a specified file.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.0.html">Build</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.8J2.html">Build</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Builds a document into a stream</p>
+      <p>Generates a PDF document and saves it to a specified stream.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.SetImageStyle.RG4.html">SetImageStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets the style for images and inline images in the document.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.SetLineStyle.XM9.html">SetLineStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets the style for lines in the document.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.SetListStyle.FM9.html">SetListStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets the style for multilevel lists in the document.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.SetParagraphStyle.xpA.html">SetParagraphStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets the style for paragraphs in the document.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.SetTableStyle.Gq.html">SetTableStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets the style for tables in the document.</p>
     </td>
   </tr>
 </table><p>

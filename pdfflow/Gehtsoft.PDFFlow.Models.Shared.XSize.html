@@ -124,23 +124,25 @@ function showdiv( divname )
       </tr>
       <tr>
         <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.ValueType</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
         <td style="tmain"><code>System.IFormattable</code></td>
       </tr>
     </table>
     <p><b>Brief</b></p>
-    <p>Struct for storing, operating and converting size (width and height)</p>
-    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
-The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PDFFlow.Models.Shared</code></a>.</p><p></p>
+    <p>The structure for storing, operating, and converting the size (width and height).</p><p></p>
 <table class="tmain" width="100%">
   <tr>
     <td colspan="2" class="thdr"><b>Static Public Properties</b></td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Empty.0.html">Empty</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Empty.tN9.html">Empty</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Empty size with Width=NegativeInfinity and Height=NegativeInfinity</p>
+      <p>An empty <code>XSize</code> structure.</p>
     </td>
   </tr>
 </table><p></p>
@@ -150,10 +152,42 @@ The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PD
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.1.html">Equals</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.Zt.html">Equals</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Compares one XSize with another XSize</p>
+      <p>Checks whether two <code>XSize</code> structures are equal.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.FromHeight.YlA.html">FromHeight</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Creates an <code>XSize</code> structure from the height in points.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.FromWidth.oZ4.html">FromWidth</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Creates an <code>XSize</code> structure from the width in points.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.op_Equality.LU5.html">op_Equality</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether two <code>XSize</code> structures are equal.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.op_Inequality.P23.html">op_Inequality</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether two <code>XSize</code> structures are not equal.</p>
     </td>
   </tr>
 </table><p></p>
@@ -163,26 +197,26 @@ The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PD
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Height.0.html">Height</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Height.nX1.html">Height</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Stores height</p>
+      <p>The height in XUnits.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.IsEmpty.0.html">IsEmpty</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.IsEmpty.ts6.html">IsEmpty</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Returns true if Width is negative value</p>
+      <p>Indicates whether the <code>XSize</code> structure is empty.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Width.0.html">Width</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Width.lbC.html">Width</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Stores width</p>
+      <p>The width in XUnits.</p>
     </td>
   </tr>
 </table><p></p>
@@ -192,10 +226,10 @@ The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PD
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.XSize.0.html">XSize</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize..ctor.Aj7.html">XSize</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Constructor</p>
+      <p>A constructor.</p>
     </td>
   </tr>
 </table><p></p>
@@ -205,42 +239,58 @@ The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PD
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.2.html">Equals</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.DdC.html">Equals</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Compares this XSize with another object</p>
+      <p>Checks whether the object is an <code>XSize</code> structure equivalent to this <code>XSize</code> structure.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.0.html">Equals</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.Equals.I1A.html">Equals</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Compares this XSize with another XSize variable</p>
+      <p>Compares this <code>XSize</code> with another <code>XSize</code> variable.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.GetHashCode.0.html">GetHashCode</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.GetHashCode.QZ8.html">GetHashCode</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Returns hash code of width and height</p>
+      <p>Gets a hash code for this <code>XSize</code> structure.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.ToString.1.html">ToString</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.HasValue.BM2.html">HasValue</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Converts XSize to string</p>
+      <p>Checks whether the <code>XSize</code> structure has a value.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.ToString.2.html">ToString</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.IsNull.Nl8.html">IsNull</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Converts XSize to string using format provider</p>
+      <p>Checks whether the <code>XSize</code> structure is null.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.ToString.o76.html">ToString</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Converts the <code>XSize</code> structure into a string.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XSize.ToString.3LE.html">ToString</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Converts the <code>XSize</code> structure into a string using the format provider.</p>
     </td>
   </tr>
 </table><p>

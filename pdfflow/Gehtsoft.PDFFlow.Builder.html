@@ -116,28 +116,17 @@ function showdiv( divname )
   <body>
     <p>
       <font size="+1"><b>Namespace Gehtsoft.PDFFlow.Builder</b></font>
-    </p>
-    <p><b>Brief</b></p>
-    <p>The namespace consists of builder classes to add and configure different content (sections, paragraph, images...)</p>
-    <p><b>Details</b></p><p></p>
+    </p><p></p>
 <table class="tmain" width="100%">
   <tr>
     <td colspan="2" class="thdr"><b>Classes</b></td>
   </tr>
   <tr>
     <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.BordersBuilder.html">BordersBuilder</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.BorderBuilder.html">BorderBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Class for setting up border's properties (width, style, color...)</p>
-    </td>
-  </tr>
-  <tr>
-    <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.html">ContentItemBuilder</a></p>
-    </td>
-    <td class="tmain" width="69%">
-      <p>Lets you to set ContentItem properties (margins, border, etc...)</p>
+      <p>The class for configuring borders.</p>
     </td>
   </tr>
   <tr>
@@ -145,7 +134,15 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html">DocumentBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Class lets you to create a new PDF document, add and configure sections and build a document</p>
+      <p>The class for creating a new PDF document, adding and configuring one or more sections of the document, and building a document.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FontBuilder.html">FontBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for configuring font settings.</p>
     </td>
   </tr>
   <tr>
@@ -153,7 +150,7 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html">FormattedTextElementBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you to set FormattedTextElement properties (font, background...) and add content</p>
+      <p>The class for configuring formatted text elements.</p>
     </td>
   </tr>
   <tr>
@@ -161,15 +158,23 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.ImageBuilder.html">ImageBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you to add images and inline images and set image properties</p>
+      <p>The class for configuring image settings.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.LayoutAreaBuilder.html">LayoutAreaBuilder</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.ImageExtensions.html">ImageExtensions</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you to add repeating areas (headers and footers) to the section</p>
+      <p>The class for adding images.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.InlineImageBuilder.html">InlineImageBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for configuring inline images.</p>
     </td>
   </tr>
   <tr>
@@ -177,7 +182,31 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.LineBuilder.html">LineBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Allows to create a line and set it's properties</p>
+      <p>The class for creating lines and configuring their settings.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.LineExtensions.html">LineExtensions</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for adding lines.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.OutlineBuilder.html">OutlineBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for configuring the document tables of content (TOCs).</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.OutlineExtensions.html">OutlineExtensions</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for adding tables of content (TOCs).</p>
     </td>
   </tr>
   <tr>
@@ -185,15 +214,23 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html">ParagraphBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you to configure Paragraph properties and add content</p>
+      <p>The class for adding and configuring paragraphs and their content.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.PredefinedSizeBuilder.html">PredefinedSizeBuilder</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html">ParagraphExtensions</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Contains functions for converting paper size and orientation</p>
+      <p>The class is an extension of <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a> and <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a> for adding content.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.RepeatingAreaBuilder.html">RepeatingAreaBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for creating repeating areas and adding content to them.</p>
     </td>
   </tr>
   <tr>
@@ -201,15 +238,15 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html">SectionBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Helps you to easy add and configure sections and content</p>
+      <p>The class for adding and configuring sections and their content.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.StackFlowBuilder.html">StackFlowBuilder</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.StyleBuilder.html">StyleBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you to add and configure StackFlow (a range of content items)</p>
+      <p>The class for building styles.</p>
     </td>
   </tr>
   <tr>
@@ -217,21 +254,55 @@ function showdiv( divname )
       <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.html">TableBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Lets you add and configure a table and it's content</p>
+      <p>The class for configuring tables.</p>
     </td>
-  </tr>
-</table>
-<p></p>
-<table class="tmain" width="100%">
-  <tr>
-    <td colspan="2" class="thdr"><b>Enumerations</b></td>
   </tr>
   <tr>
     <td class="tmain_nw" width="31%">
-      <p><a href="Gehtsoft.PDFFlow.Builder.PaperSize.html">PaperSize</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableCellBuilder.html">TableCellBuilder</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Enumaration of paper sizes (A0...A5)</p>
+      <p>The class for building table cells.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableCellExtensions.html">TableCellExtensions</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for adding content to table cells.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableColumnBuilder.html">TableColumnBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for building table columns.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableExtensions.html">TableExtensions</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for building tables.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableRowBuilder.html">TableRowBuilder</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for building table rows.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw" width="31%">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableRowExtensions.html">TableRowExtensions</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The class for building table rows.</p>
     </td>
   </tr>
 </table><p>

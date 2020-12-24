@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
   <head>
     <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
-    <title>Adding Tabulations to Paragraph</title><script language="javascript" type="text/javascript">
+    <title>Adding Tabulations</title><script language="javascript" type="text/javascript">
 function hidediv( divname )
 {
     document.getElementById( divname ).style.display = 'none';
@@ -115,76 +115,195 @@ function showdiv( divname )
 </style></head>
   <body>
     <p>
-      <font size="+1"><b>Adding Tabulations to Paragraph</b></font>
+      <font size="+1"><b>Adding Tabulations</b></font>
     </p>
     <p><b>Brief</b></p>
-    <p>The article describes how to add and configure Tabulations in a Paragraph.</p>
-    <p><b>Details</b></p><p><a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a> can have Tabulations of three different types (Left, Right and Center).</p>
-<p>In case of Left tabulation, the beginning of elements after TabSymbolElement will be aligned to the left tabulation position.</p>
-<p>In case of Right tabulation, the end of elements after TabSymbolElement will be aligned to the right tabulation position.</p>
-<p>In case of Center tabulation, elements after TabSymbolElement will be center-aligned around the center tabulation position.</p>
-<p>Tabulation is described in <a href="Gehtsoft.PDFFlow.Models.Content.Tabulation.html"><code>Tabulation</code></a> class and have to be added to Paragraph's <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.Tabs.0.html"><code>Tabs</code></a> collection.</p>
-<p>Paragraph can have more than one tabulation.</p>
-<p><img src="img/TabulationExample1.png"></p>
-<p>To add tabulations to the Paragraph you must:</p><ul class="main">
-  <li><p>Add tabulation to the .Tabs collection of the Paragraph, providing Position of tabulation, Type and Leading.</p></li>
-  <li><p>Add <a href="Gehtsoft.PDFFlow.Models.Content.TabSymbolElement.html"><code>TabSymbolElement</code></a> between Paragraph elements,
-indicating that elements following after TabSymbolElement have to be tabulated.</p></li>
-</ul><p>There are few ways to add tabulations into .Tabs collection:</p><ul class="main">
-  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabulation.0.html"><code>AddTabulation(this Paragraph paragraph, float position, TabulationType tabulationType, TabulationLeading leading = TabulationLeading.None)</code></a>.
-Position is X coordinate from the left margin on the available area.
-TabulationType can be Left, Right or Center.
-TabulationLeading can be None, DotBottom, DotCenter or BottomLine.</p></li>
-  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabulationInPercent.0.html"><code>AddTabulationInPercent(this Paragraph paragraph, float position, TabulationType tabulationType, TabulationLeading leading = TabulationLeading.None)</code></a>.
-Position is in perecents. If you pass 30 to the Position parameter, tabulation position will be calculated as 30% of the available area from left margin.
-The rest of the parameters are the same as in AddTabulation() method.</p></li>
-</ul><p>There are few ways to add TabSymbol element to the Paragraph:</p><ul class="main">
-  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabSymbol.0.html"><code>AddTabSymbol(this Paragraph paragraph)</code></a> method of the Paragraph. New TabSymbolElement will be added to the Paragraph after previous elements.</p></li>
-  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.1.html"><code>AddText(this Paragraph paragraph, string text, bool addTabulationSymbol = false)</code></a> which adds string to the Paragraph's content,
-and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
-New TabSymbolElement will be added to the Paragraph after this element.</p></li>
-  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTextToParagraph.0.html"><code>AddTextToParagraph(this Paragraph paragraph, string text, bool addTabulationSymbol = false)</code></a>
-which adds string to the Paragraph's content and returns Paragraph,
-and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
-New TabSymbolElement will be added to the Paragraph after this element.</p></li>
-  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.2.html"><code>AddParagraph(this Section section, string text, bool addTabulationSymbol = false)</code></a> which creates new Paragraph with text element,
-and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
-New TabSymbolElement will be added to the Paragraph after this text element.</p></li>
-</ul><p><br>
-<b>See also:</b></p>
-<p><a href="quickStart.html">Quick Start</a>.</p>
-<p><a href="howToConfigureParagraph.html">Configuring Paragraph</a>.</p>
-<p><br><b>Examples</b></p><div id="open18" style="display:none">
-  <p>One tabulation per line and AddTabSymbol() method:&nbsp;<a href="javascript: showdiv('close18'); hidediv('open18');" onclick="javascript: showdiv('close18'); hidediv('open18');">[show]</a></p>
+    <p>The article describes how to add and configure tabulations in a paragraph.</p>
+    <p><b>Details</b></p><p>Tabulations allow you to align the paragraph content. You can add tabulations of three types:</p><ul class="main">
+  <li><p><i>Left</i> - the paragraph content will be aligned to the left of the tabulation position.</p></li>
+  <li><p><i>Right</i> - the paragraph content will be aligned to the right of the tabulation position.</p></li>
+  <li><p><i>Center</i> - the paragraph content will be center-aligned on the tabulation position.</p></li>
+</ul><p>A paragraph can have more than one tabulation.</p>
+<p><img src="img/tabulation-ex1.png">
+<br><br>
+The space before the tabulated content can be filled with leading symbols: bottom dots, center dots, or bottom line
+(see the <a href="Gehtsoft.PDFFlow.Models.Enumerations.TabulationLeading.html"><code>TabulationLeading</code></a> enumeration).
+<br><br></p>
+<p>You can add tabulations to an entire paragraph or add a tabulation symbol before particular elements of a paragraph.</p>
+<p>To add a tabulation to a paragraph, you can use the following options:</p><ul class="main">
+  <li><p>To specify the tabulation position as the X coordinate, use the <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabulation.mIC.html"><code>AddTabulation</code></a> method.</p></li>
+  <li><p>To specify the tabulation position in percentage of the paragraph width, use the <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabulationInPercent.8ID.html"><code>AddTabulationInPercent</code></a> method.</p></li>
+</ul><p>Both methods allow you to specify the tabulation type and leading symbols if necessary.
+<br><br></p>
+<p>To add a tabulation symbol before a paragraph element, you can use the following options:</p><ul class="main">
+  <li><p>Call the method <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabSymbol.Vn.html"><code>AddTabSymbol</code></a>.</p></li>
+  <li><p>Set the <code>addTabulationSymbol</code> parameter to <code>True</code>
+when calling <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddParagraph.m47.html"><code>AddParagraph</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddParagraphToSection.DPB.html"><code>AddParagraphToSection</code></a>,
+or one of the <code>AddText</code> and <code>AddTextToParagraph</code> methods of <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html"><code>ParagraphExtensions</code></a>.</p></li>
+</ul><p><br><br>
+<b>Create Lines Using Tabulations</b></p>
+<p>You can create lines, underlines and signature lines using tabulations with the <code>BottomLine</code> leading.
+For example, you can create a line with length = 100% of the paragraph width, the tabulation position of 100% and the tabulation type <code>Right</code>:</p><pre class="example" id="example64"><code>	s.AddParagraph().AddTabSymbol().AddTabulationInPercent(100, TabulationType.Right, TabulationLeading.BottomLine);</code></pre><p><br>
+<b>See also</b></p>
+<p><a href="howToConfigureParagraph.html">Adding Paragraph</a></p>
+<p><a href="howToAddContent.html">Adding Content to Paragraph</a></p>
+<p><br>
+<b>Examples</b></p><div id="open65" style="display:none">
+  <p>Example 1. Add one tabulation per line&nbsp;<a href="javascript: showdiv('close65'); hidediv('open65');" onclick="javascript: showdiv('close65'); hidediv('open65');">[show]</a></p>
 </div>
-<div id="close18" style="display:inline">
-  <p>One tabulation per line and AddTabSymbol() method:&nbsp;<a href="javascript: showdiv('open18'); hidediv('close18');" onclick="javascript: showdiv('open18'); hidediv('close18');">[hide]</a></p>
-  <pre class="example" id="example18"><code>    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;LEFT300&quot;).AddTabulation(300, TabulationType.Left);
-    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;RIGHT300&quot;).AddTabulation(300, TabulationType.Right);
-    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;CENTER300&quot;).AddTabulation(300, TabulationType.Center);
+<div id="close65" style="display:inline">
+  <p>Example 1. Add one tabulation per line&nbsp;<a href="javascript: showdiv('open65'); hidediv('close65');" onclick="javascript: showdiv('open65'); hidediv('close65');">[hide]</a></p>
+  <pre class="example" id="example65"><code>   DocumentBuilder
+       .New()
+       .AddSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;LEFT300&quot;).AddTabulation(300, TabulationType.Left)
+       .ToSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;RIGHT300&quot;).AddTabulation(300, TabulationType.Right)
+       .ToSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;CENTER300&quot;).AddTabulation(300, TabulationType.Center)
+	.ToDocument()
+       .Build(&quot;Result.pdf&quot;);
  
-    <b>The code above will generate the following:
-    <img src="img/TabulationExample2.png"></b></code></pre>
-</div><div id="open19" style="display:none">
-  <p>Two tabulations per line, leading symbols and parameter addTabSymbol=true:&nbsp;<a href="javascript: showdiv('close19'); hidediv('open19');" onclick="javascript: showdiv('close19'); hidediv('open19');">[show]</a></p>
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/tabulation-ex2.png">
+ <a href="pdf/Sample_AddingTabulation1.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open66" style="display:none">
+  <p>Example 2. Add two tabulations with leading symbols per line&nbsp;<a href="javascript: showdiv('close66'); hidediv('open66');" onclick="javascript: showdiv('close66'); hidediv('open66');">[show]</a></p>
 </div>
-<div id="close19" style="display:inline">
-  <p>Two tabulations per line, leading symbols and parameter addTabSymbol=true:&nbsp;<a href="javascript: showdiv('open19'); hidediv('close19');" onclick="javascript: showdiv('open19'); hidediv('close19');">[hide]</a></p>
-  <pre class="example" id="example19"><code>    s.AddParagraph(&quot;TEXT&quot;, addTabulationSymbol: true)
-        .AddTextToParagraph(&quot;LEFT200&quot;, addTabulationSymbol: true)
-        .AddTextToParagraph(&quot;RIGHT400&quot;)
-        .AddTabulation(200, TabulationType.Left, TabulationLeading.DotBottom)
-        .AddTabulation(400, TabulationType.Right, TabulationLeading.BottomLine);
+<div id="close66" style="display:inline">
+  <p>Example 2. Add two tabulations with leading symbols per line&nbsp;<a href="javascript: showdiv('open66'); hidediv('close66');" onclick="javascript: showdiv('open66'); hidediv('close66');">[hide]</a></p>
+  <pre class="example" id="example66"><code>   DocumentBuilder
+       .New()
+       .AddSection()
+           .AddParagraph(&quot;TEXT&quot;, addTabulationSymbol: true)
+           .AddTextToParagraph(&quot;LEFT200&quot;, addTabulationSymbol: true)
+           .AddTextToParagraph(&quot;RIGHT400&quot;)
+           .AddTabulation(200, TabulationType.Left, TabulationLeading.DotBottom)
+           .AddTabulation(400, TabulationType.Right, TabulationLeading.BottomLine)
+       .ToSection()
+           .AddParagraph()
+           .AddTextToParagraph(&quot;TEXT&quot;, addTabulationSymbol: true)
+           .AddTextToParagraph(&quot;RIGHT200&quot;, addTabulationSymbol: true)
+           .AddTextToParagraph(&quot;CENTER400&quot;)
+           .AddTabulation(200, TabulationType.Right, TabulationLeading.DotCenter)
+           .AddTabulation(400, TabulationType.Center, TabulationLeading.BottomLine)
+   .ToDocument();
+      .Build(&quot;Result.pdf&quot;);
  
-    Paragraph par = s.AddParagraph();
-        par.AddText(&quot;TEXT&quot;, addTabulationSymbol: true);
-        par.AddText(&quot;RIGHT200&quot;, addTabulationSymbol: true);
-        par.AddText(&quot;CENTER400&quot;);
-        par.AddTabulation(200, TabulationType.Right, TabulationLeading.DotCenter);
-        par.AddTabulation(400, TabulationType.Center, TabulationLeading.BottomLine);
+ <b>The above code will generate the following:</b>
  
-    <b>The code above will generate the following:
-    <img src="img/TabulationExample3.png"></b></code></pre>
+ <img src="img/tabulation-ex3.png">
+ <a href="pdf/Sample_AddingTabulation2.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open67" style="display:none">
+  <p>Example 3. Add tabulations with the position in percent&nbsp;<a href="javascript: showdiv('close67'); hidediv('open67');" onclick="javascript: showdiv('close67'); hidediv('open67');">[show]</a></p>
+</div>
+<div id="close67" style="display:inline">
+  <p>Example 3. Add tabulations with the position in percent&nbsp;<a href="javascript: showdiv('open67'); hidediv('close67');" onclick="javascript: showdiv('open67'); hidediv('close67');">[hide]</a></p>
+  <pre class="example" id="example67"><code>   DocumentBuilder
+       .New()
+       .AddSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;LEFT75%&quot;).AddTabulationInPercent(75, TabulationType.Left)
+       .ToSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;RIGHT75%&quot;).AddTabulationInPercent(75, TabulationType.Right)
+       .ToSection()
+           .AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;CENTER75%&quot;).AddTabulationInPercent(75, TabulationType.Center)
+	.ToDocument()
+       .Build(&quot;Result.pdf&quot;);
+ 
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/tabulation-ex4.png">
+ <a href="pdf/Sample_AddingTabulation3.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open68" style="display:none">
+  <p>Example 4. Create lines by means of tabulations&nbsp;<a href="javascript: showdiv('close68'); hidediv('open68');" onclick="javascript: showdiv('close68'); hidediv('open68');">[show]</a></p>
+</div>
+<div id="close68" style="display:inline">
+  <p>Example 4. Create lines by means of tabulations&nbsp;<a href="javascript: showdiv('open68'); hidediv('close68');" onclick="javascript: showdiv('open68'); hidediv('close68');">[hide]</a></p>
+  <pre class="example" id="example68"><code>   DocumentBuilder
+       .New()
+			.AddSection()
+				.AddParagraph()
+               .AddTabSymbol().AddTabSymbol()
+				.AddTabulation(200, TabulationType.Left, TabulationLeading.DotBottom)
+				.AddTabulation(400, TabulationType.Left, TabulationLeading.BottomLine)
+       .ToDocument()
+       	.Build(&quot;Result.pdf&quot;);
+ 
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/tabulation-ex5.png">
+ <a href="pdf/Sample_AddingTabulation4.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open69" style="display:none">
+  <p>Example 5. Create signature lines using tabulations&nbsp;<a href="javascript: showdiv('close69'); hidediv('open69');" onclick="javascript: showdiv('close69'); hidediv('open69');">[show]</a></p>
+</div>
+<div id="close69" style="display:inline">
+  <p>Example 5. Create signature lines using tabulations&nbsp;<a href="javascript: showdiv('open69'); hidediv('close69');" onclick="javascript: showdiv('open69'); hidediv('close69');">[hide]</a></p>
+  <pre class="example" id="example69"><code>   DocumentBuilder
+       .New()
+            .AddSection()
+                .AddParagraph()
+                <b>// Create a line from X=0 to X=20%:</b>
+                .AddTabSymbol().AddTabulationInPercent(20, TabulationType.Right, TabulationLeading.BottomLine)
+                <b>// Create a line from X=60% to X=100%:</b>
+                .AddTabSymbol().AddTabSymbol().AddTabulationInPercent(60).AddTabulationInPercent(100, TabulationType.Right, TabulationLeading.BottomLine)
+            .ToSection()
+                .AddParagraph()
+                <b>// Add text under the first line in the center (position 10%):</b>
+                .AddTabSymbol().AddTextToParagraph(&quot;(Date)&quot;).AddTabulationInPercent(10, TabulationType.Center)
+                <b>// Add text under the second line in the center (position 80%):</b>
+                .AddTabSymbol().AddTextToParagraph(&quot;(Name)&quot;).AddTabulationInPercent(80, TabulationType.Center)
+       .ToDocument()
+       	.Build(&quot;Result.pdf&quot;);
+ 
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/tabulation-ex6.png">
+ <a href="pdf/Sample_AddingTabulation5.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open70" style="display:none">
+  <p>Example 6. Use tabulations in a table&nbsp;<a href="javascript: showdiv('close70'); hidediv('open70');" onclick="javascript: showdiv('close70'); hidediv('open70');">[show]</a></p>
+</div>
+<div id="close70" style="display:inline">
+  <p>Example 6. Use tabulations in a table&nbsp;<a href="javascript: showdiv('open70'); hidediv('close70');" onclick="javascript: showdiv('open70'); hidediv('close70');">[hide]</a></p>
+  <pre class="example" id="example70"><code>   DocumentBuilder
+       .New()
+            .AddSection()
+                .AddTable()
+                .AddColumnToTable().AddColumnToTable()
+                .AddRow()
+                    .AddCellToRow()
+                    .AddCell()
+                        .AddParagraph().AddTextToParagraph(&quot;Text&quot;, addTabulationSymbol: true)
+                                        .AddTabulationInPercent(50, TabulationType.Left, TabulationLeading.BottomLine)
+                                        .AddText(&quot;Left&quot;)
+                        .ToCell()
+                        .AddParagraph().AddTextToParagraph(&quot;Text&quot;, addTabulationSymbol: true)
+                                        .AddTabulationInPercent(50, TabulationType.Right, TabulationLeading.DotBottom)
+                                        .AddText(&quot;Right&quot;)
+                        .ToCell()
+                        .AddParagraph().AddTextToParagraph(&quot;Text&quot;, addTabulationSymbol: true)
+                                        .AddTabulationInPercent(50, TabulationType.Center, TabulationLeading.DotCenter)
+                                        .AddText(&quot;Center&quot;)
+                        .ToCell()
+                        .AddParagraph().AddTabSymbol()
+                                        .AddTabulationInPercent(50, TabulationType.Left, TabulationLeading.BottomLine)
+                                       .AddText(&quot;Left&quot;)
+                        .ToCell()
+                        .AddParagraph().AddTabSymbol()
+                                        .AddTabulationInPercent(50, TabulationType.Right, TabulationLeading.DotBottom)
+                                        .AddText(&quot;Right&quot;)
+                        .ToCell()
+                        .AddParagraph().AddTabSymbol()
+                                        .AddTabulationInPercent(50, TabulationType.Center, TabulationLeading.DotCenter)
+                                        .AddText(&quot;Center&quot;)
+       .ToDocument()
+       	.Build(&quot;Result.pdf&quot;);
+ 
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/tabulation-ex7.png">
+ <a href="pdf/Sample_AddingTabulation6.pdf" target="_blank">See the document</a></code></pre>
 </div><p>
       <center><a href="tutorials.html">back</a></center>
     </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>

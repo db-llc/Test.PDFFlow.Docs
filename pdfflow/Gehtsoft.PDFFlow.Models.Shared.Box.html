@@ -115,59 +115,70 @@ function showdiv( divname )
 </style></head>
   <body>
     <p>
-      <font size="+1"><code>class <b>Box</b></code></font>
+      <font size="+1"><code>struct <b>Box</b></code></font>
     </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.ValueType</code></td>
+      </tr>
+    </table>
     <p><b>Brief</b></p>
-    <p>Stores top, left, right and bottom values in XUnits. Can be used for describing margins, for example.</p>
-    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
-The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PDFFlow.Models.Shared</code></a>.</p><p></p>
-<table class="tmain" width="100%">
-  <tr>
-    <td colspan="2" class="thdr"><b>Static Public Properties</b></td>
-  </tr>
-  <tr>
-    <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Empty.0.html">Empty</a></p>
-    </td>
-    <td class="tmain" width="69%">
-      <p>Empty box with zero values</p>
-    </td>
-  </tr>
-</table><p></p>
+    <p>The structure for storing top, left, right, and bottom side values, can be used for describing margins and paddings.</p><p></p>
 <table class="tmain" width="100%">
   <tr>
     <td colspan="2" class="thdr"><b>Public Properties</b></td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Bottom.0.html">Bottom</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Bottom.eE8.html">Bottom</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Value of the bottom in XUnit</p>
+      <p>The bottom side value.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Left.0.html">Left</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Horizontal.fyB.html">Horizontal</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Value of the left in XUnit</p>
+      <p>The sum of the left side and right side values.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Right.0.html">Right</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Left.rl8.html">Left</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Value of the right in XUnit</p>
+      <p>The left side value.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Top.0.html">Top</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Right.cK2.html">Right</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Value of the top in XUnit</p>
+      <p>The right side value.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Top.5oA.html">Top</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The top side value.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Vertical.LmB.html">Vertical</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The sum of the top side and bottom side values.</p>
     </td>
   </tr>
 </table><p></p>
@@ -177,34 +188,34 @@ The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PD
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Box.0.html">Box</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box..ctor.4y5.html">Box</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Constructor that sets zero values of the box</p>
+      <p>A constructor (zero values).</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Box.1.html">Box</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box..ctor.rk1.html">Box</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Constructor with the same one value for left, top, right and bottom</p>
+      <p>A constructor (one value for all sides).</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Box.2.html">Box</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box..ctor.19C.html">Box</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Constructor with vertical and horizontal values</p>
+      <p>A constructor (one value for the horizontal sides, another value for the vertical sides).</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box.Box.3.html">Box</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.Box..ctor.3b2.html">Box</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Constructor with top, left, rght and bottom values</p>
+      <p>A constructor (values for the top, right, left, and bottom sides).</p>
     </td>
   </tr>
 </table><p>

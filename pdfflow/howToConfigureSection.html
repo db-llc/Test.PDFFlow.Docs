@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
   <head>
     <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
-    <title>Configuring Section</title><script language="javascript" type="text/javascript">
+    <title>Adding Section</title><script language="javascript" type="text/javascript">
 function hidediv( divname )
 {
     document.getElementById( divname ).style.display = 'none';
@@ -115,106 +115,100 @@ function showdiv( divname )
 </style></head>
   <body>
     <p>
-      <font size="+1"><b>Configuring Section</b></font>
+      <font size="+1"><b>Adding Section</b></font>
     </p>
     <p><b>Brief</b></p>
-    <p>The article describes how to add and configure a Section.</p>
-    <p><b>Details</b></p><p>A <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> is a part of a document
-holding <a href="Gehtsoft.PDFFlow.Models.Document.Section.Content.0.html"><code>Content</code></a> and <a href="Gehtsoft.PDFFlow.Models.Document.Section.Layout.0.html"><code>Layout</code></a>.</p>
-<p>You can create several <i>Sections</i> in one document. Each section may consist of several pages that will be generated automatically depending on the content.</p>
-<p>To create a <i>Section</i> of the document:</p><ul class="main">
-  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.0.html"><code>AddSection</code></a>,
-<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.1.html"><code>AddSection</code></a> or
-<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.2.html"><code>AddSection</code></a>
-methods of the <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html"><code>DocumentBuilder</code></a> class.</p></li>
-  <li><p>You can also quickly add section with default settings (margins 20, paper size A4, portrait orientation
-and Arabic numeration style) by calling <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.0.html"><code>AddDefaultSection</code></a>
-or <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.1.html"><code>AddDefaultSection(Action configure)</code></a>,
-and then change certain parameters as needed.</p>
-<p>First method returns a Section, so you can call section's extension methods on the fly in one line, e.g.
-<i>builder.AddDefaultSection().SetMargins(35).SetNumerationStyle(NumerationStyle.UpperLatin).SetOrientation(PageOrientation.Landscape).SetSize(PaperSize.A2).AddParagraph(&quot;Paragraph text&quot;)...</i></p>
-<p>Using second method with a configurer, you can set common Section properties
-and add document content in the action.</p></li>
-  <li><p>Set Section's settings (e.g. <a href="Gehtsoft.PDFFlow.Models.Document.Page.Margins.0.html"><code>Margins</code></a>), stored in <a href="Gehtsoft.PDFFlow.Models.Document.Section.Page.0.html"><code>Section.Page</code></a> property.</p>
-<p>Full list of available settings is described in <a href="Gehtsoft.PDFFlow.Models.Document.Page.html"><code>Page</code></a> class.</p>
-<p>Changing settings is available with Section's extension methods from <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a> (e.g. <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetMargins.0.html"><code>SetMargins</code></a>,
-<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetSize.0.html"><code>SetSize</code></a>, <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetOrientation.0.html"><code>SetOrientation</code></a>).</p>
-<p>Section's numeration style can be changed by calling it's <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.0.html"><code>SetNumerationStyle</code></a> method.
-Then you can print page number using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddPageNumber.0.html"><code>AddPageNumber</code></a> Paragraph's extension method and see numeration in the desirable format
-(Arabic, UpperRoman, LowerRoman, UpperLatin, LowerLatin, UpperCyrillic, LowerCyrillic).</p></li>
-  <li><p>Add content to the Section.</p></li>
-</ul><p>For a complete list of extension methods of a <i>Section</i>, see <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a>.</p>
-<p>Adding content to the Section is described in the following topics: <a href="howToConfigureParagraph.html">Add Paragraph</a>,
-<a href="howToAddContent.html">Adding content to the Paragraph</a>,
-<a href="howToConfigureFont.html">Configuring Font</a>,
-<a href="howToConfigureImage.html">Add Image</a>,
-<a href="howToCreateMultilevelList.html">Create Multilevel List</a>,
-<a href="howToConfigureTable.html">Add Table</a>,
-<a href="howToCreateLine.html">Add Line</a>,
-<a href="howToCreateStackFlow.html">Add StackFlow</a>,
-<a href="howToCreateOutline.html">Create Outline</a>.</p>
-<p>Each section may have its own repeating layout areas, both headers and footers.
-For instruction on how to configure layout areas, see <a href="howToConfigureRepeatingArea.html">Configuring Repeating Area</a>.</p>
-<p><b>See also:</b></p>
-<p><a href="quickStart.html">Quick Start</a>.</p>
-<p><a href="howToCreate.html">Creating Document</a>.</p>
-<p><b>Examples</b></p><div id="open4" style="display:none">
-  <p>Default Section:&nbsp;<a href="javascript: showdiv('close4'); hidediv('open4');" onclick="javascript: showdiv('close4'); hidediv('open4');">[show]</a></p>
+    <p>The article describes how to add and configure a section.</p>
+    <p><b>Details</b></p><p>A section is a part of a document holding content and layout. A document may contain one or more sections. Each section may consist of several pages that will be generated automatically depending on the content.
+A new section starts on a new page.</p>
+<p>You can configure settings of a section using methods of the <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a> class.</p>
+<p>Each section has the following settings:</p><table class="tmain">
+  <tr>
+    <td class="thdr"><p>Settings</p></td>
+    <td class="thdr"><p>Default value</p></td>
+    <td class="thdr"><p>Methods for configuration</p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Page margins</p></td>
+    <td class="tmain"><p><code>20f</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a><code>.SetMargins</code> methods</p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Page orientation</p></td>
+    <td class="tmain"><p><code>Landscape</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetOrientation.owE.html"><code>SetOrientation</code></a></p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Paper size</p></td>
+    <td class="tmain"><p><code>Letter</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a><code>.SetSize</code> methods to set a custom
+or a predefined paper size.</p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Page numbering style</p></td>
+    <td class="tmain"><p><code>Arabic</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.uX1.html"><code>SetNumerationStyle</code></a></p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Number to start the page numbering from</p></td>
+    <td class="tmain"><p><code>1</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetPageNumberStart.XY1.html"><code>SetPageNumberStart</code></a></p></td>
+  </tr>
+  <tr>
+    <td class="tmain"><p>Font for the section style</p></td>
+    <td class="tmain"><p><code>Helvetica</code>, <code>12f</code>, <code>Black</code></p></td>
+    <td class="tmain"><p><a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetStyleFont.VVF.html"><code>SetStyleFont</code></a></p></td>
+  </tr>
+</table><p>You can add the following content to a section (see details in the corresponding articles):</p><ul class="main">
+  <li><p><a href="howToConfigureParagraph.html">Paragraph</a></p></li>
+  <li><p><a href="howToConfigureImage.html">Image</a></p></li>
+  <li><p><a href="howToConfigureTable.html">Table</a></p></li>
+  <li><p><a href="howToCreateMultilevelList.html">Multilevel list</a></p></li>
+  <li><p><a href="howToConfigureRepeatingArea.html">Repeating areas</a> (headers, footers, left and right repeating areas and repeating areas by coordinates)</p></li>
+  <li><p><a href="howToCreateLine.html">Line</a></p></li>
+</ul><p>If you do not specify formatting settings for a section or its content items, they will have default values defined by the default style.
+You can apply a style to an entire section using the method <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.ApplyStyle.Bm4.html"><code>ApplyStyle</code></a> and
+set set styles for all content elements of the same type on the section level by using the methods
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetParagraphStyle.rd3.html"><code>SetParagraphStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetTableStyle.63C.html"><code>SetTableStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetImageStyle.LXG.html"><code>SetImageStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetLineStyle.UM2.html"><code>SetLineStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetListStyle.8M2.html"><code>SetListStyle</code></a>.
+For details about working with styles, see the article <a href="howToConfigureFormatting.html">Formatting and Styles</a>.</p>
+<p><br><br>
+<b>How to Add Section</b></p>
+<p>There are several ways to add a section to a document:</p><ol class="main">
+  <li><p>Add a new section, configure it, and add content to it inside the
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSectionToDocument.MV3.html"><code>DocumentBuilder.AddSectionToDocument</code></a> method.</p></li>
+  <li><p>Create a new section builder using the <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.gcA.html"><code>DocumentBuilder.AddSection</code></a> method, configure it, and add content to it.
+The method returns an instance of <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a>, so you can access its methods later to further configure the section.
+This section will be added to the document &quot;under the hood&quot;, without calling the <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.BuildToDocument.X79.html"><code>SectionBuilder.BuildToDocument</code></a> method,
+as soon as the document is built.</p></li>
+  <li><p>Create a new section builder using the <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.New.XN9.html"><code>SectionBuilder.New</code></a> method, configure it, and add content to it.</p></li>
+</ol><p>You can use different ways to add sections to the same document.</p>
+<p><b>See also</b></p>
+<p><a href="howToCreate.html">Creating Document</a></p>
+<p><a href="howToConfigureFormatting.html">Formatting and Styles</a></p>
+<p><b>Examples</b></p><div id="open10" style="display:none">
+  <p>Example 1. Create and configure a section with a paragraph containing text&nbsp;<a href="javascript: showdiv('close10'); hidediv('open10');" onclick="javascript: showdiv('close10'); hidediv('open10');">[show]</a></p>
 </div>
-<div id="close4" style="display:inline">
-  <p>Default Section:&nbsp;<a href="javascript: showdiv('open4'); hidediv('close4');" onclick="javascript: showdiv('open4'); hidediv('close4');">[hide]</a></p>
-  <pre class="example" id="example4"><code>       Section s = builder.AddDefaultSection();
-       s.AddParagraph(&quot;Lorem ipsum&quot;);</code></pre>
-</div><div id="open5" style="display:none">
-  <p>Change some default settings:&nbsp;<a href="javascript: showdiv('close5'); hidediv('open5');" onclick="javascript: showdiv('close5'); hidediv('open5');">[show]</a></p>
-</div>
-<div id="close5" style="display:inline">
-  <p>Change some default settings:&nbsp;<a href="javascript: showdiv('open5'); hidediv('close5');" onclick="javascript: showdiv('open5'); hidediv('close5');">[hide]</a></p>
-  <pre class="example" id="example5"><code>       Section s = builder.AddDefaultSection().SetMargins(35).SetSize(PaperSize.A5).SetOrientation(PageOrientation.Landscape).SetNumerationStyle(NumerationStyle.UpperRoman);
-       s.AddParagraph(&quot;Lorem ipsum&quot;).SetFont(documentFont).SetTextOverflowAction(TextOverflowAction.Ellipsis);</code></pre>
-</div><div id="open6" style="display:none">
-  <p>AddDefaultSection() with configurer:&nbsp;<a href="javascript: showdiv('close6'); hidediv('open6');" onclick="javascript: showdiv('close6'); hidediv('open6');">[show]</a></p>
-</div>
-<div id="close6" style="display:inline">
-  <p>AddDefaultSection() with configurer:&nbsp;<a href="javascript: showdiv('open6'); hidediv('close6');" onclick="javascript: showdiv('open6'); hidediv('close6');">[hide]</a></p>
-  <pre class="example" id="example6"><code>       Section s = builder.AddDefaultSection(s =&gt;
-       {
-       s.SetOrientation(() =&gt; PageOrientation.Landscape);
-       s.SetNumerationStyle(NumerationStyle.UpperRoman);
-       s.SetMargins(35);
-       s.SetSize(PaperSize.A5);
-       s.AddParagraph(p =&gt;
-       {
-           p.TextOverflowAction = TextOverflowAction.Ellipsis;
-           p.AddText(&quot;Lorem ipsum&quot;);
-           p.SetFont(documentFont);
-       });
-       });</code></pre>
-</div><div id="open7" style="display:none">
-  <p>AddSection() which adds Section object:&nbsp;<a href="javascript: showdiv('close7'); hidediv('open7');" onclick="javascript: showdiv('close7'); hidediv('open7');">[show]</a></p>
-</div>
-<div id="close7" style="display:inline">
-  <p>AddSection() which adds Section object:&nbsp;<a href="javascript: showdiv('open7'); hidediv('close7');" onclick="javascript: showdiv('open7'); hidediv('close7');">[hide]</a></p>
-  <pre class="example" id="example7"><code>       Section s = new Section();
-       builder.AddSection(s);</code></pre>
-</div><div id="open8" style="display:none">
-  <p>AddSection() with configurer:&nbsp;<a href="javascript: showdiv('close8'); hidediv('open8');" onclick="javascript: showdiv('close8'); hidediv('open8');">[show]</a></p>
-</div>
-<div id="close8" style="display:inline">
-  <p>AddSection() with configurer:&nbsp;<a href="javascript: showdiv('open8'); hidediv('close8');" onclick="javascript: showdiv('open8'); hidediv('close8');">[hide]</a></p>
-  <pre class="example" id="example8"><code>	builder.AddSection(s =&gt;
-	{
-		s.SetMargins(50);
-		s.SetSize(() =&gt; PaperSize.A4);
-		s.SetOrientation(() =&gt; PageOrientation.Landscape);
-		s.SetNumerationStyle(NumerationStyle.UpperRoman);
-		s.AddParagraph(p =&gt;
-		{
-			p.TextOverflowAction = TextOverflowAction.Ellipsis;
-			p.AddText(&quot;Lorem ipsum&quot;);
-			p.SetFont(documentFont);
-		});
-	});</code></pre>
+<div id="close10" style="display:inline">
+  <p>Example 1. Create and configure a section with a paragraph containing text&nbsp;<a href="javascript: showdiv('open10'); hidediv('close10');" onclick="javascript: showdiv('open10'); hidediv('close10');">[hide]</a></p>
+  <pre class="example" id="example10"><code>   <b>//Create document builder:</b>
+   DocumentBuilder.New()
+ 
+   <b>//Add section and section content:</b>
+   .AddSection()
+           .SetMargins(50)
+           .SetOrientation(PageOrientation.Portrait)
+           .AddParagraph(&quot;Lorem ipsum dolor sit amet&quot;)
+   <b>//Build file:</b>
+   .ToDocument().Build(&quot;Result.pdf&quot;);
+ 
+ <b>The above code will generate the following:</b>
+ <img src="img/add-section-ex1.png">
+ 
+ <a href="pdf/Sample_AddingSection1.pdf" target="_blank">See the document</a></code></pre>
 </div><p>
       <center><a href="tutorials.html">back</a></center>
     </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>

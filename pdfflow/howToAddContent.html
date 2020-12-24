@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
   <head>
     <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
-    <title>Adding content to Paragraph</title><script language="javascript" type="text/javascript">
+    <title>Adding Content to Paragraph</title><script language="javascript" type="text/javascript">
 function hidediv( divname )
 {
     document.getElementById( divname ).style.display = 'none';
@@ -115,327 +115,237 @@ function showdiv( divname )
 </style></head>
   <body>
     <p>
-      <font size="+1"><b>Adding content to Paragraph</b></font>
+      <font size="+1"><b>Adding Content to Paragraph</b></font>
     </p>
     <p><b>Brief</b></p>
-    <p>The article describes how to add and configure content of a Paragraph.</p>
-    <p><b>Details</b></p><p>In <a href="howToConfigureParagraph.html">Configuring Paragraph</a> article is described how to add Paragraph to the Section and set it's properties.</p>
-<p>There are few ways to add text content to the Paragraph:</p><ul class="main">
-  <li><p>Add empty paragraph using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.1.html"><code>AddParagraph(this Section section)</code></a> and then call one of the following:</p><ul class="main">
-  <li><p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.1.html"><code>AddText(this Paragraph paragraph, string text)</code></a> (adds string to the Paragraph's content)</p>
-<p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.2.html"><code>AddText(this Paragraph paragraph, string[] text)</code></a> (adds array of strings to the Paragraph's content)</p>
-<p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.0.html"><code>AddText(this Paragraph paragraph, Action&lt;TextElement&gt; elementConfig)</code></a> (adds TextElement to the Paragraph's content using configurer action):</p>
-<p><code><i>p.AddText((element) =&gt;<br>{<br>var font = Font.Courier(14);<br>element.SetFont(font);<br>element.AddContent(&quot;Some content&quot;);</i></code></p></li>
-  <li><p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTextToParagraph.0.html"><code>AddTextToParagraph(this Paragraph paragraph, string text)</code></a>.</p>
-<p>This method adds string to Paragraph's content and returns Paragraph.
-This allows you to call AddTextToParagraph again in the same line, or call one of the AddText methods returning TextElement.</p>
-<p><code>
-<i>s.AddParagraph()</i>
-</code>
-<code>
-<i>.AddTextToParagraph(&quot;Text New 1, &quot;).AddTextToParagraph(&quot;Text New 2, &quot;).AddTextToParagraph(&quot;Text New 3&quot;)</i>
-</code>
-<code><br>
-<i>.SetFont(documentFont).SetFontName(FontNames.Courier).SetStrikethrough(Stroke.Solid).SetFontSize(10)</i>
-</code>
-<code><br>
-<i>.AddText(&quot;Text New 3&quot;).SetFontName(FontNames.Times).SetFontSize(8).SetStrikethrough(Stroke.None);</i>
-</code></p></li>
-</ul></li>
-  <li><p>Add paragraph with text using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.2.html"><code>AddParagraph(this Section section, string text)</code></a> and then
-set it's properties because this method returns Paragraph:</p>
-<p><code>
-<i>s.AddParagraph(&quot;Page &quot;).SetBold(true).AddPageNumber().AddTextToParagraph(&quot; | &quot;).AddText(&quot;BookName&quot;).SetBold(false);</i>
-</code></p></li>
-  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.0.html"><code>AddParagraph(this Section section, Action&lt;Paragraph&gt; configure)</code></a> and add content to it using configure action:</p>
-<p><code>
-<i>s.AddParagraph(p =&gt; </i>
-</code>
-<br>
-<code>
-<i>{</i>
-</code>
-<br>
-<code>
-<i>p.AddText(&quot;Some text&quot;);</i>
-</code>
-<br>
-<code>
-<i>p.SetFont(new Font {Name = &quot;Courier&quot;, Size = 16f, Color = Color.White});</i>
-</code>
-<br>
-<code>
-<i>p.Alignment = HorizontalAlignment.Center;</i>
-</code>
-<br>
-<code>
-<i>p.BackgroundColor = Color.Blue;</i>
-</code>
-<br>
-<code>
-<i>}</i>
-</code></p></li>
-</ul><p><br>
-<b>Setting Font</b> of the Paragraph or TextElement is described in <a href="howToConfigureFont.html">Configuring Font</a> article.</p>
-<p><br>
-Use the <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddPageNumber.0.html"><code>AddPageNumber</code></a> extension method of the Paragraph to print page number.
-Default numeration is Arabic. Remember to call Section's <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.0.html"><code>SetNumerationStyle</code></a> method
-if you need to change it to UpperRoman, LowerRoman, UpperLatin, LowerLatin, UpperCyrillic, LowerCyrillic.</p>
-<p>You can add URL element to the paragraph using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddUrl.0.html"><code>AddUrl</code></a> method returning <i>FormattedTextElement</i>,</p>
-<p>or using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddUrlToParagraph.0.html"><code>AddUrlToParagraph</code></a> method returning <i>Paragraph</i>.</p>
-<p>You can insert inline images into the paragraph by using <a href="Gehtsoft.PDFFlow.Builder.ImageBuilder.AddInlineImage.0.html"><code>AddInlineImage</code></a>.</p>
-<p>To get several lines in one paragraph element, use <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddContent.0.html"><code>element.AddContent</code></a> several times.</p>
-<p><br>Please refer various examples below for more information.</p>
-<p><br>
-<b>See also:</b></p>
-<p><a href="quickStart.html">Quick Start</a>.</p>
-<p><a href="howToCreate.html">Creating Document</a>.</p>
-<p><a href="howToConfigureSection.html">Configuring Section</a>.
-<br><br></p>
-<p><br><b>Examples</b></p><div id="open10" style="display:none">
-  <p>Paragraph examples&nbsp;<a href="javascript: showdiv('close10'); hidediv('open10');" onclick="javascript: showdiv('close10'); hidediv('open10');">[show]</a></p>
-</div>
-<div id="close10" style="display:inline">
-  <p>Paragraph examples&nbsp;<a href="javascript: showdiv('open10'); hidediv('close10');" onclick="javascript: showdiv('open10'); hidediv('close10');">[hide]</a></p>
-  <pre class="example" id="example10"><code>        // Create new section:
-        Section s = builder.AddDefaultSection();
+    <p>The article describes how to add content to a paragraph and configure it.</p>
+    <p><b>Details</b></p><p>The article <a href="howToConfigureParagraph.html">Adding Paragraph</a> describes how to add a paragraph to a section or to a repeating area and how to configure it.</p>
+<p>You can add paragraphs and add text content to them using methods of <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html"><code>ParagraphExtensions</code></a> and
+add inline images to them using methods of <a href="Gehtsoft.PDFFlow.Builder.ImageExtensions.html"><code>ImageExtensions</code></a>.</p>
+<p>You can add the following content to a paragraph:<br></p><ul class="main">
+  <li><p><b>Formatted text</b></p></li>
+  <li><p><b>URLs</b></p></li>
+  <li><p><b>Page numbers</b></p></li>
+  <li><p><b>Tabulations</b></p></li>
+  <li><p><b>Inline images</b></p></li>
+</ul><p>You can add formatted text, URLs, page numbers, and tabulations using corresponding methods of <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html"><code>ParagraphExtensions</code></a>
+and configure font and background settings of these elements using methods of <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>.</p>
+<p><b>Formatted text</b></p>
+<p>You can add a text to a paragraph using one of the <code>AddText</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>)
+or <code>AddTextToParagraph</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>) methods of the <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html"><code>ParagraphExtensions</code></a> class.
+The methods allow you to specify the font and add a tabulation symbol if necessary.</p>
+<p><b>URLs</b></p>
+<p>You can add a URL to a paragraph using either <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddUrl.N84.html"><code>AddUrl</code></a> (returns an instance of <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>)
+or <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddUrlToParagraph.bZ2.html"><code>AddUrlToParagraph</code></a> (returns an instance of <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>) method.
+The methods allow you to specify a custom display text.</p>
+<p><b>Page numbers</b></p>
+<p>Page numbers are special fields that display the corresponding page numbers. To add a page number to a page, you should add it to a paragraph located in the necessary place on the page.<br>
+You can add a page number using one of the <code>AddPageNumber</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>)
+or <code>AddPageNumberToParagraph</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>) methods of the <a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.html"><code>ParagraphExtensions</code></a> class.
+The methods allow you to specify a custom text displayed before the page number, the font, and the numbering offset.</p>
+<p>By default, the page numbering starts from 1 and Arabic numbers are used.
+You can set the number from which the page numbering should start and the numbering style used in a section using the
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetPageNumberStart.XY1.html"><code>SectionBuilder.SetPageNumberStart</code></a> and
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.uX1.html"><code>SectionBuilder.SetNumerationStyle</code></a> methods respectively.</p>
+<p><b>Tabulations</b></p>
+<p>You can add a tabulation symbol inside methods for adding text or using one of the methods for adding tabulation:
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabSymbol.Vn.html"><code>AddTabSymbol</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabulation.mIC.html"><code>AddTabulation</code></a>, or
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphExtensions.AddTabulationInPercent.8ID.html"><code>AddTabulationInPercent</code></a>.
+For details on how to add tabulations, see the <a href="howToAddTabulations.html">Adding Tabulations</a> article.</p>
+<p><b>Inline images</b></p>
+<p>You can add an inline image to a paragraph using one of the <code>AddInlineImage</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.InlineImageBuilder.html"><code>InlineImageBuilder</code></a>)
+or <code>AddInlineImageToParagraph</code> (return an instance of <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>) methods of <a href="Gehtsoft.PDFFlow.Builder.ImageExtensions.html"><code>ImageExtensions</code></a>.
+Settings of an inline image can be configured using methods of <a href="Gehtsoft.PDFFlow.Builder.InlineImageBuilder.html"><code>InlineImageBuilder</code></a>.
+For more information on adding and configuring images, see <a href="howToConfigureImage.html">Adding Image</a>.</p>
+<p><br><br>
+<b>Configuring Paragraph Content</b></p>
+<p>You can configure font and background settings for particular text elements and URLs within a paragraph using methods of
+<a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>.</p>
+<p>In the following example, a paragraph with the blue background contains four elements, and the third element
+has the red background:</p><pre class="example" id="example48"><code>            SectionBuilder s = builder.AddSection();
+            ParagraphBuilder p = s.AddParagraph();
+            p.SetBackColor(Color.Blue);
+            p.SetFontColor(Color.White);
  
-        // Create empty paragraph:
-        Paragraph par = s.AddParagraph();
- 
-        // AddText with font
-        par.AddTextToParagraph(&quot;Text New 1, &quot;).AddTextToParagraph(&quot;Text New 2, &quot;).AddTextToParagraph(&quot;Text New 3&quot;).SetFont(documentFont);
- 
-        // AddText with default font:
-        s.AddParagraph().AddTextToParagraph(&quot;No font provided 1, &quot;).AddTextToParagraph(&quot;No font provided 2, &quot;).AddText(&quot;No font provided 3&quot;);
- 
-        // Only font size provided:
-        s.AddParagraph().AddTextToParagraph(&quot;Only font size provided 1, &quot;).AddTextToParagraph(&quot;Only font size provided 2, &quot;).SetFontSize(48f);
- 
-        // Override font size later:
-        s.AddParagraph().AddTextToParagraph(&quot;Size was 14f, became 48f&quot;)
-            .SetFont(documentFont)
-            .SetFontSize(48f);
- 
-        // Default font with only font color provided:
-        s.AddParagraph().AddTextToParagraph(&quot;Only font color provided&quot;).SetFontColor(Color.Red);
-        s.AddParagraph().AddTextToParagraph(&quot;Only font color provided + align center&quot;).SetAlignment(HorizontalAlignment.Center).SetFontColor(Color.Green);
- 
-        // Default font with size and color provided:
-        s.AddParagraph().AddTextToParagraph(&quot;Size + color provided&quot;).SetFontSize(36f).SetFontColor(Color.Green);
- 
-        // Only font name provided:
-        s.AddParagraph().AddTextToParagraph(&quot;Only font name provided&quot;).SetFontColor(Color.Red);
- 
-        // Change color, size, name and make it bold:
-        s.AddParagraph().AddTextToParagraph(&quot;New color, size, name and bold&quot;).SetFont(documentFont).SetFontColor(Color.FromRgba(1, 0, 1)).SetFontName(FontNames.Times).SetFontSize(54).SetBold();
- 
-        // Paragraph SetStrikethrough:
-        s.AddParagraph().AddTextToParagraph(&quot;Paragraph SetStrikethrough&quot;).SetStrikethrough(Stroke.Solid,Color.Red);
- 
-        // Paragraph Font + SetStrikethrough:
-        s.AddParagraph().AddTextToParagraph(&quot;Paragraph Font + SetStrikethrough&quot;).SetFont(documentFont).SetStrikethrough(Stroke.Solid, Color.Red);
- 
-        <b>The code above will generate you the following:</b>
-
-        <img src="img/ParagraphExamples.png">
-</code></pre>
-</div><p><br><br></p><div id="open11" style="display:none">
-  <p>Font styles example&nbsp;<a href="javascript: showdiv('close11'); hidediv('open11');" onclick="javascript: showdiv('close11'); hidediv('open11');">[show]</a></p>
-</div>
-<div id="close11" style="display:inline">
-  <p>Font styles example&nbsp;<a href="javascript: showdiv('open11'); hidediv('close11');" onclick="javascript: showdiv('open11'); hidediv('close11');">[hide]</a></p>
-  <pre class="example" id="example11"><code>        s.AddParagraph(&quot;Set Bold to Paragraph&quot;).SetBold();
-        s.AddParagraph(&quot;Set Oblique to Paragraph&quot;).SetOblique();
-        s.AddParagraph(&quot;Set Strikethrough to Paragraph&quot;).SetStrikethrough();
- 
-        s.AddParagraph().AddText(&quot;Set Bold to TextElement&quot;).SetBold();
-        s.AddParagraph().AddText(&quot;Set Oblique to TextElement&quot;).SetOblique();
-        s.AddParagraph().AddText(&quot;Set Strikethrough to TextElement&quot;).SetStrikethrough();
- 
-        s.AddParagraph(&quot;Set Times to Paragraph&quot;).SetFontName(FontNames.Times);
-        s.AddParagraph().AddText(&quot;Set Times to TextElement&quot;).SetFontName(FontNames.Times);
- 
-        s.AddParagraph(&quot;Set Times + Italic to Paragraph &quot;).SetFontName(FontNames.Times).SetItalic();
-        s.AddParagraph().AddText(&quot;Set Times + Italic to TextElement&quot;).SetFontName(FontNames.Times).SetItalic();
- 
-        <b>The code above will generate you the following:</b>
-
-        <img src="img/FontStylesExamples.png">
-</code></pre>
-</div><p><br><br></p><div id="open12" style="display:none">
-  <p>Adding URL:&nbsp;<a href="javascript: showdiv('close12'); hidediv('open12');" onclick="javascript: showdiv('close12'); hidediv('open12');">[show]</a></p>
-</div>
-<div id="close12" style="display:inline">
-  <p>Adding URL:&nbsp;<a href="javascript: showdiv('open12'); hidediv('close12');" onclick="javascript: showdiv('open12'); hidediv('close12');">[hide]</a></p>
-  <pre class="example" id="example12"><code>    // Underlined and Blue color by default:
-    s.AddParagraph().AddUrl(&quot;http://www.gehtsoftusa.com/&quot;, &quot;GehtSoft LLC.&quot;);
- 
-    // If displayText is not provided, it will be the same as urlValue
-    // Customize URL:
-    s.AddParagraph().AddUrl(&quot;http://www.gehtsoftusa.com/&quot;).SetFontColor(Color.Green).SetUnderlineColor(Color.Red);
- 
-    // Using configurer:
-    s.AddParagraph(p =&gt;
-    {
-    	p.AddContent(() =&gt; new List&lt;ParagraphElement&gt;
-    	{
-             new Url
-             {
-                    DisplayText = &quot;GehtSoft LLC.&quot;,
-                    Value = &quot;http://www.gehtsoftusa.com/&quot;,
-                    Font = new Font
-                    {
-                        Name = FontNames.Courier,
-                        Bold = true,
-                        Size = 16,
-                        Color = Color.Gray,
-                        Underline = Stroke.None
-                    }
-             }
-       });
-    });
-
-
-   <b>The code above will generate you the following:</b>
-
-   <img src="img/URLExample.png">
-</code></pre>
-</div><p><br><br></p><div id="open13" style="display:none">
-  <p>Multiline element. To get several lines in one paragraph element, use element.AddContent several times:&nbsp;<a href="javascript: showdiv('close13'); hidediv('open13');" onclick="javascript: showdiv('close13'); hidediv('open13');">[show]</a></p>
-</div>
-<div id="close13" style="display:inline">
-  <p>Multiline element. To get several lines in one paragraph element, use element.AddContent several times:&nbsp;<a href="javascript: showdiv('open13'); hidediv('close13');" onclick="javascript: showdiv('open13'); hidediv('close13');">[hide]</a></p>
-  <pre class="example" id="example13"><code>p.AddText((element) =&gt;
-   {
-       element.SetFont(new Font
-       {
-                    Name = &quot;Times-Italic&quot;,
-                    Size = 14f,
-                    Color = Color.FromRgba(0.4, 0.3, 0.0)
-       });
- 
-       element.AddContent(&quot;#include &lt;stdio.h&gt;&quot;);
-       element.AddContent(&quot;&quot;);
-       element.AddContent(&quot;int main()&quot;);
-       element.AddContent(&quot;{&quot;);
-       element.AddContent(@&quot;    /* my first program in C */&quot;);
-       element.AddContent(@&quot;   printf(&quot;&quot;Hello, World! \n&quot;&quot;);&quot;);
-       element.AddContent(@&quot;    return 0;&quot;);
-       element.AddContent(&quot;}&quot;);
-   });
- 
-//<b>Set paragraph's borders:</b>
-p.SetBorder(b =&gt;
-   {
-       b.SetWidth(1f);
-       b.SetStyle(Stroke.Dotted);
-       b.SetColor(Color.Black);
-       b.SetColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255));
-   });
-
-   <b>The code above will generate you the following:</b>
-
-   <img src="img/MultilineElementExample.png">
-</code></pre>
-</div><p><br><br></p><div id="open14" style="display:none">
-  <p>Three different font styles in one text. To get text of different styles successively, not separated with a new line, call AddText several times for one paragraph:&nbsp;<a href="javascript: showdiv('close14'); hidediv('open14');" onclick="javascript: showdiv('close14'); hidediv('open14');">[show]</a></p>
-</div>
-<div id="close14" style="display:inline">
-  <p>Three different font styles in one text. To get text of different styles successively, not separated with a new line, call AddText several times for one paragraph:&nbsp;<a href="javascript: showdiv('open14'); hidediv('close14');" onclick="javascript: showdiv('open14'); hidediv('close14');">[hide]</a></p>
-  <pre class="example" id="example14"><code>	var p = new Paragraph();
-	p.AddText(&quot;Black font &quot;).SetFont(Font.Courier(14));
-	p.AddText(&quot;large red underlined font &quot;).SetFont(Font.Courier(16)).SetFontColor(Color.Red).SetBold().SetUnderline(Stroke.Solid).SetUnderlineColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255));
-	p.AddText(&quot;blue small font.&quot;).SetFont(Font.Courier(10)).SetFontColor(Color.Blue);
-</code></pre>
-</div><p><img src="img/ParagraphExampleDifferentFont.png"></p><div id="open15" style="display:none">
-  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('close15'); hidediv('open15');" onclick="javascript: showdiv('close15'); hidediv('open15');">[show]</a></p>
-</div>
-<div id="close15" style="display:inline">
-  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('open15'); hidediv('close15');" onclick="javascript: showdiv('open15'); hidediv('close15');">[hide]</a></p>
-  <pre class="example" id="example15"><code>   var p = new Paragraph();
-   p.AddText((element) =&gt;
-   {
-       element.SetFont(new Font
-       {
-           Name = &quot;Courier&quot;,
-           Size = 14f,
-           Color = Color.Black
-       });
-       element.AddContent(&quot;Black font &quot;);
-   });
- 
-   p.AddText((element) =&gt;
-   {
-       element.SetFont(new Font
-       {
-           Name = &quot;Courier-Bold&quot;,
-           Size = 16f,
-           Color = Color.Red,
-       });
-       element.AddContent(&quot;large red underlined font &quot;);
-       element.SetUnderline(Stroke.Solid);
-       element.SetUnderlineColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255));
-   });
- 
-   p.AddText((element) =&gt;
-   {
-       element.SetFont(new Font
-       {
-           Name = &quot;Courier&quot;,
-           Size = 10f,
-           Color = Color.Blue
-       });
-       element.AddContent(&quot;blue small font.&quot;);
-   });
-   section.AddParagraph(p);
-</code></pre>
-</div><p><br><br></p><div id="open16" style="display:none">
-  <p>You can insert images into the paragraph using <i>AddInlineImage</i>:&nbsp;<a href="javascript: showdiv('close16'); hidediv('open16');" onclick="javascript: showdiv('close16'); hidediv('open16');">[show]</a></p>
-</div>
-<div id="close16" style="display:inline">
-  <p>You can insert images into the paragraph using <i>AddInlineImage</i>:&nbsp;<a href="javascript: showdiv('open16'); hidediv('close16');" onclick="javascript: showdiv('open16'); hidediv('close16');">[hide]</a></p>
-  <pre class="example" id="example16"><code>    s.AddParagraph(&quot;Inline &quot;).SetAlignment(HorizontalAlignment.Left).AddInlineImage(imageFileNameString, ScalingMode.Stretch, 15, 15).AddText(&quot; image&quot;);
- 
-    //<b>Or:</b>
- 
-    p.AddText(&quot;Inline &quot;);
-    p.AddInlineImage(image =&gt;
-    {
-    	image.Height = 15;
-    	image.Width = 15;
-    	image.FileName = imageFileNameString;
-    	image.Scale = ScaleType.Stretch;
-    });
-    p.AddText(&quot; image&quot;);
- 
-    <b>The code above will generate you the following:</b>
-
-    <img src="img/InlineImage.png"></code></pre>
-</div><div id="open17" style="display:inline">
-  <p>Adding content in Paragraph configurer&nbsp;<a href="javascript: showdiv('close17'); hidediv('open17');" onclick="javascript: showdiv('close17'); hidediv('open17');">[show]</a></p>
-</div>
-<div id="close17" style="display:none">
-  <p>Adding content in Paragraph configurer&nbsp;<a href="javascript: showdiv('open17'); hidediv('close17');" onclick="javascript: showdiv('open17'); hidediv('close17');">[hide]</a></p>
-  <pre class="example" id="example17"><code>builder.AddSection(s =&gt;
-   {
-       s.AddParagraph(p =&gt;
-       {
-            p.AddText(&quot;Some text&quot;);
-            p.SetFont(new Font {Name = &quot;Courier&quot;, Size = 16f, Color = Color.White});
-            p.Alignment = HorizontalAlignment.Center;
-            p.BackgroundColor = Color.Blue;
-            p.SetBorder(b =&gt;
+            for (int i = 1; i &lt;= 4; i++)
             {
-                b.SetWidth(3);
-                b.SetStyle(Stroke.Solid);
-                b.SetColor(Color.FromRgba(0.6, 0.4, 0.7));
-            });
-            p.IsOutline = true;
-            p.OutlineLevel = 0;
-       });
-   });</code></pre>
-</div><p><br><br></p><p>
+                var textElement = p.AddText($&quot;Paragraph element {i} &quot;);
+ 
+                // The third element has a different background color
+                if (i == 3)
+                    textElement.SetBackColor(Color.Red);
+            }
+ 
+ The above code will generate the following:
+ 
+ <img src="img/add-content-background-ex2.png">
+ <a href="pdf/Sample_BackgroundOfParagraph2.pdf" target="_blank">See the document</a>
+</code></pre><p><br>
+If you do not specify formatting settings for a paragraph and its content items, they will have the default values defined by the default paragraph style.
+You can create a style and apply it to a particular paragraph using the method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.ApplyStyle.wJD.html"><code>ApplyStyle</code></a>
+or to all paragraph content items of the same type using the corresponding methods <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetTextElementStyle.GLC.html"><code>SetTextElementStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetUrlStyle.TTG.html"><code>SetUrlStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetPageNumberStyle.Md1.html"><code>SetPageNumberStyle</code></a>,
+and <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetInlineImageStyle.Ou4.html"><code>SetInlineImageStyle</code></a>,
+and to a particular content item using the method <code>ApplyStyle</code>.
+For details about working with styles, see the article <a href="howToConfigureFormatting.html">Formatting and Styles</a>.</p>
+<p><br>
+<b>See also</b></p>
+<p><a href="howToConfigureParagraph.html">Adding Paragraph</a></p>
+<p><a href="howToAddTabulations.html">Adding Tabulations</a></p>
+<p><a href="howToConfigureImage.html">Adding Image</a></p>
+<p><a href="howToConfigureFormatting.html">Formatting and Styles</a></p>
+<p><b>Examples</b></p><div id="open49" style="display:none">
+  <p>Example 1. Add a text with different font settings and background color&nbsp;<a href="javascript: showdiv('close49'); hidediv('open49');" onclick="javascript: showdiv('close49'); hidediv('open49');">[show]</a></p>
+</div>
+<div id="close49" style="display:inline">
+  <p>Example 1. Add a text with different font settings and background color&nbsp;<a href="javascript: showdiv('open49'); hidediv('close49');" onclick="javascript: showdiv('open49'); hidediv('close49');">[hide]</a></p>
+  <pre class="example" id="example49"><code>            DocumentBuilder.New()
+            .AddSection()
+                .AddParagraph().AddText(&quot;Underline text, &quot;)
+                         .SetUnderline(Color.Blue, Stroke.Double)
+                    .ToParagraph().AddText(&quot;selected text.&quot;)
+                         .SetBackColor(Color.Yellow)
+                    .ToParagraph().AddText(&quot; Formatted&quot;)
+                         .SetBold()
+                    .ToParagraph().AddText(&quot; text.&quot;)
+                        .SetFontColor(Color.Blue)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex2.png">
+ <a href="pdf/Sample_AddingContentToParagraph2.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open50" style="display:none">
+  <p>Example 2. Add an URL&nbsp;<a href="javascript: showdiv('close50'); hidediv('open50');" onclick="javascript: showdiv('close50'); hidediv('open50');">[show]</a></p>
+</div>
+<div id="close50" style="display:inline">
+  <p>Example 2. Add an URL&nbsp;<a href="javascript: showdiv('open50'); hidediv('close50');" onclick="javascript: showdiv('open50'); hidediv('close50');">[hide]</a></p>
+  <pre class="example" id="example50"><code>            DocumentBuilder.New()
+                .AddSection()
+                    .AddParagraph()
+                        .AddTextToParagraph(&quot;GS PDFFlow Library learn more: &quot;)
+                        .AddUrl(&quot;https://gehtsoftusa.com/products/gs-pdf-library/&quot;)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex4.png">
+ <a href="pdf/Sample_AddingContentToParagraph4.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open51" style="display:none">
+  <p>Example 3. Add an URL with a custom display text&nbsp;<a href="javascript: showdiv('close51'); hidediv('open51');" onclick="javascript: showdiv('close51'); hidediv('open51');">[show]</a></p>
+</div>
+<div id="close51" style="display:inline">
+  <p>Example 3. Add an URL with a custom display text&nbsp;<a href="javascript: showdiv('open51'); hidediv('close51');" onclick="javascript: showdiv('open51'); hidediv('close51');">[hide]</a></p>
+  <pre class="example" id="example51"><code>            DocumentBuilder.New()
+                .AddSection()
+                    .AddParagraph()
+                        .AddTextToParagraph(&quot;GS PDFFlow Library learn more: &quot;)
+                        .AddUrl(&quot;https://gehtsoftusa.com/products/gs-pdf-library/&quot;,
+                                &quot;gehtsoftusa.com/products/gs-pdf-library/&quot;)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex3.png">
+ <a href="pdf/Sample_AddingContentToParagraph3.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open52" style="display:none">
+  <p>Example 4. Add a page number to a paragraph&nbsp;<a href="javascript: showdiv('close52'); hidediv('open52');" onclick="javascript: showdiv('close52'); hidediv('open52');">[show]</a></p>
+</div>
+<div id="close52" style="display:inline">
+  <p>Example 4. Add a page number to a paragraph&nbsp;<a href="javascript: showdiv('open52'); hidediv('close52');" onclick="javascript: showdiv('open52'); hidediv('close52');">[hide]</a></p>
+  <pre class="example" id="example52"><code>            DocumentBuilder.New()
+                .AddSection()
+                    .AddParagraph()
+                        .AddTextToParagraph(&quot;Page: &quot;)
+                        .AddPageNumber()
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex5.png">
+ <a href="pdf/Sample_AddingContentToParagraph5.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open53" style="display:none">
+  <p>Example 5. Add a page number with the numeration started from a specified number&nbsp;<a href="javascript: showdiv('close53'); hidediv('open53');" onclick="javascript: showdiv('close53'); hidediv('open53');">[show]</a></p>
+</div>
+<div id="close53" style="display:inline">
+  <p>Example 5. Add a page number with the numeration started from a specified number&nbsp;<a href="javascript: showdiv('open53'); hidediv('close53');" onclick="javascript: showdiv('open53'); hidediv('close53');">[hide]</a></p>
+  <pre class="example" id="example53"><code>            DocumentBuilder.New()
+                .AddSection()
+                    .SetPageNumberStart(10)
+                    .AddParagraph().AddPageNumber(&quot;Page: &quot;)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex7.png">
+ <a href="pdf/Sample_AddingContentToParagraph7.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open54" style="display:none">
+  <p>Example 6. Add a page number with a specified numbering style&nbsp;<a href="javascript: showdiv('close54'); hidediv('open54');" onclick="javascript: showdiv('close54'); hidediv('open54');">[show]</a></p>
+</div>
+<div id="close54" style="display:inline">
+  <p>Example 6. Add a page number with a specified numbering style&nbsp;<a href="javascript: showdiv('open54'); hidediv('close54');" onclick="javascript: showdiv('open54'); hidediv('close54');">[hide]</a></p>
+  <pre class="example" id="example54"><code>            DocumentBuilder.New()
+                .AddSection()
+                    .SetNumerationStyle(NumerationStyle.UpperRoman)
+                    .SetPageNumberStart(4)
+                    .AddParagraph()
+                        .AddTextToParagraph(&quot;Page: &quot;)
+                        .AddPageNumber()
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+  <b>The code above will generate the following:</b>
+ 
+  <img src="img/add-content-ex8.png">
+  <a href="pdf/Sample_AddingContentToParagraph8.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open55" style="display:none">
+  <p>Example 7. Add a page number with an offset&nbsp;<a href="javascript: showdiv('close55'); hidediv('open55');" onclick="javascript: showdiv('close55'); hidediv('open55');">[show]</a></p>
+</div>
+<div id="close55" style="display:inline">
+  <p>Example 7. Add a page number with an offset&nbsp;<a href="javascript: showdiv('open55'); hidediv('close55');" onclick="javascript: showdiv('open55'); hidediv('close55');">[hide]</a></p>
+  <pre class="example" id="example55"><code>            string text = &quot;Some big paragraph of text ....&quot;;
+            DocumentBuilder.New()
+            .AddSection().SetSize(500, 250)
+            .AddParagraph()
+                .AddTextToParagraph(&quot;The number starts from the page +1.\n&quot;)
+                .AddPageNumberToParagraph(&quot;Page: &quot;, 1)
+                .AddTextToParagraph(text + &quot;\n&quot;)
+                .AddPageNumber(&quot;Page: &quot;, 1)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex6.png">
+ <a href="pdf/Sample_AddingContentToParagraph6.pdf" target="_blank">See the document</a></code></pre>
+</div><div id="open56" style="display:none">
+  <p>Example 8. Add content to a paragraph with applying a style&nbsp;<a href="javascript: showdiv('close56'); hidediv('open56');" onclick="javascript: showdiv('close56'); hidediv('open56');">[show]</a></p>
+</div>
+<div id="close56" style="display:inline">
+  <p>Example 8. Add content to a paragraph with applying a style&nbsp;<a href="javascript: showdiv('open56'); hidediv('close56');" onclick="javascript: showdiv('open56'); hidediv('close56');">[hide]</a></p>
+  <pre class="example" id="example56"><code>            //Set the path to the image file:
+            var imagePath = Path.Combine(System.Environment.CurrentDirectory,
+                                         &quot;imageFile.png&quot;);
+            //Define the style:
+            var styleUrl = StyleBuilder.New()
+                                       .SetFontColor(Color.Blue)
+                                       .SetFontUnderline(Stroke.Solid, Color.Blue);
+            DocumentBuilder.New()
+                .AddSection()
+                    .AddParagraph()
+                        .SetUrlStyle(styleUrl)
+                        .AddTextToParagraph(&quot;You can read more about PDFFlow at &quot;)
+                        .AddUrlToParagraph(&quot;https://gehtsoftusa.com/&quot;, &quot;gehtsoftusa.com&quot;)
+                        .AddTextToParagraph(&quot; &quot;)
+                        .AddInlineImageToParagraph(imagePath, 20, 20, ScalingMode.None)
+                        .AddText(&quot;.&quot;)
+            .ToDocument().Build(&quot;Result.pdf&quot;);
+
+ <b>The above code will generate the following:</b>
+ 
+ <img src="img/add-content-ex1.png">
+ <a href="pdf/Sample_AddingContentToParagraph1.pdf" target="_blank">See the document</a></code></pre>
+</div><p>
       <center><a href="tutorials.html">back</a></center>
     </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
 </html>

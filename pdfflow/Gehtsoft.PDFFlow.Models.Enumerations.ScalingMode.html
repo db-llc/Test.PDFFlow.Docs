@@ -117,52 +117,64 @@ function showdiv( divname )
     <p>
       <font size="+1"><code>enum <b>ScalingMode</b></code></font>
     </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.Enum</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.IComparable</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.IFormattable</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.IConvertible</code></td>
+      </tr>
+    </table>
     <p><b>Brief</b></p>
-    <p>Enumeration of scaling modes (Normal, AutoSize, Stretch)</p>
-    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
-The namespace is <a href="Gehtsoft.PDFFlow.Models.Enumerations.html"><code>Gehtsoft.PDFFlow.Models.Enumerations</code></a>.</p><p></p>
+    <p>The enumeration of scaling modes.</p><p></p>
 <table class="tmain" width="100%">
   <tr>
     <td colspan="2" class="thdr"><b>Static Public Fields</b></td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.AutoSize.0.html">AutoSize</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.None.UI8.html">None</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>AutoSize scaling mode. Use image's original size rather than size set by client</p>
+      <p>The default scaling mode. If the user specifies the image size, it is drawn with the user-defined size, otherwise, the image is drawn with the original size.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.Center.0.html">Center</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.OriginalSize.pc5.html">OriginalSize</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Not supproted yet</p>
+      <p>The image is drawn with its original size.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.Normal.0.html">Normal</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.Stretch.Aw4.html">Stretch</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Normal scaling mode. Use size set by client</p>
+      <p>The image is stretched by the width of the available area and the height is defined in accordance with the aspect ratio in the original image file.</p>
     </td>
   </tr>
   <tr>
     <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.Stretch.0.html">Stretch</a></p>
+      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.UserDefined.QT4.html">UserDefined</a></p>
     </td>
     <td class="tmain" width="69%">
-      <p>Stretch scaling mode. Stretch to the available space</p>
-    </td>
-  </tr>
-  <tr>
-    <td class="tmain_nw">
-      <p><a href="Gehtsoft.PDFFlow.Models.Enumerations.ScalingMode.Zoom.0.html">Zoom</a></p>
-    </td>
-    <td class="tmain" width="69%">
-      <p>Not used (Supported by provider)</p>
+      <p>The image is drawn with the user-defined size.</p>
     </td>
   </tr>
 </table><p>
