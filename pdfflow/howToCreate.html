@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Creating Document</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Creating Document</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to create a PDF document.</p>
+    <p><b>Details</b></p><p>Class <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html"><code>DocumentBuilder</code></a> lets you to create a new PDF document, add and configure one or more sections of the document, and build a document.</p>
+<p>To create a PDF document:</p><ul class="main">
+  <li><p>Create new document builder using <i>DocumentBuilder</i>'s <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.New.0.html"><code>New</code></a> method.</p></li>
+  <li><p>Add <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a>s.</p>
+<p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.New.0.html"><code>New</code></a> method returns <i>DocumentBuilder</i>,
+so you can then call its methods <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.0.html"><code>AddSection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.1.html"><code>AddSection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.2.html"><code>AddSection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.0.html"><code>AddDefaultSection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.1.html"><code>AddDefaultSection</code></a>
+to add Section and document content.</p>
+<p>You can create several <i>Sections</i> in one document. Each section may consist of several pages, they will be generated automatically depending on the content.</p>
+<p>For instructions on how to create and configure a <i>Section</i>, see <a href="howToConfigureSection.html">Configuring section</a>.</p></li>
+  <li><p>At the end of adding sections and content, you have to call <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.1.html"><code>Build(fileName)</code></a> or
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.0.html"><code>Build(outputStream)</code></a> methods
+to generate the document.</p></li>
+</ul><p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><b>Example</b></p><div id="open3" style="display:none">
+  <p>Creating Document&nbsp;<a href="javascript: showdiv('close3'); hidediv('open3');" onclick="javascript: showdiv('close3'); hidediv('open3');">[show]</a></p>
+</div>
+<div id="close3" style="display:inline">
+  <p>Creating Document&nbsp;<a href="javascript: showdiv('open3'); hidediv('close3');" onclick="javascript: showdiv('open3'); hidediv('close3');">[hide]</a></p>
+  <pre class="example" id="example3"><code>	var file = Path.Combine(folderPath, &quot;fileName.pdf&quot;);
+	if (File.Exists(file))
+		File.Delete(file);
+
+	<b>//Create document builder:</b>
+	DocumentBuilder.New()
+
+	<b>//Add sections and sections content:</b>
+	.SomeFunctionToAddSection1()
+	.SomeFunctionToAddSectionN()
+
+	<b>//Build file:</b>
+	.Build(file);
+
+	internal static DocumentBuilder SomeFunctionToAddSection1(this DocumentBuilder builder)
+	{
+		Section s = builder.AddDefaultSection().SetMargins(20)...
+		s.AddParagraph(&quot;Lorem ipsum&quot;)...
+		return builder;
+	}
+	internal static DocumentBuilder SomeFunctionToAddSectionN(this DocumentBuilder builder)
+	{
+		builder.AddSection(s =&gt;
+		{
+			s.SetMargins(20);
+			...
+			s.AddParagraph(p =&gt;
+			{
+				p.AddText(&quot;Lorem ipsum&quot;);
+				...
+			});
+		}
+		return builder;
+	}</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Creating Multilevel List</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Creating Multilevel List</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to create a Multilevel List.</p>
+    <p><b>Details</b></p><p>Each <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> may have as many Multilevel Lists as you need.</p>
+<p>By setting corresponding <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a> properties you can make it to be a part of a Multilevel List.</p>
+<p>First, you must create a new <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.html"><code>ListElement</code></a>
+and set it to <i>Paragraph</i>'s <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.List.0.html"><code>List</code></a> property:</p><ul class="main">
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetListNumbered.0.html"><code>SetListNumbered</code></a> to make a Paragraph an item of MultiLevel list with number numeration (Arabic, UpperLatin, LowerRoman...).
+Set numeration style, level and indent:</p>
+<p><code><i>p.SetListNumbered(NumerationStyle.UpperRoman, 0, 15);</i></code></p></li>
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetListBulleted.0.html"><code>SetListBulleted</code></a> method to make a Paragraph an item of MultiLevel list with bullet or dash in the beginning.
+Set bullet style (Bullet or Dash), level and indent:</p>
+<p><code><i>p.SetListBulleted(ListBullet.Dash, 1, 10);</i></code></p></li>
+  <li><p>Or assign it directly: <code><i>p.List = new ListElement(ListStyle.Bullets, ListBullet.Bullet, null, 0, font.Size.Value * 2F);</i></code></p></li>
+</ul><p>Note that <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.Style.0.html"><code>Paragraph.List.Style</code></a> must be set for the paragraph to be a part of the Multilevel List.</p>
+<p>Once paragraph with <i>List</i> is null or <i>List.Style</i> is null met in the Section, the multilevel list is considered completed.</p>
+<p>When later another paragraph with not null <i>List.Style</i> is found, it will be a new Multilevel List, and it's automatic numeration will be started from the beginning.</p>
+<p>The <a href="Gehtsoft.PDFFlow.Models.Content.ListStyle.html"><code>ListStyle</code></a> enumeration can be either <i>Bullets</i> or <i>Numbered</i>.</p>
+<p>If the <i>Bullets</i> style is set, you must also set the <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.Bullet.0.html"><code>List.Bullet</code></a> property,
+otherwise, the exception will be thrown. This property is indicating the appearance of bullet (black round or dash).</p>
+<p>If the <i>Numbered</i> style is set, you must also set the <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.NumerationStyle.0.html"><code>List.NumerationStyle</code></a> property,
+otherwise, the exception will be thrown. NumerationStyle can be arabic, lower/upper roman, lower/upper latin, lower/upper cyrillic.</p>
+<p>In case of the <i>Numbered</i> style of the list, the numeration on every level will be done automatically.</p>
+<p>The <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.Level.0.html"><code>List.Level</code></a> property will help you with this (please, see the screenshot in the end of this article).</p>
+<p>By setting <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.LevelLeftIndent.0.html"><code>List.LevelLeftIndent</code></a> you can control how levels are shifted from the upper levels.</p>
+<p>For a complete list of <i>Paragraph</i>'s <i>List</i> properties, see <a href="Gehtsoft.PDFFlow.Models.Content.ListElement.html"><code>ListElement</code></a>.</p>
+<p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.</p>
+<p><b>Examples</b></p><div id="open28" style="display:none">
+  <p>MultiLevel List:&nbsp;<a href="javascript: showdiv('close28'); hidediv('open28');" onclick="javascript: showdiv('close28'); hidediv('open28');">[show]</a></p>
+</div>
+<div id="close28" style="display:inline">
+  <p>MultiLevel List:&nbsp;<a href="javascript: showdiv('open28'); hidediv('close28');" onclick="javascript: showdiv('open28'); hidediv('close28');">[hide]</a></p>
+  <pre class="example" id="example28"><code>        var font = Font.Courier(20).SetColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255)).SetBold();
+        float leftIndent = font.Size.Value * 2F;
+        s.AddParagraph(&quot;Level = 0. Item 1.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+        s.AddParagraph(&quot;Level = 0. Item 2.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+        s.AddParagraph(&quot;Level = 1. Item 1.&quot;).SetFont(font).SetFontSize(16).SetListNumbered(NumerationStyle.Arabic, 1, leftIndent);
+        s.AddParagraph(&quot;Level = 2. Item 1.&quot;).SetFont(font).SetFontSize(12).SetListNumbered(NumerationStyle.UpperLatin, 2, leftIndent);
+        s.AddParagraph(&quot;Level = 2. Item 2.&quot;).SetFont(font).SetFontSize(12).SetListNumbered(NumerationStyle.UpperLatin, 2, leftIndent);
+        s.AddParagraph(&quot;Level = 1. Item 2.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetFontSize(16).SetListNumbered(NumerationStyle.Arabic, 1, leftIndent);
+        s.AddParagraph(&quot;Level = 0. Item 3.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+</code></pre>
+</div><p><b>The code above will generate you the following:</b></p>
+<p><img src="img/SmallMultilevelList.png"></p><div id="open29" style="display:inline">
+  <p>The same, but using configurers:&nbsp;<a href="javascript: showdiv('close29'); hidediv('open29');" onclick="javascript: showdiv('close29'); hidediv('open29');">[show]</a></p>
+</div>
+<div id="close29" style="display:none">
+  <p>The same, but using configurers:&nbsp;<a href="javascript: showdiv('open29'); hidediv('close29');" onclick="javascript: showdiv('open29'); hidediv('close29');">[hide]</a></p>
+  <pre class="example" id="example29"><code>        var font = new Font
+        {
+            Name = FontNames.Courier,
+            Size = 20f,
+            Color = Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255),
+            Bold = true
+        };
+        var font1 = new Font
+        {
+            Name = FontNames.Courier,
+            Size = 16f,
+            Color = Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255),
+            Bold = true
+        };
+        var font2 = new Font
+        {
+            Name = FontNames.Courier,
+            Size = 12f,
+            Color = Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255),
+            Bold = true
+        };
+        float leftIndent = font.Size.Value * 2F;
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font);
+                element.AddContent(&quot;Level = 0. Item 1.&quot;);
+            });
+            p.List = new ListElement();
+            p.List.Style = ListStyle.Bullets;
+            p.List.Level = 0;
+            p.List.LevelLeftIndent = leftIndent;
+            p.List.Bullet = ListBullet.Bullet;
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font);
+                element.AddContent(&quot;Level = 0. Item 2.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Bullets, ListBullet.Bullet, null, 0, leftIndent);
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font1);
+                element.AddContent(&quot;Level = 1. Item 1.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Numbered, null, NumerationStyle.Arabic, 1, leftIndent);
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font2);
+                element.AddContent(&quot;Level = 2. Item 1.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Numbered, null, NumerationStyle.UpperLatin, 2, leftIndent);
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font2);
+                element.AddContent(&quot;Level = 2. Item 2.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Numbered, null, NumerationStyle.UpperLatin, 2, leftIndent);
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font1);
+                element.AddContent(&quot;Level = 1. Item 2.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Numbered, null, NumerationStyle.Arabic, 1, leftIndent);
+        });
+        s.AddParagraph(p =&gt;
+        {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddText((element) =&gt;
+            {
+                element.SetFont(font);
+                element.AddContent(&quot;Level = 0. Item 3.&quot;);
+            });
+            p.List = new ListElement(ListStyle.Bullets, ListBullet.Bullet, null, 0, leftIndent);
+        });</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

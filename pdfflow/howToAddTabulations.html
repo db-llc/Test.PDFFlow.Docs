@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Adding Tabulations to Paragraph</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Adding Tabulations to Paragraph</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure Tabulations in a Paragraph.</p>
+    <p><b>Details</b></p><p><a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a> can have Tabulations of three different types (Left, Right and Center).</p>
+<p>In case of Left tabulation, the beginning of elements after TabSymbolElement will be aligned to the left tabulation position.</p>
+<p>In case of Right tabulation, the end of elements after TabSymbolElement will be aligned to the right tabulation position.</p>
+<p>In case of Center tabulation, elements after TabSymbolElement will be center-aligned around the center tabulation position.</p>
+<p>Tabulation is described in <a href="Gehtsoft.PDFFlow.Models.Content.Tabulation.html"><code>Tabulation</code></a> class and have to be added to Paragraph's <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.Tabs.0.html"><code>Tabs</code></a> collection.</p>
+<p>Paragraph can have more than one tabulation.</p>
+<p><img src="img/TabulationExample1.png"></p>
+<p>To add tabulations to the Paragraph you must:</p><ul class="main">
+  <li><p>Add tabulation to the .Tabs collection of the Paragraph, providing Position of tabulation, Type and Leading.</p></li>
+  <li><p>Add <a href="Gehtsoft.PDFFlow.Models.Content.TabSymbolElement.html"><code>TabSymbolElement</code></a> between Paragraph elements,
+indicating that elements following after TabSymbolElement have to be tabulated.</p></li>
+</ul><p>There are few ways to add tabulations into .Tabs collection:</p><ul class="main">
+  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabulation.0.html"><code>AddTabulation(this Paragraph paragraph, float position, TabulationType tabulationType, TabulationLeading leading = TabulationLeading.None)</code></a>.
+Position is X coordinate from the left margin on the available area.
+TabulationType can be Left, Right or Center.
+TabulationLeading can be None, DotBottom, DotCenter or BottomLine.</p></li>
+  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabulationInPercent.0.html"><code>AddTabulationInPercent(this Paragraph paragraph, float position, TabulationType tabulationType, TabulationLeading leading = TabulationLeading.None)</code></a>.
+Position is in perecents. If you pass 30 to the Position parameter, tabulation position will be calculated as 30% of the available area from left margin.
+The rest of the parameters are the same as in AddTabulation() method.</p></li>
+</ul><p>There are few ways to add TabSymbol element to the Paragraph:</p><ul class="main">
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTabSymbol.0.html"><code>AddTabSymbol(this Paragraph paragraph)</code></a> method of the Paragraph. New TabSymbolElement will be added to the Paragraph after previous elements.</p></li>
+  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.1.html"><code>AddText(this Paragraph paragraph, string text, bool addTabulationSymbol = false)</code></a> which adds string to the Paragraph's content,
+and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
+New TabSymbolElement will be added to the Paragraph after this element.</p></li>
+  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddTextToParagraph.0.html"><code>AddTextToParagraph(this Paragraph paragraph, string text, bool addTabulationSymbol = false)</code></a>
+which adds string to the Paragraph's content and returns Paragraph,
+and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
+New TabSymbolElement will be added to the Paragraph after this element.</p></li>
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.2.html"><code>AddParagraph(this Section section, string text, bool addTabulationSymbol = false)</code></a> which creates new Paragraph with text element,
+and pass <b>true</b> to <i>addTabulationSymbol</i> parameter.
+New TabSymbolElement will be added to the Paragraph after this text element.</p></li>
+</ul><p><br>
+<b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToConfigureParagraph.html">Configuring Paragraph</a>.</p>
+<p><br><b>Examples</b></p><div id="open18" style="display:none">
+  <p>One tabulation per line and AddTabSymbol() method:&nbsp;<a href="javascript: showdiv('close18'); hidediv('open18');" onclick="javascript: showdiv('close18'); hidediv('open18');">[show]</a></p>
+</div>
+<div id="close18" style="display:inline">
+  <p>One tabulation per line and AddTabSymbol() method:&nbsp;<a href="javascript: showdiv('open18'); hidediv('close18');" onclick="javascript: showdiv('open18'); hidediv('close18');">[hide]</a></p>
+  <pre class="example" id="example18"><code>    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;LEFT300&quot;).AddTabulation(300, TabulationType.Left);
+    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;RIGHT300&quot;).AddTabulation(300, TabulationType.Right);
+    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;CENTER300&quot;).AddTabulation(300, TabulationType.Center);
+ 
+    <b>The code above will generate the following:
+    <img src="img/TabulationExample2.png"></b></code></pre>
+</div><div id="open19" style="display:none">
+  <p>Two tabulations per line, leading symbols and parameter addTabSymbol=true:&nbsp;<a href="javascript: showdiv('close19'); hidediv('open19');" onclick="javascript: showdiv('close19'); hidediv('open19');">[show]</a></p>
+</div>
+<div id="close19" style="display:inline">
+  <p>Two tabulations per line, leading symbols and parameter addTabSymbol=true:&nbsp;<a href="javascript: showdiv('open19'); hidediv('close19');" onclick="javascript: showdiv('open19'); hidediv('close19');">[hide]</a></p>
+  <pre class="example" id="example19"><code>    s.AddParagraph(&quot;TEXT&quot;, addTabulationSymbol: true)
+        .AddTextToParagraph(&quot;LEFT200&quot;, addTabulationSymbol: true)
+        .AddTextToParagraph(&quot;RIGHT400&quot;)
+        .AddTabulation(200, TabulationType.Left, TabulationLeading.DotBottom)
+        .AddTabulation(400, TabulationType.Right, TabulationLeading.BottomLine);
+ 
+    Paragraph par = s.AddParagraph();
+        par.AddText(&quot;TEXT&quot;, addTabulationSymbol: true);
+        par.AddText(&quot;RIGHT200&quot;, addTabulationSymbol: true);
+        par.AddText(&quot;CENTER400&quot;);
+        par.AddTabulation(200, TabulationType.Right, TabulationLeading.DotCenter);
+        par.AddTabulation(400, TabulationType.Center, TabulationLeading.BottomLine);
+ 
+    <b>The code above will generate the following:
+    <img src="img/TabulationExample3.png"></b></code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

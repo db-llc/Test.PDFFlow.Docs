@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Section</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Section</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure a Section.</p>
+    <p><b>Details</b></p><p>A <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> is a part of a document
+holding <a href="Gehtsoft.PDFFlow.Models.Document.Section.Content.0.html"><code>Content</code></a> and <a href="Gehtsoft.PDFFlow.Models.Document.Section.Layout.0.html"><code>Layout</code></a>.</p>
+<p>You can create several <i>Sections</i> in one document. Each section may consist of several pages that will be generated automatically depending on the content.</p>
+<p>To create a <i>Section</i> of the document:</p><ul class="main">
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.0.html"><code>AddSection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.1.html"><code>AddSection</code></a> or
+<a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.2.html"><code>AddSection</code></a>
+methods of the <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.html"><code>DocumentBuilder</code></a> class.</p></li>
+  <li><p>You can also quickly add section with default settings (margins 20, paper size A4, portrait orientation
+and Arabic numeration style) by calling <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.0.html"><code>AddDefaultSection</code></a>
+or <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.1.html"><code>AddDefaultSection(Action configure)</code></a>,
+and then change certain parameters as needed.</p>
+<p>First method returns a Section, so you can call section's extension methods on the fly in one line, e.g.
+<i>builder.AddDefaultSection().SetMargins(35).SetNumerationStyle(NumerationStyle.UpperLatin).SetOrientation(PageOrientation.Landscape).SetSize(PaperSize.A2).AddParagraph(&quot;Paragraph text&quot;)...</i></p>
+<p>Using second method with a configurer, you can set common Section properties
+and add document content in the action.</p></li>
+  <li><p>Set Section's settings (e.g. <a href="Gehtsoft.PDFFlow.Models.Document.Page.Margins.0.html"><code>Margins</code></a>), stored in <a href="Gehtsoft.PDFFlow.Models.Document.Section.Page.0.html"><code>Section.Page</code></a> property.</p>
+<p>Full list of available settings is described in <a href="Gehtsoft.PDFFlow.Models.Document.Page.html"><code>Page</code></a> class.</p>
+<p>Changing settings is available with Section's extension methods from <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a> (e.g. <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetMargins.0.html"><code>SetMargins</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetSize.0.html"><code>SetSize</code></a>, <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetOrientation.0.html"><code>SetOrientation</code></a>).</p>
+<p>Section's numeration style can be changed by calling it's <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.0.html"><code>SetNumerationStyle</code></a> method.
+Then you can print page number using <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddPageNumber.0.html"><code>AddPageNumber</code></a> Paragraph's extension method and see numeration in the desirable format
+(Arabic, UpperRoman, LowerRoman, UpperLatin, LowerLatin, UpperCyrillic, LowerCyrillic).</p></li>
+  <li><p>Add content to the Section.</p></li>
+</ul><p>For a complete list of extension methods of a <i>Section</i>, see <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.html"><code>SectionBuilder</code></a>.</p>
+<p>Adding content to the Section is described in the following topics: <a href="howToConfigureParagraph.html">Add Paragraph</a>,
+<a href="howToAddContent.html">Adding content to the Paragraph</a>,
+<a href="howToConfigureFont.html">Configuring Font</a>,
+<a href="howToConfigureImage.html">Add Image</a>,
+<a href="howToCreateMultilevelList.html">Create Multilevel List</a>,
+<a href="howToConfigureTable.html">Add Table</a>,
+<a href="howToCreateLine.html">Add Line</a>,
+<a href="howToCreateStackFlow.html">Add StackFlow</a>,
+<a href="howToCreateOutline.html">Create Outline</a>.</p>
+<p>Each section may have its own repeating layout areas, both headers and footers.
+For instruction on how to configure layout areas, see <a href="howToConfigureRepeatingArea.html">Configuring Repeating Area</a>.</p>
+<p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><b>Examples</b></p><div id="open4" style="display:none">
+  <p>Default Section:&nbsp;<a href="javascript: showdiv('close4'); hidediv('open4');" onclick="javascript: showdiv('close4'); hidediv('open4');">[show]</a></p>
+</div>
+<div id="close4" style="display:inline">
+  <p>Default Section:&nbsp;<a href="javascript: showdiv('open4'); hidediv('close4');" onclick="javascript: showdiv('open4'); hidediv('close4');">[hide]</a></p>
+  <pre class="example" id="example4"><code>       Section s = builder.AddDefaultSection();
+       s.AddParagraph(&quot;Lorem ipsum&quot;);</code></pre>
+</div><div id="open5" style="display:none">
+  <p>Change some default settings:&nbsp;<a href="javascript: showdiv('close5'); hidediv('open5');" onclick="javascript: showdiv('close5'); hidediv('open5');">[show]</a></p>
+</div>
+<div id="close5" style="display:inline">
+  <p>Change some default settings:&nbsp;<a href="javascript: showdiv('open5'); hidediv('close5');" onclick="javascript: showdiv('open5'); hidediv('close5');">[hide]</a></p>
+  <pre class="example" id="example5"><code>       Section s = builder.AddDefaultSection().SetMargins(35).SetSize(PaperSize.A5).SetOrientation(PageOrientation.Landscape).SetNumerationStyle(NumerationStyle.UpperRoman);
+       s.AddParagraph(&quot;Lorem ipsum&quot;).SetFont(documentFont).SetTextOverflowAction(TextOverflowAction.Ellipsis);</code></pre>
+</div><div id="open6" style="display:none">
+  <p>AddDefaultSection() with configurer:&nbsp;<a href="javascript: showdiv('close6'); hidediv('open6');" onclick="javascript: showdiv('close6'); hidediv('open6');">[show]</a></p>
+</div>
+<div id="close6" style="display:inline">
+  <p>AddDefaultSection() with configurer:&nbsp;<a href="javascript: showdiv('open6'); hidediv('close6');" onclick="javascript: showdiv('open6'); hidediv('close6');">[hide]</a></p>
+  <pre class="example" id="example6"><code>       Section s = builder.AddDefaultSection(s =&gt;
+       {
+       s.SetOrientation(() =&gt; PageOrientation.Landscape);
+       s.SetNumerationStyle(NumerationStyle.UpperRoman);
+       s.SetMargins(35);
+       s.SetSize(PaperSize.A5);
+       s.AddParagraph(p =&gt;
+       {
+           p.TextOverflowAction = TextOverflowAction.Ellipsis;
+           p.AddText(&quot;Lorem ipsum&quot;);
+           p.SetFont(documentFont);
+       });
+       });</code></pre>
+</div><div id="open7" style="display:none">
+  <p>AddSection() which adds Section object:&nbsp;<a href="javascript: showdiv('close7'); hidediv('open7');" onclick="javascript: showdiv('close7'); hidediv('open7');">[show]</a></p>
+</div>
+<div id="close7" style="display:inline">
+  <p>AddSection() which adds Section object:&nbsp;<a href="javascript: showdiv('open7'); hidediv('close7');" onclick="javascript: showdiv('open7'); hidediv('close7');">[hide]</a></p>
+  <pre class="example" id="example7"><code>       Section s = new Section();
+       builder.AddSection(s);</code></pre>
+</div><div id="open8" style="display:none">
+  <p>AddSection() with configurer:&nbsp;<a href="javascript: showdiv('close8'); hidediv('open8');" onclick="javascript: showdiv('close8'); hidediv('open8');">[show]</a></p>
+</div>
+<div id="close8" style="display:inline">
+  <p>AddSection() with configurer:&nbsp;<a href="javascript: showdiv('open8'); hidediv('close8');" onclick="javascript: showdiv('open8'); hidediv('close8');">[hide]</a></p>
+  <pre class="example" id="example8"><code>	builder.AddSection(s =&gt;
+	{
+		s.SetMargins(50);
+		s.SetSize(() =&gt; PaperSize.A4);
+		s.SetOrientation(() =&gt; PageOrientation.Landscape);
+		s.SetNumerationStyle(NumerationStyle.UpperRoman);
+		s.AddParagraph(p =&gt;
+		{
+			p.TextOverflowAction = TextOverflowAction.Ellipsis;
+			p.AddText(&quot;Lorem ipsum&quot;);
+			p.SetFont(documentFont);
+		});
+	});</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

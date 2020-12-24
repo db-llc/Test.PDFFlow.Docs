@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>LayoutingContext</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>class <b>LayoutingContext</b></code></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>Contains methods for calculation of work area</p>
+    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
+The namespace is <a href="Gehtsoft.PDFFlow.Layouting.Data.html"><code>Gehtsoft.PDFFlow.Layouting.Data</code></a>.</p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Properties</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.Fixed.0.html">Fixed</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Is context fixed or not. In case it's fixed, but there is not enougth space, the exception will be thrown</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.Height.0.html">Height</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Height of layouting context</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.Margins.0.html">Margins</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Represents top. bottom, left and right margins of layouting context</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.PageNumber.0.html">PageNumber</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Unsigned integer page number</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.Parent.0.html">Parent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Parent context</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.Width.0.html">Width</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Width of layouting context</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.ResetWorkArea.0.html">ResetWorkArea</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Calculates Top, Left, Width and Height of work area depending on the parameter page and margins</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Layouting.Data.LayoutingContext.ShrinkWorkArea.0.html">ShrinkWorkArea</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Shrinks work area height to the value of the parameter, if it was larger</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.PDFFlow.Layouting.Data.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

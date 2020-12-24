@@ -1,0 +1,267 @@
+﻿<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>QuestionnaireAnswersAccessor</title><script type="text/javascript">
+       if (!window.location.href.indexOf('mk:') == 0) {
+               var head = document.getElementsByTagName('head')[0];
+
+               var script1 = document.createElement('script');
+               script1.type = 'text/javascript';
+               script1.src = 'highlighter/highlight.pack.js';
+               head.appendChild(script1);
+
+               var script2 = document.createElement('script');
+               script2.type = 'text/javascript';
+               script2.src = 'highlighter/highlight.cshtml.js';
+               head.appendChild(script2);
+
+               window.onload=function() {
+                   hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+                   x = document.querySelectorAll('pre code');
+                   for (var i = 0; i < x.length; i++) {
+                        if (x[i].hasAttribute('class')) {
+                            hljs.highlightBlock(x[i]);
+                       }
+                   }
+               };
+           }
+    </script><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><link rel="stylesheet" href="highlighter/default.css">
+<style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>class <b>QuestionnaireAnswersAccessor</b></code></font>
+    </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>Gehtsoft.EF.Db.SqlDb.EntityGenericAccessor.GenericEntityAccessor&lt;<a href="Gehtsoft.Questionnaire.Dao.Entities.QuestionnaireAnswers.html">QuestionnaireAnswers</a>,int&gt;</code></td>
+      </tr>
+    </table>
+    <p><b>Brief</b></p>
+    <p>The questionnaire answers entity DAO accessor.</p>
+    <p><b>Details</b></p><p>The accessor is a class that provides basic CRUD functionality for an entity.
+The class is based on EF accessor
+<a href="http://docs.gehtsoftusa.com/ef/web-content.html#Gehtsoft.EF.Db.SqlDb.EntityGenericAccessor.html" target="_blank">            EntityGenericAccessor</a></p>
+<p>In order to support questionnaire-specific behavior this implementation redefines many
+methods and disables getting next and previous entity.</p>
+<p>If base method cannot be used, the warning issued via an obsolete attribute will be show during the compilation and
+the appropriate exception will be thrown in case method is used.</p>
+<p>In most cases it should be enough to use only accessor, however you may need to
+use directly <a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersCountSelectQuery.html"><code>QuestionnaireAnswersCountSelectQuery</code></a>            , <a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersSelectQuery.html"><code>QuestionnaireAnswersSelectQuery</code></a>             and
+<a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersSelectQueryBase.html"><code>QuestionnaireAnswersSelectQueryBase</code></a>             in order to define more complex CRUD logic.</p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Constructors</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor..ctor.i15.html">QuestionnaireAnswersAccessor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.CanDelete.DgC.html">CanDelete</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The method checks whether</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Count.TFB.html">Count</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the number of the records that satisfies to the specified filter conditions</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Count.LW5.html">Count</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Delete.Rf9.html">Delete</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Deletes the specified questionnaire.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.DeleteMultiple.z57.html">DeleteMultiple</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.NextKey.gY9.html">NextKey</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Read.qP4.html">Read</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the records that satisfies to the specified filter conditions</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Read.Fr5.html">Read</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the records that satisfies to the specified filter conditions</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Read.Vr6.html">Read</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Save.9DE.html">Save</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Saves (inserts or updates) answers and updates corresponding searchable key values.</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.Questionnaire.Dao.Queries.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

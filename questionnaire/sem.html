@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>What is Semantics?</title><script type="text/javascript">
+       if (!window.location.href.indexOf('mk:') == 0) {
+               var head = document.getElementsByTagName('head')[0];
+
+               var script1 = document.createElement('script');
+               script1.type = 'text/javascript';
+               script1.src = 'highlighter/highlight.pack.js';
+               head.appendChild(script1);
+
+               var script2 = document.createElement('script');
+               script2.type = 'text/javascript';
+               script2.src = 'highlighter/highlight.cshtml.js';
+               head.appendChild(script2);
+
+               window.onload=function() {
+                   hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+                   x = document.querySelectorAll('pre code');
+                   for (var i = 0; i < x.length; i++) {
+                        if (x[i].hasAttribute('class')) {
+                            hljs.highlightBlock(x[i]);
+                       }
+                   }
+               };
+           }
+    </script><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><link rel="stylesheet" href="highlighter/default.css">
+<style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>What is Semantics?</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>Article explains conception of of semantics of questionnaire questions and answers</p>
+    <p><b>Details</b></p><p><b>What is semantics.</b></p>
+<p>The semantics is an identifier of the MEANING of the data associated with a question in a questionnaire.
+Both, question and question group has semantics. A semantics key is specified as the group semantics dot or semicolon
+and then the question semantics.</p>
+<p>An example of semantics are:</p>
+<p><code>common.email</code><br>
+<code>personal:lastname</code></p>
+<p><b>Why do we need semantics?</b></p>
+<p>1) When we reference the data associated with the questionnaire answers in 3rd party object, e.g.
+a document template, we need some level of abstraction from a certain way on how the questionnaire is
+implemented and stored. So we refer by the MEANING (or semantics!) of the data we need.</p>
+<p>For example we need to find an emergency contact all we need is to seek for emergency.contact and emergency.name
+and we don't care how exactly this data is currently named in the questionnaire and where it is stored.</p>
+<p>2) The questions in the questionnaire appears, as well as are move and/or renamed on the regular basis. However, every time
+when the question is moved/renamed we need a tool to find the answer to the same question in the previous version of
+the same questionnaire. To do that we simply use a semantics instead of question id to make relation between the
+question and the data.</p>
+<p><b>Multiplicity in semantics.</b></p>
+<p>A questionnaire can consists more than one group or question with the same semantics. In this case, when we reference
+a certain question with the same semantics in questionnaire we are using INDEX. The index is set after then name in
+square brackets.</p>
+<p>For example:</p>
+<p><code>email</code> or <code>email[0]</code> means the first occurrence of the question with email semantics in the questionnaire.</p>
+<p><code>email[1]</code> means the first occurrence of the question with email semantics in the questionnaire.</p>
+<p>Also, a question can have multiple answers (see repeatable flag for a group and a question).</p>
+<p>In this case we refer the ANSWER using additional occurrence information, e.g.</p>
+<p><code>email[1](5)</code> means sixth answer on the second question with email semantics in the questionnaire.</p>
+<p>The same rules about multiplicity applies to the group</p>
+<p><code>personal_data(1).nickname(2)</code> means the third answer on the question nickname in the second group of personal data answers.</p>
+<p>## Search semantics</p>
+<p>If index or occurrence is not specified, the index or occurrence is deemed to be 0. It does NOT mean ANY, i.e.:</p>
+<p><code>email</code> - is equal to <code>email[0](0)</code>.</p>
+<p>To find all/any (depending on the operation) index or occurrence use star character instead of number in brackets:</p>
+<p><code>email</code> - first occurrence of first index (equals to <code>email[0](0)</code>)</p>
+<p><code>email[*]</code> - first occurrence of any index (equals to <code>email[*](0)</code>)</p>
+<p><code>email(*)</code> - any occurrence of first index (equals to <code>email[0](*)</code>)</p>
+<p><code>email[*](*)</code> - any occurrence of any index</p>
+<p>In search methods you also can replace the semantics with star character that would mean any semantics, e.g.</p>
+<p><code>*.email</code> - find email semantics in any group</p><p>
+      <center><a href="questionaire.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Font</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Font</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how configure Fonts.</p>
+    <p><b>Details</b></p><p>Library allows to use different styles and <a href="Gehtsoft.PDFFlow.Models.Shared.Font.html"><code>Font</code></a>s in Paragraph.</p>
+<p>Font can be of different size and color. It can have backgound color, be underlined or crossed out by the line of different stroke style and color. Font can be Bold, Italic or Oblique.</p>
+<p>Please refer to <a href="Gehtsoft.PDFFlow.Models.Shared.Font.html"><code>Font</code></a> for the full list of Font's properties.</p>
+<p>You can use different Fonts either for the whole Paragraph or for TextElement.</p>
+<p>For the Paragraph Font please use methods from <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>,
+such as <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetFont.0.html"><code>SetFont</code></a>, <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetFontSize.0.html"><code>SetFontSize</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetFontColor.0.html"><code>SetFontColor</code></a>, <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetFont.0.html"><code>SetBold</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetStrikethrough.0.html"><code>SetStrikethrough</code></a>...</p>
+<p>For TextElement's Font  please use methods from <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.html"><code>FormattedTextElementBuilder</code></a>,
+such as <a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFont.0.html"><code>SetFont</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFontName.0.html"><code>SetFontName</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetUnderline.0.html"><code>SetUnderline</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetUnderlineColor.0.html"><code>SetUnderlineColor</code></a>...</p>
+<p>You can also directly change some Font properties using Font's extension methods from <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>,
+such as <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetBold.1.html"><code>SetBold</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetOblique.1.html"><code>SetOblique</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetColor.0.html"><code>SetColor</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetItalic.1.html"><code>SetItalic</code></a>.</p>
+<p>Some of the Fonts are included into the library. Please, use <a href="Gehtsoft.PDFFlow.Models.Shared.FontNames.html"><code>FontNames</code></a> (e.g. FontNames.Courier) or string (e.g. &quot;Times-Italic&quot;).</p>
+<p>Extra fonts can be imported from ttf files using <a href="Gehtsoft.PDFFlow.Core.HaruNativeDocument.LoadFontFromTtfFile.0.html"><code>LoadFontFromTtfFile</code></a> method (please see example in the end of this article).</p>
+<p>You can add text to paragraph without specifying any Font, in this case default Font will be used (Courier, size 14, color Black).</p>
+<p><br><b>A few tips:</b></p>
+<p>To get text of different styles successively, not separated with a new line,
+call <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddText.0.html"><code>AddText</code></a> several times for one paragraph
+and set different font for each text element individually. Please refer various examples below for more information.</p>
+<p>Use <a href="Gehtsoft.PDFFlow.Utils.FontExtensions.Merge.0.html"><code>parentFont.Merge(otherFont)</code></a> to apply settings of otherFont to parentFont.</p>
+<p>Please see some examples below.</p>
+<p>More examples using Fonts can be found in <a href="quickStart.html">Quick Start</a>, <a href="howToConfigureParagraph.html">Configuring Paragraph</a>, <a href="howToAddContent.html">Adding content to the Paragraph</a> articles.</p>
+<p><br><br>
+<b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.
+<br><br></p>
+<p><br><b>Examples</b></p>
+<p><br><br></p><div id="open20" style="display:none">
+  <p>Font styles&nbsp;<a href="javascript: showdiv('close20'); hidediv('open20');" onclick="javascript: showdiv('close20'); hidediv('open20');">[show]</a></p>
+</div>
+<div id="close20" style="display:inline">
+  <p>Font styles&nbsp;<a href="javascript: showdiv('open20'); hidediv('close20');" onclick="javascript: showdiv('open20'); hidediv('close20');">[hide]</a></p>
+  <pre class="example" id="example20"><code>        s.AddParagraph(&quot;Set Bold to Paragraph&quot;).SetBold();
+        s.AddParagraph(&quot;Set Oblique to Paragraph&quot;).SetOblique();
+        s.AddParagraph(&quot;Set Strikethrough to Paragraph&quot;).SetStrikethrough();
+ 
+        s.AddParagraph().AddText(&quot;Set Bold to TextElement&quot;).SetBold();
+        s.AddParagraph().AddText(&quot;Set Oblique to TextElement&quot;).SetOblique();
+        s.AddParagraph().AddText(&quot;Set Strikethrough to TextElement&quot;).SetStrikethrough();
+ 
+        s.AddParagraph(&quot;Set Times to Paragraph&quot;).SetFontName(FontNames.Times);
+        s.AddParagraph().AddText(&quot;Set Times to TextElement&quot;).SetFontName(FontNames.Times);
+ 
+        s.AddParagraph(&quot;Set Times + Italic to Paragraph &quot;).SetFontName(FontNames.Times).SetItalic();
+        s.AddParagraph().AddText(&quot;Set Times + Italic to TextElement&quot;).SetFontName(FontNames.Times).SetItalic();
+ 
+        <b>The code above will generate you the following:</b>
+
+        <img src="img/FontStylesExamples.png">
+</code></pre>
+</div><p><br><br></p><div id="open21" style="display:none">
+  <p>Three different font styles in one sentence. To get text of different styles successively, not separated with a new line, call AddText several times for one paragraph:&nbsp;<a href="javascript: showdiv('close21'); hidediv('open21');" onclick="javascript: showdiv('close21'); hidediv('open21');">[show]</a></p>
+</div>
+<div id="close21" style="display:inline">
+  <p>Three different font styles in one sentence. To get text of different styles successively, not separated with a new line, call AddText several times for one paragraph:&nbsp;<a href="javascript: showdiv('open21'); hidediv('close21');" onclick="javascript: showdiv('open21'); hidediv('close21');">[hide]</a></p>
+  <pre class="example" id="example21"><code>	var p = new Paragraph();
+	p.AddText(&quot;Black font &quot;).SetFont(Font.Courier(14));
+	p.AddText(&quot;large red underlined font &quot;).SetFont(Font.Courier(16)).SetFontColor(Color.Red).SetBold().SetUnderline(Stroke.Solid).SetUnderlineColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255));
+	p.AddText(&quot;blue small font.&quot;).SetFont(Font.Courier(10)).SetFontColor(Color.Blue);
+</code></pre>
+</div><p><b>The code above will generate you the following:</b></p>
+<p><img src="img/ParagraphExampleDifferentFont.png"></p><div id="open22" style="display:inline">
+  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('close22'); hidediv('open22');" onclick="javascript: showdiv('close22'); hidediv('open22');">[show]</a></p>
+</div>
+<div id="close22" style="display:none">
+  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('open22'); hidediv('close22');" onclick="javascript: showdiv('open22'); hidediv('close22');">[hide]</a></p>
+  <pre class="example" id="example22"><code>   var p = new Paragraph();
+   p.AddText((element) =&gt;
+   {
+       element.SetFont(new Font
+       {
+           Name = &quot;Courier&quot;,
+           Size = 14f,
+           Color = Color.Black
+       });
+       element.AddContent(&quot;Black font &quot;);
+   });
+ 
+   p.AddText((element) =&gt;
+   {
+       element.SetFont(new Font
+       {
+           Name = &quot;Courier-Bold&quot;,
+           Size = 16f,
+           Color = Color.Red,
+       });
+       element.AddContent(&quot;large red underlined font &quot;);
+       element.SetUnderline(Stroke.Solid);
+       element.SetUnderlineColor(Color.FromRgba(201.0 / 255, 107.0 / 255, 20.0 / 255));
+   });
+ 
+   p.AddText((element) =&gt;
+   {
+       element.SetFont(new Font
+       {
+           Name = &quot;Courier&quot;,
+           Size = 10f,
+           Color = Color.Blue
+       });
+       element.AddContent(&quot;blue small font.&quot;);
+   });
+   section.AddParagraph(p);</code></pre>
+</div><p><br><br></p><div id="open23" style="display:none">
+  <p>External Fonts from ttf files:&nbsp;<a href="javascript: showdiv('close23'); hidediv('open23');" onclick="javascript: showdiv('close23'); hidediv('open23');">[show]</a></p>
+</div>
+<div id="close23" style="display:inline">
+  <p>External Fonts from ttf files:&nbsp;<a href="javascript: showdiv('open23'); hidediv('close23');" onclick="javascript: showdiv('open23'); hidediv('close23');">[hide]</a></p>
+  <pre class="example" id="example23"><code>   var exofontsDir = Path.Combine(ResourceDirectory, &quot;fonts&quot;, &quot;exo&quot;);
+   if (Directory.Exists(exofontsDir))
+   {
+   	var exoRegular = Path.Combine(exofontsDir, &quot;Exo-Regular.ttf&quot;);
+   	var exoRegularItalic = Path.Combine(exofontsDir, &quot;Exo-Italic.ttf&quot;);
+   	var exoRegularBold = Path.Combine(exofontsDir, &quot;Exo-Bold.ttf&quot;);
+   	var exoRegularBoldItalic = Path.Combine(exofontsDir, &quot;Exo-BoldItalic.ttf&quot;);
+
+   	_nativeDocument.LoadFontFromTtfFile(exoRegular, true);
+   	_nativeDocument.LoadFontFromTtfFile(exoRegularItalic, true);
+   	_nativeDocument.LoadFontFromTtfFile(exoRegularBold, true);
+   	_nativeDocument.LoadFontFromTtfFile(exoRegularBoldItalic, true);
+   }
+   else
+   {
+   	_nativeDocument.AddFontOverride(FontNames.Exo, FontNames.Helvetica);
+   }
+</code></pre>
+</div><p><br><br></p><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>FormattedTextElementBuilder</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>class <b>FormattedTextElementBuilder</b></code></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>Lets you to set FormattedTextElement properties (font, background...) and add content</p>
+    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
+The namespace is <a href="Gehtsoft.PDFFlow.Builder.html"><code>Gehtsoft.PDFFlow.Builder</code></a>.</p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Static Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.AddContent.0.html">AddContent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds string content to the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.AddInnerElement.0.html">AddInnerElement</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Helps you to add inner element to TextElement using configurer</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.AddInnerElements.0.html">AddInnerElements</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Helps you to add inner elements to TextElement using configurer</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetBackgroundColor.0.html">SetBackgroundColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets background color of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetBold.0.html">SetBold</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets element's font to Bold or not Bold</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFont.0.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets font of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFont.1.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets font name and font size of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFontColor.0.html">SetFontColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets font color of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFontName.0.html">SetFontName</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets font name of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetFontSize.0.html">SetFontSize</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets font size of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetItalic.0.html">SetItalic</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets element's font to Italic or not Italic</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetOblique.0.html">SetOblique</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets element's font to Oblique or not Oblique</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetStrikethrough.0.html">SetStrikethrough</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets element's strikethrough style, or style and color</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetUnderline.0.html">SetUnderline</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets None, Solid, Dashed, Dotted or Double stroke style of the element</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.FormattedTextElementBuilder.SetUnderlineColor.0.html">SetUnderlineColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets underline color for the element</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.PDFFlow.Builder.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

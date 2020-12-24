@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Paragraph</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Paragraph</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure a Paragraph.</p>
+    <p><b>Details</b></p><p>A <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a> is one of the main content parts of a document used for generating text of different styles.</p>
+<p><a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> can have as many <i>Paragraph</i>s as you need.</p>
+<p><br>
+To add a <i>Paragraph</i> to a <i>Section</i>,
+you must call one of the methods:</p>
+<p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.1.html"><code>AddParagraph</code></a> (adds empty Paragraph to a Section and returns Paragraph; you can add content and set font later using Paragraph's extension methods),</p>
+<p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.2.html"><code>AddParagraph</code></a> (adds Paragraph with text element to a Section; default Font is used, you can change it later using Paragraph's extension methods),</p>
+<p><a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddParagraph.0.html"><code>AddParagraph</code></a> (adds Paragraph to the Section and helps you to configure it using action)</p>
+<p>from <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>.</p>
+<p><br>
+You can directly set <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>public paragraph properties</code></a> using a configurer of <i>AddParagraph</i>,
+or set paragraph properties and add paragraph content
+using extension methods of <i>Paragraph</i> implemented in <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.html"><code>ParagraphBuilder</code></a>, such as
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetFirstLineIndent.0.html"><code>SetFirstLineIndent</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetLineSpacing.0.html"><code>SetLineSpacing</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetJustifyAlignment.0.html"><code>SetJustifyAlignment</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetTextDirection.0.html"><code>SetTextDirection</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetTextOverflowAction.0.html"><code>SetTextOverflowAction</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetWidowMinimum.0.html"><code>SetWidowMinimum</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.SetOrphanMinimum.0.html"><code>SetOrphanMinimum</code></a>.</p>
+<p>As Paragraph is derived from <a href="Gehtsoft.PDFFlow.Models.Content.ContentItem.html"><code>ContentItem</code></a>,
+you can set various Paragraph's properties using methods of <a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.html"><code>ContentItemBuilder</code></a>,
+such as <a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetMargins.0.html"><code>SetMargins</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetAlignment.0.html"><code>SetAlignment</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetBackColor.0.html"><code>SetBackColor</code></a>, etc...</p>
+<p>You can set Paragraph's <a href="Gehtsoft.PDFFlow.Models.Content.ContentItem.Border.0.html"><code>Border</code></a> of different width, stroke style and color.
+<a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetBorder.0.html"><code>SetBorder</code></a> helps to configure content item borders using action.
+<a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetBorderStyle.0.html"><code>SetBorderStyle</code></a> sets ContentItem's Border stroke style (None, Solid, Dashed, Dotted or Double).
+<a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetBorderColor.0.html"><code>SetBorderColor</code></a> changes color
+and <a href="Gehtsoft.PDFFlow.Builder.ContentItemBuilder.SetBorderWidth.0.html"><code>SetBorderWidth</code></a> changes widths of the Border.</p>
+<p><br>
+<b>Adding content to the Paragraph</b> is described in <a href="howToAddContent.html">Adding content to the Paragraph</a> article.</p>
+<p><b>Setting Font</b> of the Paragraph or TextElement is described in <a href="howToConfigureFont.html">Configuring Font</a> article.</p>
+<p>For instructions on how to create a <i>MultiLevel List</i> from the paragraph, see <a href="howToCreateMultilevelList.html">Creating Multilevel List</a>.</p>
+<p>For instructions on how to create an <i>Outline</i>, see <a href="howToCreateOutline.html">Creating Outline</a>.</p>
+<p><br><br>
+<b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.
+<br><br></p>
+<p><br><b>Examples</b></p><div id="open9" style="display:none">
+  <p>Paragraph examples&nbsp;<a href="javascript: showdiv('close9'); hidediv('open9');" onclick="javascript: showdiv('close9'); hidediv('open9');">[show]</a></p>
+</div>
+<div id="close9" style="display:inline">
+  <p>Paragraph examples&nbsp;<a href="javascript: showdiv('open9'); hidediv('close9');" onclick="javascript: showdiv('open9'); hidediv('close9');">[hide]</a></p>
+  <pre class="example" id="example9"><code>   // Create new section:
+   Section s = builder.AddDefaultSection();
+ 
+   // Create empty paragraph:
+   Paragraph par = s.AddParagraph();
+ 
+   // Set properties:
+   par.SetBackColor(Color.Blue).SetBorderColor(Color.Red).SetBorderWidth(3f).SetBorderStyle(Stroke.Dotted).SetFirstLineIndent(10f).SetFontColor(Color.Yellow).AddText(&quot;Lorem ipsum 1&quot;);
+ 
+   // Create paragraph with text:
+   s.AddParagraph(&quot;Lorem ipsum 2&quot;).SetMargins(20).SetAlignment(HorizontalAlignment.Right);
+ 
+   // Configuring Paragraph:
+ 
+   s.AddParagraph(p =&gt;
+   {
+   	p.Alignment = HorizontalAlignment.Center;
+   	p.BackgroundColor = Color.Gray;
+   	p.SetBorder(b =&gt;
+   	{
+   		b.SetWidth(3);
+   		b.SetStyle(Stroke.Solid);
+   		b.SetColor(Color.FromRgba(0.0, 1.0, 0.0));
+   	});
+   	p.IsOutline = true;
+   	p.OutlineLevel = 0;
+   	p.SetFont(new Font {Name = &quot;Courier&quot;, Size = 16f, Color = Color.Green});
+   	p.AddText(&quot;Lorem ipsum 3&quot;);
+   });
+
+ 
+   <b>The code above will generate you the following:</b>
+ 
+   <img src="img/ParagraphAddExamples.png"></code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

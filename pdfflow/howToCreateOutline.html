@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Creating Outline</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Creating Outline</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to create an Outline.</p>
+    <p><b>Details</b></p><p>An <a href="Gehtsoft.PDFFlow.Models.Fields.Outline.html"><code>Outline</code></a> (a table of content) can be placed anywhere in the document, both at the end or in the middle.</p>
+<p>To include the beginning of the <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a> into the <i>Outline</i> you must set Paragraph's
+<a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.IsOutline.0.html"><code>IsOutline</code></a> property to <i>true</i>.</p>
+<p>An <i>Outline</i> has a multilevel view.
+Set Paragraph's <i>OutlineLevel</i> to any integer starting from 0 in order for the outline item to be shifted from the left depending on it's level.</p>
+<p>To add an <i>Outline</i> to the document, you must create a new Outline element.</p>
+<p>You can set
+<a href="Gehtsoft.PDFFlow.Models.Fields.Outline.Caption.0.html"><code>Caption</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Fields.Outline.LevelSpacing.0.html"><code>LevelSpacing</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Content.FormattedTextElement.Font.0.html"><code>Font</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Fields.Outline.SpacingUnderline.0.html"><code>SpacingUnderline</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Fields.Outline.SpacingUnderlineColor.0.html"><code>SpacingUnderlineColor</code></a>
+of the <i>Outline</i>.</p>
+<p>All paragraphs in the document, marked as outline and met before the <i>Outline</i> element, will be included into the outline,
+no matter if there was one <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> or several <i>Section</i>s.</p>
+<p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureParagraph.html">Configuring Paragraph</a>.</p>
+<p><b>Example</b></p><div id="open30" style="display:none">
+  <p>Creating Outline&nbsp;<a href="javascript: showdiv('close30'); hidediv('open30');" onclick="javascript: showdiv('close30'); hidediv('open30');">[show]</a></p>
+</div>
+<div id="close30" style="display:inline">
+  <p>Creating Outline&nbsp;<a href="javascript: showdiv('open30'); hidediv('close30');" onclick="javascript: showdiv('open30'); hidediv('close30');">[hide]</a></p>
+  <pre class="example" id="example30"><code>    Section section = builder.AddDefaultSection();
+ 
+// <b>Mark needed paragraphs as outline items:</b>
+ 
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(0).AddText(&quot;Chapter I.&quot;).SetFont(Font.Courier(16));
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(1).AddText(&quot;Sub-chapter I.1.&quot;).SetFont(Font.Courier(16)).SetFontColor(Color.Red);
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(1).AddText(&quot;Sub-chapter I.2.&quot;).SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Red });
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(2).AddText(&quot;Sub-chapter I.2.a.&quot;).SetFont(new Font { Name = &quot;Courier&quot;, Size = 12f, Color = Color.Green });
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(2).AddText(&quot;Sub-chapter I.2.b.&quot;).SetFont(new Font { Name = &quot;Courier&quot;, Size = 12f, Color = Color.Green });
+    section.AddParagraph().SetIsOutline().SetOutlineLevel(0).AddText(&quot;Chapter II.&quot;).SetFont(Font.Courier(16));
+ 
+// <b>Add Outline to the document:</b>
+ 
+    builder.AddDefaultSection().AddParagraph().AddContent(() =&gt;
+    {
+        var outline = new Outline().SetFontName(&quot;Courier-Bold&quot;).SetFontSize(14).SetFontColor(Color.FromRgba(0.6, 0.3, 0.7)).SetUnderline(Stroke.Dashed).SetUnderlineColor(Color.Red);
+        outline.SpacingUnderline = Stroke.Dotted;
+        outline.SpacingUnderlineColor = Color.FromRgba(0.6, 0.3, 0.7);
+        outline.LevelSpacing = documentFont.Size.Value * 2F;
+        outline.Caption = new TextElement().AddContent(&quot;Outline caption&quot;).SetFont(Font.Courier(20)).SetFontColor(Color.Green).SetBold();
+        return outline;
+    });
+
+<b>The code above will generate you the following:</b>
+
+<img src="img/OutlineExample.png"></code></pre>
+</div><div id="open31" style="display:inline">
+  <p>You can achieve the same result using the following code:&nbsp;<a href="javascript: showdiv('close31'); hidediv('open31');" onclick="javascript: showdiv('close31'); hidediv('open31');">[show]</a></p>
+</div>
+<div id="close31" style="display:none">
+  <p>You can achieve the same result using the following code:&nbsp;<a href="javascript: showdiv('open31'); hidediv('close31');" onclick="javascript: showdiv('open31'); hidediv('close31');">[hide]</a></p>
+  <pre class="example" id="example31"><code>// <b>Mark needed paragraphs as outline items:</b>
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Chapter I.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 0;
+});
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Sub-chapter I.1.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 1;
+});
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Sub-chapter I.2.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 1;
+});
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Sub-chapter I.2.a.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 2;
+});
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Sub-chapter I.II.b.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 2;
+});
+ 
+section.AddParagraph(p =&gt;
+{
+    p.AddText(&quot;Chapter II.&quot;);
+    p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 16f, Color = Color.Black });
+    p.IsOutline = true;
+    p.OutlineLevel = 0;
+});
+ 
+ 
+// <b>Add Outline to the document:</b>
+ 
+builder.AddDefaultSection().AddParagraph(p =&gt;
+{
+    p.AddContent(() =&gt;
+    {
+        var outline = new Outline
+        {
+            Font = new Font
+            {
+                Name = &quot;Courier-Bold&quot;,
+                Size = 14f,
+                Color = Color.FromRgba(0.6, 0.3, 0.7),
+                Underline = Stroke.Dashed,
+                UnderlineColor = Color.Red
+            }
+        };
+ 
+        outline.SpacingUnderline = Stroke.Dotted;
+        outline.SpacingUnderlineColor = Color.FromRgba(0.6, 0.3, 0.7);
+        outline.LevelSpacing = documentFont.Size.Value * 2F;
+        outline.Caption = new TextElement
+            {
+                Content = new List&lt;string&gt;() { &quot;Outline caption&quot; },
+                Font = new Font { Name = &quot;Courier&quot;, Size = 20f, Color = Color.Green, Bold = true }
+            };
+ 
+        return new List&lt;ParagraphElement&gt;
+        {
+            outline
+        };
+    });
+    p.SetAlignment(HorizontalAlignment.Center);
+});
+
+</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

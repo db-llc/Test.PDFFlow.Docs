@@ -1,0 +1,252 @@
+﻿<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Content</title>
+    <style type="text/css">
+
+/* Put this inside a @media qualifier so Netscape 4 ignores it */
+@media screen, print {
+    /* Turn off list bullets */
+    ul.mktree  li { list-style: none; }
+    /* Control how "spaced out" the tree is */
+    ul.mktree, ul.mktree ul , ul.mktree li { margin-left:10px; padding:0px; font-family : Trebuchet MS, Arial; }
+    /* Provide space for our own "bullet" inside the LI */
+    ul.mktree  li           .bullet { padding-left: 15px; }
+    /* Show "bullets" in the links, depending on the class of the LI that the link's in */
+    ul.mktree  li.liOpen    .bullet { cursor: pointer; background: url(menu/minus.png)  center left no-repeat; }
+    ul.mktree  li.liClosed  .bullet { cursor: pointer; background: url(menu/plus.png)   center left no-repeat; }
+    ul.mktree  li.liBullet  .bullet { cursor: default; background: url(menu/bullet.png) center left no-repeat; }
+    /* Sublists are visible or not based on class of parent LI */
+    ul.mktree  li.liOpen    ul { display: block; }
+    ul.mktree  li.liClosed  ul { display: none; }
+
+    a.select {font-weight:bold;}
+}
+body
+{
+    background-color: #f1f1f1;
+    font-size: 13px;
+}
+div.HelpCaption
+{
+    background-image: url(pageImages/header-bg.gif);
+    height: 43px;
+}
+A:link
+{
+    color:#0068be;
+}
+
+</style>
+  </head><script language="javascript" type="text/javascript">
+function getQueryParam(name) {
+
+
+  var query = window.parent.location.search.substring(1);
+  var params = query.split("&");
+  for (var i = 0;i < params.length; i++) {
+    var pair = params[i].split("=");
+    if (pair[0] == name) {
+      return pair[1];
+    }
+  }
+  return null;
+}
+addEvent(window,"load",convertTrees);
+var src = getQueryParam('key') || 'index.html';
+parent.docframe.location = src;
+
+// ===================================================================
+// Author: Matt Kruse <matt@mattkruse.com>
+// WWW: http://www.mattkruse.com/
+//
+// NOTICE: You may use this code for any purpose, commercial or
+// private, without any further permission from the author. You may
+// remove this notice from your final code if you wish, however it is
+// appreciated by the author if at least my web site address is kept.
+//
+// You may *NOT* re-distribute this code in any way except through its
+// use. That means, you can include it in your product, or your web
+// site, or any other form where the code is actually being used. You
+// may not put the plain javascript up on your site for download or
+// include it in your javascript libraries for download.
+// If you wish to share this code with others, please just point them
+// to the URL instead.
+// Please DO NOT link directly to my .js files from your site. Copy
+// the files to your server and use them there. Thank you.
+// ===================================================================
+
+// HISTORY
+// ------------------------------------------------------------------
+// December 9, 2003: Added script to the Javascript Toolbox
+// December 10, 2003: Added the preProcessTrees variable to allow user
+//      to turn off automatic conversion of UL's onLoad
+// March 1, 2004: Changed it so if a <li> has a class already attached
+//      to it, that class won't be erased when initialized. This allows
+//      you to set the state of the tree when painting the page simply
+//      by setting some <li>'s class name as being "liOpen" (see example)
+/*
+This code is inspired by and extended from Stuart Langridge's aqlist code:
+        http://www.kryogenix.org/code/browser/aqlists/
+        Stuart Langridge, November 2002
+        sil@kryogenix.org
+        Inspired by Aaron's labels.js (http://youngpup.net/demos/labels/)
+        and Dave Lindquist's menuDropDown.js (http://www.gazingus.org/dhtml/?id=109)
+*/
+function addEvent(o,e,f){if(o.addEventListener){o.addEventListener(e,f,true);return true;}else if(o.attachEvent){return o.attachEvent("on"+e,f);}else{return false;}}
+function setDefault(name,val){if(typeof(window[name])=="undefined" || window[name]==null){window[name]=val;}}
+function expandTree(treeId){var ul = document.getElementById(treeId);if(ul == null){return false;}expandCollapseList(ul,nodeOpenClass);}
+function collapseTree(treeId){var ul = document.getElementById(treeId);if(ul == null){return false;}expandCollapseList(ul,nodeClosedClass);}
+function expandToItem(treeId,itemId){var ul = document.getElementById(treeId);if(ul == null){return false;}var ret = expandCollapseList(ul,nodeOpenClass,itemId);if(ret){var o = document.getElementById(itemId);if(o.scrollIntoView){o.scrollIntoView(false);}}}
+function expandCollapseList(ul,cName,itemId){if(!ul.childNodes || ul.childNodes.length==0){return false;}for(var itemi=0;itemi<ul.childNodes.length;itemi++){var item = ul.childNodes[itemi];if(itemId!=null && item.id==itemId){return true;}if(item.nodeName == "LI"){var subLists = false;for(var sitemi=0;sitemi<item.childNodes.length;sitemi++){var sitem = item.childNodes[sitemi];if(sitem.nodeName=="UL"){subLists = true;var ret = expandCollapseList(sitem,cName,itemId);if(itemId!=null && ret){item.className=cName;return true;}}}if(subLists && itemId==null){item.className = cName;}}}}
+function convertTrees(){setDefault("treeClass","mktree");setDefault("nodeClosedClass","liClosed");setDefault("nodeOpenClass","liOpen");setDefault("nodeBulletClass","liBullet");setDefault("nodeLinkClass","bullet");setDefault("preProcessTrees",true);if(preProcessTrees){if(!document.createElement){return;}uls = document.getElementsByTagName("ul");for(var uli=0;uli<uls.length;uli++){var ul=uls[uli];if(ul.nodeName=="UL" && ul.className==treeClass){processList(ul);}}}}
+function processList(ul){if(!ul.childNodes || ul.childNodes.length==0){return;}for(var itemi=0;itemi<ul.childNodes.length;itemi++){var item = ul.childNodes[itemi];if(item.nodeName == "LI"){var subLists = false;for(var sitemi=0;sitemi<item.childNodes.length;sitemi++){var sitem = item.childNodes[sitemi];if(sitem.nodeName=="UL"){subLists = true;processList(sitem);}}var s= document.createElement("SPAN");var t= '\u00A0';s.className = nodeLinkClass;if(subLists){if(item.className==null || item.className==""){item.className = nodeClosedClass;}if(item.firstChild.nodeName=="#text"){t = t+item.firstChild.nodeValue;item.removeChild(item.firstChild);}s.onclick = function(){this.parentNode.className =(this.parentNode.className==nodeOpenClass) ? nodeClosedClass : nodeOpenClass;return false;}}else{item.className = nodeBulletClass;s.onclick = function(){return false;}}s.appendChild(document.createTextNode(t));item.insertBefore(s,item.firstChild);}}}
+
+// Auxilary function to support "expand tree on right frame navigation" functionality
+var selectedItem = null;
+
+function getFileFromURL(url) {var f = url.split('/');return f[f.length - 1];}
+function createIds() {var lis = document.getElementsByTagName("li");for(var lisi=0;lisi<lis.length;lisi++) {var li = lis[lisi];if (li.firstChild.nodeName == "A") {var h = li.firstChild.href;if (h) {li.id = getFileFromURL(h);}}}var as = document.getElementsByTagName("a");for(var asi=0;asi<as.length;asi++) {var a = as[asi];a.onclick = function(event) {event = event || window.event;selectLink(event.target);}}}
+function selectLink(lnk) {if (selectedItem) {selectedItem.className='';}lnk.className="select";selectedItem=lnk;}
+function selectItem(fid, tid) {var id  = getFileFromURL(fid);var tid = tid || id;expandToItem('hhc_tree', tid);window.parent.parent.location.hash = id;var childs = document.getElementById(tid).childNodes;for(var ci=0;ci<childs.length;ci++) {if (childs[ci].nodeName == "A") {selectLink(childs[ci]);}}}
+
+</script><body>
+    <ul class="mktree" id="hhc_tree">
+      <li><a href="index.html" target="docframe">Dynamic Validation and Questionnaire API</a><ul>
+          <li><a href="dynval.html" target="docframe">Dynamic Validation</a><ul>
+              <li><a href="Gehtsoft.DynamicValidation.CSharp.html" target="docframe">Package Gehtsoft.DynamicValidation.CSharp</a><ul>
+                  <li>Classes<ul>
+                      <li><a href="Gehtsoft.DynamicValidation.CSharp.LinqExpressionCreator.html" target="docframe">LinqExpressionCreator</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="Gehtsoft.DynamicValidation.Expression.html" target="docframe">Package Gehtsoft.DynamicValidation</a><ul>
+                  <li>Classes<ul>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.ConstantExpression.html" target="docframe">ConstantExpression</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.DynamicValidationExpression.html" target="docframe">DynamicValidationExpression</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.ExpressionArray.html" target="docframe">ExpressionArray</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.FunctionExpression.html" target="docframe">FunctionExpression</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.IValueAccessor.html" target="docframe">IValueAccessor</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.ValueExpression.html" target="docframe">ValueExpression</a></li>
+                    </ul>
+                  </li>
+                  <li>Enumerations<ul>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.ExpressionType.html" target="docframe">ExpressionType</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.Function.html" target="docframe">Function</a></li>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.ValueType.html" target="docframe">ValueType</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="Gehtsoft.DynamicValidation.Expression.Parser.html" target="docframe">Package Gehtsoft.DynamicValidation.Expression.Parser</a><ul>
+                  <li>Classes<ul>
+                      <li><a href="Gehtsoft.DynamicValidation.Expression.Parser.DynamicValidationExpressionCompiler.html" target="docframe">DynamicValidationExpressionCompiler</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="Gehtsoft.DynamicValidation.JavaScript.html" target="docframe">Package Gehtsoft.DynamicValidation.JavaScript</a><ul>
+                  <li><a href="Gehtsoft.DynamicValidation.JavaScript.Compiler.html" target="docframe">Namespace Gehtsoft.DynamicValidation.JavaScript.Compiler</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.DynamicValidation.JavaScript.Compiler.ExpressionExtensions.html" target="docframe">ExpressionExtensions</a></li>
+                          <li><a href="Gehtsoft.DynamicValidation.JavaScript.Compiler.ExpressionJsCompiler.html" target="docframe">ExpressionJsCompiler</a></li>
+                          <li><a href="Gehtsoft.DynamicValidation.JavaScript.Compiler.ExpressionJsCompilerOptions.html" target="docframe">ExpressionJsCompilerOptions</a></li>
+                          <li><a href="Gehtsoft.DynamicValidation.JavaScript.Compiler.ExpressionJsCompilerResult.html" target="docframe">ExpressionJsCompilerResult</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="questionaire.html" target="docframe">Questionnaire API</a><ul>
+              <li><a href="sem.html" target="docframe">What is Semantics?</a></li>
+              <li><a href="Gehtsoft.Questionnaire.P.html" target="docframe">Package Gehtsoft.Questionnaire</a><ul>
+                  <li><a href="Gehtsoft.Questionnaire.Examples.html" target="docframe">Practical Examples</a></li>
+                  <li><a href="Gehtsoft.Questionnaire.AnswerSearch.html" target="docframe">Namespace Gehtsoft.Questionnaire.AnswerSearch</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.Questionnaire.AnswerSearch.QuestionnaireAnswersBodyGroupResult.html" target="docframe">QuestionnaireAnswersBodyGroupResult</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.AnswerSearch.QuestionnaireAnswersBodyQuestionResult.html" target="docframe">QuestionnaireAnswersBodyQuestionResult</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.AnswerSearch.QuestionnaireAnswersBodySearchResult.html" target="docframe">QuestionnaireAnswersBodySearchResult</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.AnswerSearch.QuestionnaireAnswersSearchExtension.html" target="docframe">QuestionnaireAnswersSearchExtension</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="Gehtsoft.Questionnaire.Dao.html" target="docframe">Namespace Gehtsoft.Questionnaire.Dao</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.QuestionnaireDao.html" target="docframe">QuestionnaireDao</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="Gehtsoft.Questionnaire.Dao.Entities.html" target="docframe">Namespace Gehtsoft.Questionnaire.Dao.Entities</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.Questionnaire.html" target="docframe">Questionnaire</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.QuestionnaireAnswerNumericKeys.html" target="docframe">QuestionnaireAnswerNumericKeys</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.QuestionnaireAnswers.html" target="docframe">QuestionnaireAnswers</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.QuestionnaireAnswerStringKeys.html" target="docframe">QuestionnaireAnswerStringKeys</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.QuestionnaireVersion.html" target="docframe">QuestionnaireVersion</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.SemanticsDictionaryRecord.html" target="docframe">SemanticsDictionaryRecord</a></li>
+                        </ul>
+                      </li>
+                      <li>Enumerations<ul>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Entities.SemanticsDictionaryRecordType.html" target="docframe">SemanticsDictionaryRecordType</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="Gehtsoft.Questionnaire.Dao.Queries.html" target="docframe">Namespace Gehtsoft.Questionnaire.Dao.Queries</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.IQuestionnaireAnswersQuery.html" target="docframe">IQuestionnaireAnswersQuery</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAccessor.html" target="docframe">QuestionnaireAccessor</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAccessor.Filter.html" target="docframe">QuestionnaireAccessor.Filter</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.html" target="docframe">QuestionnaireAnswersAccessor</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.Filter.html" target="docframe">QuestionnaireAnswersAccessor.Filter</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersAccessor.SortOrder.html" target="docframe">QuestionnaireAnswersAccessor.SortOrder</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersCountSelectQuery.html" target="docframe">QuestionnaireAnswersCountSelectQuery</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersExtension.html" target="docframe">QuestionnaireAnswersExtension</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersSelectQuery.html" target="docframe">QuestionnaireAnswersSelectQuery</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireAnswersSelectQueryBase.html" target="docframe">QuestionnaireAnswersSelectQueryBase</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireQueryAnswerColumnReference.html" target="docframe">QuestionnaireQueryAnswerColumnReference</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireSemanticsDictionaryAccessor.html" target="docframe">QuestionnaireSemanticsDictionaryAccessor</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireSemanticsDictionaryAccessor.Filter.html" target="docframe">QuestionnaireSemanticsDictionaryAccessor.Filter</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireVersionAccessor.html" target="docframe">QuestionnaireVersionAccessor</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Dao.Queries.QuestionnaireVersionAccessor.Filter.html" target="docframe">QuestionnaireVersionAccessor.Filter</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="Gehtsoft.Questionnaire.html" target="docframe">Namespace Gehtsoft.Questionnaire</a><ul>
+                      <li>Classes<ul>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireAnswersBody.html" target="docframe">QuestionnaireAnswersBody</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireAnswersBodyController.html" target="docframe">QuestionnaireAnswersBodyController</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireBody.html" target="docframe">QuestionnaireBody</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireBodyExtension.html" target="docframe">QuestionnaireBodyExtension</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireGroup.html" target="docframe">QuestionnaireGroup</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireGroupAnswer.html" target="docframe">QuestionnaireGroupAnswer</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireGroupDefaultSemantics.html" target="docframe">QuestionnaireGroupDefaultSemantics</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireQuestion.html" target="docframe">QuestionnaireQuestion</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireQuestionAnswer.html" target="docframe">QuestionnaireQuestionAnswer</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireQuestionDefaultSemantics.html" target="docframe">QuestionnaireQuestionDefaultSemantics</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionnaireUpdateRules.html" target="docframe">QuestionnaireUpdateRules</a></li>
+                          <li><a href="Gehtsoft.Questionnaire.Semantics.html" target="docframe">Semantics</a></li>
+                        </ul>
+                      </li>
+                      <li>Enumerations<ul>
+                          <li><a href="Gehtsoft.Questionnaire.QuestionDataType.html" target="docframe">QuestionDataType</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="web-hhk.html" target="docframe">Keywords Index</a></li>
+    </ul><script language="javascript" type="text/javascript">createIds();</script></body>
+</html>

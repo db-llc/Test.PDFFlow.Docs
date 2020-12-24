@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Image</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Image</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure an Image.</p>
+    <p><b>Details</b></p><p>To add an <a href="Gehtsoft.PDFFlow.Models.Content.Image.html"><code>Image</code></a> to a <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a>,
+you must call the <a href="Gehtsoft.PDFFlow.Builder.ImageBuilder.AddImage.0.html"><code>AddImage</code></a> method of the <a href="Gehtsoft.PDFFlow.Builder.ImageBuilder.html"><code>ImageBuilder</code></a> class.</p>
+<p>Using a configurer of <i>AddImage</i>, you can directly set <a href="Gehtsoft.PDFFlow.Models.Content.Image.html"><code>public image properties</code></a>
+or set image properties using extension methods of <i>Image</i> implemented in <a href="Gehtsoft.PDFFlow.Builder.ImageBuilder.html"><code>ImageBuilder</code></a>.</p>
+<p>Adding inline image inside of the paragraph is described in <a href="howToAddContent.html">Adding content to the Paragraph</a> article.</p>
+<p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating a Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.</p>
+<p><b>Examples</b></p><div id="open24" style="display:none">
+  <p>Adding Image&nbsp;<a href="javascript: showdiv('close24'); hidediv('open24');" onclick="javascript: showdiv('close24'); hidediv('open24');">[show]</a></p>
+</div>
+<div id="close24" style="display:inline">
+  <p>Adding Image&nbsp;<a href="javascript: showdiv('open24'); hidediv('close24');" onclick="javascript: showdiv('open24'); hidediv('close24');">[hide]</a></p>
+  <pre class="example" id="example24"><code>            <b>// Add image:</b>
+ 
+            s.AddImage(imageUrl).SetWidth(100).SetScale(ScalingMode.Normal).SetBorderStyle(Stroke.Dotted);
+ 
+            <b>// AutoSize (use image's original size rather than size set by client):</b>
+ 
+            s.AddImage(imageUrl).SetScale(ScalingMode.AutoSize);
+ 
+            <b>// Normal (use size set by client):</b>
+ 
+            s.AddImage(imageUrl).SetScale(ScalingMode.Normal);
+ 
+            <b>// Stretch to the available space:</b>
+ 
+            s.AddImage(imageUrl).SetHeight(180).SetScale(ScalingMode.Stretch);
+ 
+            <b>// Extra size image handling:</b>
+ 
+            s.AddImage(imageUrl).SetWidth(1000).SetMargins(10, 10, 0, 0).SetScale(ScalingMode.Stretch);
+ 
+            <b>// Extra size + BorderStyle Dotted:</b>
+ 
+            s.AddImage(imageUrl).SetWidth(1000).SetMargins(10, 10, 0, 0).SetScale(ScalingMode.Stretch).SetBorderStyle(Stroke.Dotted).SetBorderColor(Color.Black);
+
+<b>The last example will generate the following:</b>
+<img src="img/ImageExample.png">
+</code></pre>
+</div><div id="open25" style="display:inline">
+  <p>You can achieve the same result with the following actions:&nbsp;<a href="javascript: showdiv('close25'); hidediv('open25');" onclick="javascript: showdiv('close25'); hidediv('open25');">[show]</a></p>
+</div>
+<div id="close25" style="display:none">
+  <p>You can achieve the same result with the following actions:&nbsp;<a href="javascript: showdiv('open25'); hidediv('close25');" onclick="javascript: showdiv('open25'); hidediv('close25');">[hide]</a></p>
+  <pre class="example" id="example25"><code>            <b>// Add image:</b>
+ 
+            s.AddImage(imageUrl, image =&gt;
+            {
+                image.Width = 100;
+                image.SetScale(ScalingMode.Normal);
+                image.SetBorder(b =&gt; b.SetStyle(Stroke.Dotted));
+            });
+            <b>// AutoSize (use image's original size rather than size set by client):</b>
+ 
+            s.AddImage(imageUrl, image =&gt; { image.SetScale(ScalingMode.AutoSize); });
+ 
+            <b>// Normal (use size set by client):</b>
+ 
+            s.AddImage(imageUrl, image =&gt;
+            {
+                image.SetScale(ScalingMode.Normal);
+            });
+ 
+            <b>// Stretch to the available space:</b>
+ 
+            s.AddImage(imageUrl, image =&gt;
+            {
+                image.Height = 180;
+                image.SetScale(ScalingMode.Stretch);
+            });
+ 
+ 
+            <b>// Extra size image handling:</b>
+ 
+            s.AddImage(imageUrl, image =&gt;
+            {
+                image.Width = 1000;
+                image.SetMargins(10, 10, 0, 0);
+                image.SetScale(ScalingMode.Stretch);
+            });
+ 
+            <b>// Extra size + BorderStyle Dotted:</b>
+ 
+            s.AddImage(imageUrl, image =&gt;
+            {
+                image.Width = 1000;
+                image.SetMargins(10, 10, 0, 0);
+                image.SetScale(ScalingMode.Stretch);
+                image.SetBorder(b =&gt; b.SetStyle(Stroke.Dotted).SetColor(Color.Black));
+            });
+
+</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

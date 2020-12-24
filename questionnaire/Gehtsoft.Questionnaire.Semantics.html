@@ -1,0 +1,428 @@
+﻿<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Semantics</title><script type="text/javascript">
+       if (!window.location.href.indexOf('mk:') == 0) {
+               var head = document.getElementsByTagName('head')[0];
+
+               var script1 = document.createElement('script');
+               script1.type = 'text/javascript';
+               script1.src = 'highlighter/highlight.pack.js';
+               head.appendChild(script1);
+
+               var script2 = document.createElement('script');
+               script2.type = 'text/javascript';
+               script2.src = 'highlighter/highlight.cshtml.js';
+               head.appendChild(script2);
+
+               window.onload=function() {
+                   hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+                   x = document.querySelectorAll('pre code');
+                   for (var i = 0; i < x.length; i++) {
+                        if (x[i].hasAttribute('class')) {
+                            hljs.highlightBlock(x[i]);
+                       }
+                   }
+               };
+           }
+    </script><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><link rel="stylesheet" href="highlighter/default.css">
+<style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>class <b>Semantics</b></code></font>
+    </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>object</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>IEquatable&lt;<a href="Gehtsoft.Questionnaire.Semantics.html">Semantics</a>&gt;</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>ICloneable</code></td>
+      </tr>
+    </table>
+    <p><b>Brief</b></p>
+    <p>A semantics.</p>
+    <p><b>Details</b></p><p>Read more about <a href="../articles/semantic.html" target="_blank">            Semantics</a></p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Static Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.Parse.ODD.html">Parse</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Parses text representation of a semantic</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Properties</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.GroupIndex.yHF.html">GroupIndex</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The index of the group semantic occurrence in the questionnaire.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.GroupOccurrence.Un2.html">GroupOccurrence</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The index of the answers group semantic occurrence in the answers.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.GroupSemantics.m23.html">GroupSemantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The semantic key of the group</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsQuestionSemantics.KS4.html">IsQuestionSemantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the flag indicating whether the semantics is a question semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsSearchMask.lvB.html">IsSearchMask</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the flag indicating whether the semantics is a search semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.Key.x17.html">Key</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns the full text representation of the semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.QuestionIndex.nv5.html">QuestionIndex</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The index of the question semantic occurrence in the group.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.QuestionOccurrence.KY.html">QuestionOccurrence</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The index of the answers semantic occurrence in the group of answers.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.QuestionSemantics.ak9.html">QuestionSemantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>The semantic of the question.</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Constructors</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.ck3.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.TxG.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.yrC.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.ndB.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.l1H.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.vyC.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.5iA.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.F96.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics..ctor.Hj3.html">Semantics</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.Clone.zl7.html">Clone</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.Equals.77D.html">Equals</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.Equals.8h6.html">Equals</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.GetHashCode.atE.html">GetHashCode</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsGroupMatch.isB.html">IsGroupMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the group semantic matches the other group semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsMatch.uEB.html">IsMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the semantic matches the other semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsMatch.81C.html">IsMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the semantic matches the other semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsMatch.xG3.html">IsMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the semantic matches the other semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsMatch.OKB.html">IsMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the semantic matches the other semantic.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsMatch.fPD.html">IsMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the semantic matches the semantics specified as a key.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.Questionnaire.Semantics.IsQuestionMatch.nfC.html">IsQuestionMatch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks whether the question semantic matches the other question semantic.</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.Questionnaire.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

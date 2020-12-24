@@ -1,0 +1,413 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>XUnit</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>struct <b>XUnit</b></code></font>
+    </p>
+    <p></p>
+    <table class="tmain" width="100%">
+      <tr>
+        <td colspan="2" class="thdr"><b>Parents</b></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.IFormattable</code></td>
+      </tr>
+      <tr>
+        <td style="tmain" width="30"></td>
+        <td style="tmain"><code>System.IComparable&lt;<a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.html"><code>XUnit</code></a>&gt;</code></td>
+      </tr>
+    </table>
+    <p><b>Brief</b></p>
+    <p>Struct for storing numaable values convertable to different units (inch, point, etc...)</p>
+    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
+The namespace is <a href="Gehtsoft.PDFFlow.Models.Shared.html"><code>Gehtsoft.PDFFlow.Models.Shared</code></a>.</p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Static Public Fields</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.CentimeterFactor.0.html">CentimeterFactor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Field for centimeter factor. Default value is 72F / 2.54F</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.InchFactor.0.html">InchFactor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Field for inch factor. Default value is 72F</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.MillimeterFactor.0.html">MillimeterFactor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Field for millimeter factor. Default value is 72F / 25.4F</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.PointFactor.0.html">PointFactor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Field for point factor. Default value is 1F</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Zero.0.html">Zero</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Field for 0 value</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Static Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromCentimeter.0.html">FromCentimeter</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Centimeter type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromInch.0.html">FromInch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Inch type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromMillimeter.0.html">FromMillimeter</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Millimeter type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromPercent.0.html">FromPercent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Percent type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromPercent.1.html">FromPercent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Gets percents as a first parameter and XUnit as a second parameter. Returns XUnit absolute value of the same type as val parameter</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromPixel.0.html">FromPixel</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Pixel type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.FromPoint.0.html">FromPoint</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Point type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Implicit.3.html">Implicit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Parses value as XUnit</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Implicit.1.html">Implicit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Point type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Implicit.2.html">Implicit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Point type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Implicit.0.html">Implicit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns XUnit of Point type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Parse.0.html">Parse</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Converts string parameter to XUnit</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Properties</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Centimeter.0.html">Centimeter</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns value in centimeters depending on the Type property</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Inch.0.html">Inch</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns value in inches depending on the Type property</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Millimeter.0.html">Millimeter</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns value in millimeters depending on the Type property</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Point.0.html">Point</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns value in points depending on the Type property</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Type.0.html">Type</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Stores measurment type</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Value.0.html">Value</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Stores value</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Constructors</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.XUnit.0.html">XUnit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Constructor takes float value and sets Point as MeasurementUnit</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.XUnit.1.html">XUnit</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Constructor taking float value and tape as MeasurementUnit</p>
+    </td>
+  </tr>
+</table><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.CompareTo.0.html">CompareTo</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Compares Value property with other XUnit value and returns int, indicating whether it less, equal or more</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.ConvertType.0.html">ConvertType</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Type property</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.Equals.0.html">Equals</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Checks if this XUnit is equal to another object</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.GetHashCode.0.html">GetHashCode</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Returns hash code for this instance</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.ToString.2.html">ToString</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Converts Value property to string</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Models.Shared.XUnit.ToString.1.html">ToString</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Converts Value property to string</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.PDFFlow.Models.Shared.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Repeating Area</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Repeating Area</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure Repeating Areas.</p>
+    <p><b>Details</b></p><p>A Repeating Area is a header or footer that can be repeated at every page of a <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a> or only at odd or even pages.</p>
+<p>In order to manage repeating areas, each <i>Section</i> has a <a href="Gehtsoft.PDFFlow.Models.Document.Layout.html"><code>Layout</code></a> property.</p>
+<p><i>Layout</i> can have three <a href="Gehtsoft.PDFFlow.Models.Document.LayoutPage.html"><code>LayoutPage</code></a>s:
+<i>SinglePage</i>, <i>EvenPage</i>, or <i>OddPage</i>.</p>
+<p>There can be one page of type Odd plus one page of type Even, OR one page of type Single (per Section). Single means that this layout will appear at every page (odd and even).</p>
+<p>You have to call <a href="Gehtsoft.PDFFlow.Models.Document.Layout.AddSinglePage.0.html"><code>AddSinglePage</code></a> method,
+and LayoutPage will be created for you to manage repeting areas at every page.</p>
+<p>If you call <a href="Gehtsoft.PDFFlow.Models.Document.Layout.AddEvenPage.0.html"><code>AddEvenPage</code></a> it will be rendered only at pages with even numbers.</p>
+<p>And calling <a href="Gehtsoft.PDFFlow.Models.Document.Layout.AddOddPage.0.html"><code>AddOddPage</code></a> will lead to render repeating content only at odd pages.</p>
+<p>Each layout page can have one or more <a href="Gehtsoft.PDFFlow.Models.Document.LayoutArea.html"><code>LayoutArea</code></a>s.
+They are stored in <i>RepeatingAreas</i> property of <i>LayoutPage</i> as a collection.</p>
+<p>An area can be located at the top of the page (header, by default) or at the bottom (footer).
+If there are several header areas added to one layout page, the top position of every next area will be calculated automatically depending on the height of the previous areas.
+Each next header will be placed under the previous header.
+The same is applied to several footers in one layout.
+Each next footer will be placed above the previous footer.</p>
+<p>To add a layout area to a layout page, use <a href="Gehtsoft.PDFFlow.Builder.LayoutAreaBuilder.AddRepeatingArea.0.html"><code>AddRepeatingArea</code></a> method
+of the <a href="Gehtsoft.PDFFlow.Builder.LayoutAreaBuilder.html"><code>LayoutAreaBuilder</code></a> class.</p>
+<p>Pass <i>true</i> into <b>isFooter</b> optional parameter if you need the area to be at the bottom of the page.</p>
+<p>Then use <a href="Gehtsoft.PDFFlow.Builder.LayoutAreaBuilder.AddItem.0.html"><code>AddItem&lt;T&gt;</code></a>
+for adding either a <a href="Gehtsoft.PDFFlow.Models.Content.Paragraph.html"><code>Paragraph</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Content.Image.html"><code>Image</code></a> or <a href="Gehtsoft.PDFFlow.Models.Content.Table.html"><code>Table</code></a> to the area.</p>
+<p>Use the <a href="Gehtsoft.PDFFlow.Builder.ParagraphBuilder.AddPageNumber.0.html"><code>AddPageNumber</code></a> extension method of the Paragraph at the layout areas for printing automatic page numeration.</p>
+<p>Default numeration is Arabic. Remember to call Section's <a href="Gehtsoft.PDFFlow.Builder.SectionBuilder.SetNumerationStyle.0.html"><code>SetNumerationStyle</code></a> method
+if you need to change it to UpperRoman, LowerRoman, UpperLatin, LowerLatin, UpperCyrillic, LowerCyrillic).</p>
+<p><b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.</p>
+<p><b>Examples</b></p><div id="open26" style="display:none">
+  <p>Adding Even Page Header&nbsp;<a href="javascript: showdiv('close26'); hidediv('open26');" onclick="javascript: showdiv('close26'); hidediv('open26');">[show]</a></p>
+</div>
+<div id="close26" style="display:inline">
+  <p>Adding Even Page Header&nbsp;<a href="javascript: showdiv('open26'); hidediv('close26');" onclick="javascript: showdiv('open26'); hidediv('close26');">[hide]</a></p>
+  <pre class="example" id="example26"><code>    var builder = DocumentBuilder.New();
+ 
+    Section s = builder.AddDefaultSection();
+    s.AddParagraph(&quot;Some section content&quot;).SetFont(new Font { Name = &quot;Courier&quot;, Size = 20f, Color = Color.Black }).SetAlignment(HorizontalAlignment.Left)
+        .SetBorderColor(Color.Black).SetBorderWidth(2).SetBorderStyle(Stroke.Double);
+ 
+    s.Layout.AddEvenPage().AddRepeatingArea(s.Page, 60, areaConfig: area =&gt;
+    {
+        area.AddItem&lt;Image&gt;(image =&gt; { image.SetHref(ImageUrl).SetScale(ScalingMode.AutoSize);});
+        area.AddItem&lt;Paragraph&gt;(p =&gt;
+        {
+            p.SetAlignment(HorizontalAlignment.Left).SetBorderWidth(4);
+            p.AddText(&quot;Section #1.&quot;).SetFont(Font.Courier(14)).SetFontColor(Color.FromRgba(0.4, 0.3, 0.0));
+            p.AddText(&quot; Even Page.&quot;).SetFont(Font.Courier(13)).SetFontColor(Color.FromRgba(1.0, 0.0, 0.0));
+            p.AddText(&quot; Area #1 header.&quot;).SetFont(Font.Courier(14)).SetFontColor(Color.FromRgba(0.8, 0.1, 0.3));
+        });
+    });
+ 
+    builder.Build(filename);
+
+
+<b>A code above will generate you the following:</b>
+
+<img src="img/RepeatingHeaderExample.png">
+</code></pre>
+</div><div id="open27" style="display:inline">
+  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('close27'); hidediv('open27');" onclick="javascript: showdiv('close27'); hidediv('open27');">[show]</a></p>
+</div>
+<div id="close27" style="display:none">
+  <p>You can achieve the same result with the following code:&nbsp;<a href="javascript: showdiv('open27'); hidediv('close27');" onclick="javascript: showdiv('open27'); hidediv('close27');">[hide]</a></p>
+  <pre class="example" id="example27"><code>  DocumentBuilder.New()
+  .AddSection(s =&gt;
+  {
+  s.AddParagraph(p =&gt;
+  {
+        p.AddText(&quot;Some section content&quot;);
+        p.SetFont(new Font { Name = &quot;Courier&quot;, Size = 20f, Color = Color.Black });
+        p.SetAlignment(HorizontalAlignment.Left);
+        p.SetBorder(b =&gt; {
+        b.SetColor(Color.Black);
+        b.SetWidth(2);
+        b.SetStyle(Stroke.Double);
+        });
+  });
+
+  s.Layout.AddEvenPage().AddRepeatingArea(s.Page, 60, areaConfig: area =&gt;
+  {
+        area.AddItem&lt;Image&gt;(image =&gt;
+        {
+            image.ImageFile.Href = imageLogoODD.ToUri();
+            image.SetScale(ScalingMode.AutoSize);
+        })
+        .AddItem&lt;Paragraph&gt;(ci =&gt;
+        {
+            ci.SetAlignment(HorizontalAlignment.Left);
+            ci.SetBorder(br =&gt;
+                br.SetWidth(4));
+            ci.AddText((element) =&gt;
+            {
+                element.SetFont(new Font
+                {
+                    Name = &quot;Courier&quot;,
+                    Size = 14f,
+                    Color = Color.FromRgba(0.4, 0.3, 0.0)
+                });
+                element.AddContent(&quot;Section #1.&quot;);
+            });
+            ci.AddText((element) =&gt;
+            {
+                element.SetFont(new Font
+                {
+                    Name = &quot;Courier&quot;,
+                    Size = 13f,
+                    Color = Color.FromRgba(1.0, 0.0, 0.0)
+                });
+                element.AddContent(&quot; Even Page.&quot;);
+            });
+            ci.AddText((element) =&gt;
+            {
+                element.SetFont(new Font
+                {
+                    Name = &quot;Courier&quot;,
+                    Size = 14f,
+                    Color = Color.FromRgba(0.8, 0.1, 0.3)
+                });
+                element.AddContent(&quot; Area #1 header.&quot;);
+            });
+        });
+    });
+ }).Build(filename);
+
+
+</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Configuring Table</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Configuring Table</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to add and configure a Table.</p>
+    <p><b>Details</b></p><p>Using the library you are able to create tables of different styles: with header or not, simple or with alternating rows colored,
+with the images in the cells, colspan, rowspan, different borders and alignments, ellipsis in the end of the line, column width in percents, etc...</p>
+<p><br>
+<b>Creating Table</b></p>
+<p>To add a <a href="Gehtsoft.PDFFlow.Models.Content.Table.html"><code>Table</code></a> to a <a href="Gehtsoft.PDFFlow.Models.Document.Section.html"><code>Section</code></a>:</p><ul class="main">
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTable.0.html"><code>AddTable</code></a> method of the <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.html"><code>TableBuilder</code></a> class.
+It adds Table to a Section and helps to set table's properties using tableConfigure Action.</p></li>
+  <li><p>Or call <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTable.1.html"><code>AddTable</code></a> to add an empty Table with default settings and then change settings using extension methods,
+add <a href="Gehtsoft.PDFFlow.Models.Content.TableRow.html"><code>TableRow</code></a>s and <a href="Gehtsoft.PDFFlow.Models.Content.TableCell.html"><code>TableCell</code></a>s.</p></li>
+</ul><p>Then you can set <a href="Gehtsoft.PDFFlow.Models.Content.Table.TableName.0.html"><code>TableName</code></a>, <a href="Gehtsoft.PDFFlow.Models.Content.Table.AltRowStyle.0.html"><code>AltRowStyle</code></a> and other table properties.
+Please refer the full list of <a href="Gehtsoft.PDFFlow.Models.Content.Table.html"><code>Table properties</code></a>.</p>
+<p>Methods for building a Table and setting it's properties are described in <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.html"><code>TableBuilder</code></a>, e.g. <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetName.0.html"><code>SetName</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetWidth.0.html"><code>SetWidth</code></a>, etc.</p>
+<p><br>
+<b>Adding content</b></p>
+<p>Where are three ways of adding content to the table:</p><ul class="main">
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetDataSource.0.html"><code>SetDataSource</code></a>. Please, find &quot;Creating table from datasource&quot; example below.</p></li>
+  <li><p>Add <a href="Gehtsoft.PDFFlow.Models.Content.TableRow.html"><code>TableRow</code></a> to the table and then add <a href="Gehtsoft.PDFFlow.Models.Content.TableCell.html"><code>TableCell</code></a>s to the row (described below).
+Be sure to have the same number of cells in every row. Be careful in calculating the number of columns when setting colspan.</p></li>
+  <li><p>Add columns to the table (optionally with header text, width in points, width in percents). And then add rows and cells (described below).
+There are several methods for adding columns:
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.0.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.1.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.2.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.3.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.4.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.5.html"><code>AddColumn</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumnPercent.0.html"><code>AddColumnPercent</code></a>.</p></li>
+</ul><p><br>
+<b>Adding Row</b></p>
+<p>There are two methods for adding a <a href="Gehtsoft.PDFFlow.Models.Content.TableRow.html"><code>TableRow</code></a> to the table.</p><ul class="main">
+  <li><p>First <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddRow.1.html"><code>AddRow</code></a> method adds an empty row to the table and returns row.</p>
+<p>You can set row's properties in the same line calling Row's extension methods such as
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTag.1.html"><code>AddTag</code></a> (adds any object you need),
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetHorizontalAlignment.3.html"><code>SetHorizontalAlignment</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetVerticalAlignment.2.html"><code>SetVerticalAlignment</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderStyle.3.html"><code>SetBorderStyle</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBackColor.1.html"><code>SetBackColor</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStrikethrough.1.html"><code>SetStrikethrough</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFont.3.html"><code>SetFont</code></a>,
+<a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetItalic.1.html"><code>SetItalic</code></a>, etc.</p></li>
+  <li><p>The second one <a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddRow.0.html"><code>AddRow</code></a> method adds a row and allows to configure it using action.</p></li>
+</ul><p><br>
+<b>Adding Cell</b></p>
+<p>Adding <a href="Gehtsoft.PDFFlow.Models.Content.TableCell.html"><code>TableCell</code></a>s to the row are available with the methods</p><ul class="main">
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.0.html"><code>AddCell</code></a> (adds a cell to the table row and returns row; has action for configuring cell),</p></li>
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.1.html"><code>AddCell</code></a> (adds a new cell to a row and returns TableCell),</p></li>
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCellToRow.0.html"><code>AddCellToRow</code></a> (adds new cell to the row; same as previous AddCell, but returns TableRow),</p></li>
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.2.html"><code>AddCell</code></a> (adds cell with text content; can set colspan and rowspan; returns TableCell),</p></li>
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCellToRow.1.html"><code>AddCellToRow</code></a> (adds new cell with text content; can set colspan and rowspan; same as previous AddCell, but returns TableRow.).</p></li>
+</ul><p>Some of these methods return TableRow, so you can add one more cell to this row in the same line of code.
+Some of these methods return TableCell, so you can call cell's properties immediately.</p>
+<p><br>
+<b>Styles and Fonts</b></p>
+<p>You can configure appearence of the content (font, borders, strikethrough...) by setting <a href="Gehtsoft.PDFFlow.Models.Content.TableCellStyle.html"><code>TableCellStyle</code></a>:</p><ul class="main">
+  <li><p>Table's <a href="Gehtsoft.PDFFlow.Models.Content.Table.ContentRowStyle.0.html"><code>ContentRowStyle</code></a>
+(will be applied to all the cells in a table,
+except of header and footer, they are set with <a href="Gehtsoft.PDFFlow.Models.Content.Table.HeaderRowStyle.0.html"><code>HeaderRowStyle</code></a>
+and <a href="Gehtsoft.PDFFlow.Models.Content.Table.FooterRowStyle.0.html"><code>FooterRowStyle</code></a>)</p></li>
+  <li><p>TableRow's <a href="Gehtsoft.PDFFlow.Models.Content.TableRow.CellsStyle.0.html"><code>CellsStyle</code></a> (changes style of single row)</p></li>
+  <li><p>TableCell's <a href="Gehtsoft.PDFFlow.Models.Content.TableCell.Style.0.html"><code>Style</code></a> (changes style of single cell)</p></li>
+</ul><p>You can set background color, border, strikethrough, margins and other styles.</p>
+<p>Please refer <a href="Gehtsoft.PDFFlow.Models.Content.TableCellStyle.html"><code>TableCellStyle</code></a> for the full list of properties.</p>
+<p>Among other things, there is <a href="Gehtsoft.PDFFlow.Models.Content.TableCellStyle.Font.0.html"><code>TableCellStyle.Font</code></a> property,
+allowing you to change <a href="Gehtsoft.PDFFlow.Models.Shared.Font.html"><code>Font</code></a> where you need.</p><div id="open32" style="display:none">
+  <p>If you need to add text with another font, different from cell.Style.Font, first you have to apply .SetFont(default) to CellsStyle:&nbsp;<a href="javascript: showdiv('close32'); hidediv('open32');" onclick="javascript: showdiv('close32'); hidediv('open32');">[show]</a></p>
+</div>
+<div id="close32" style="display:inline">
+  <p>If you need to add text with another font, different from cell.Style.Font, first you have to apply .SetFont(default) to CellsStyle:&nbsp;<a href="javascript: showdiv('open32'); hidediv('close32');" onclick="javascript: showdiv('open32'); hidediv('close32');">[hide]</a></p>
+  <pre class="example" id="example32"><code>	table.AddColumnPercent(&quot;Date Received&quot;, 10).SetStyle(headerRowStyle)
+	.SetFont(default)
+	.AddHeaderTextToColumn(&quot; &quot;).AddHeaderText(DateFormat.ToLower()).SetFont(titleFont).SetFontSize(8).SetBold(false).SetItalic();
+	<img src="img/TableExampleHeader.png"></code></pre>
+</div><div id="open33" style="display:none">
+  <p>If you need different fonts in one cell, create Paragraph with several elements:&nbsp;<a href="javascript: showdiv('close33'); hidediv('open33');" onclick="javascript: showdiv('close33'); hidediv('open33');">[show]</a></p>
+</div>
+<div id="close33" style="display:inline">
+  <p>If you need different fonts in one cell, create Paragraph with several elements:&nbsp;<a href="javascript: showdiv('open33'); hidediv('close33');" onclick="javascript: showdiv('open33'); hidediv('close33');">[hide]</a></p>
+  <pre class="example" id="example33"><code>        Paragraph par = new Paragraph();
+        par.AddText(&quot;Times 12 Blue Italic, &quot;).SetFont(Font.Times(12)).SetFontColor(Color.Blue).SetItalic();
+        par.AddText((element) =&gt;
+        {
+            element.SetFont(new Font() { Name = FontNames.Helvetica, Color = Color.Gray }).SetFontSize(8).SetBold(true);
+            element.AddContent(&quot;Helvetica 8 Gray Bold&quot;);
+        });
+        TableRow row = table.AddRow();
+        row.AddCell().SetFont(default).AddParagraph(par);
+        <img src="img/TableExampleOneCell.png"></code></pre>
+</div><p><br>
+<b>Events</b></p>
+<p>For your convenience Table has
+<a href="Gehtsoft.PDFFlow.Models.Content.Table.CellAdded.0.html"><code>Action&lt;TableCell&gt; CellAdded</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Content.Table.RowAdded.0.html"><code>Action&lt;TableRow&gt; RowAdded</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Content.Table.ColumnCreated.0.html"><code>Action&lt;TableColumn&gt; ColumnCreated</code></a>,
+<a href="Gehtsoft.PDFFlow.Models.Content.Table.CellFormating.0.html"><code>Action&lt;TableCellFormatingArgs&gt; CellFormating</code></a>
+and <a href="Gehtsoft.PDFFlow.Models.Content.Table.RowLayout.0.html"><code>Action&lt;TableRowLayoutEventArgs&gt; RowLayout</code></a>
+actions.</p><div id="open34" style="display:none">
+  <p>Usage example:&nbsp;<a href="javascript: showdiv('close34'); hidediv('open34');" onclick="javascript: showdiv('close34'); hidediv('open34');">[show]</a></p>
+</div>
+<div id="close34" style="display:inline">
+  <p>Usage example:&nbsp;<a href="javascript: showdiv('open34'); hidediv('close34');" onclick="javascript: showdiv('open34'); hidediv('close34');">[hide]</a></p>
+  <pre class="example" id="example34"><code>	table.RowAdded = row =&gt;
+	{
+		// Do something:
+		if (row.RowType != TableRowType.Title)
+		{
+		  ...
+		}
+	};
+ 
+	table.RowLayout = args =&gt;
+	{
+		// Do something:
+		int rowIndex = args.Row.Index;
+		...
+	}</code></pre>
+</div><p><br>
+<b>See also:</b></p>
+<p><a href="quickStart.html">Quick Start</a>.</p>
+<p><a href="howToCreate.html">Creating Document</a>.</p>
+<p><a href="howToConfigureSection.html">Configuring Section</a>.</p>
+<p><br></p>
+<p><b>Examples</b></p><div id="open35" style="display:none">
+  <p>Creating table with different cell styles&nbsp;<a href="javascript: showdiv('close35'); hidediv('open35');" onclick="javascript: showdiv('close35'); hidediv('open35');">[show]</a></p>
+</div>
+<div id="close35" style="display:inline">
+  <p>Creating table with different cell styles&nbsp;<a href="javascript: showdiv('open35'); hidediv('close35');" onclick="javascript: showdiv('open35'); hidediv('close35');">[hide]</a></p>
+  <pre class="example" id="example35"><code>        Section _tableSection = builder.AddDefaultSection();
+        Table _table = _tableSection.AddTable();
+        TableRow _row1 = _table.AddRow();
+        // Change cell's Font:
+        TableCell _cell11 = _row1.AddCell().SetFont(Font.Times(20));
+        _cell11.AddParagraph().AddTextToParagraph(&quot;Row 1, Cell 1&quot;);
+        _row1.AddCell().AddParagraph().AddTextToParagraph(&quot;Row 1, Cell 2&quot;);
+        // Change border style:
+        _table.AddRow().SetBorderStyle(Stroke.Dotted).AddCellToRow(&quot;Row 2, Cell 1&quot;).AddCell().AddParagraph().AddTextToParagraph(&quot;Row 2, Cell 2&quot;);
+        Paragraph _cellPar = new Paragraph();
+        _cellPar.AddTextToParagraph(&quot;Row 3, Cell 1&quot;);
+        TableRow _newRow = _table.AddRow();
+        // Change Paragraph's Font:
+        _newRow.AddCell().SetFont(default).AddParagraph(_cellPar).SetFontColor(Color.Green).SetBold();
+        Paragraph _cellPar32 = new Paragraph().AddTextToParagraph(&quot;Row 3, Cell 2&quot;);
+        var style = _table.ContentRowStyle.Clone();
+        style.HorizontalAlignment = HorizontalAlignment.Right;
+        // Add paragraph and return cell, right aligned:
+        TableCell _cell32 = _newRow.AddCell().AddParagraphToCell(_cellPar32).SetStyle(style);
+        TableRow _row4 = _table.AddRow();
+        // Add strikethrough Paragraph with to cell and return paragraph:
+        _row4.AddCell().SetFont(default).AddTag(&quot;id&quot;).AddParagraph(&quot;Row4, Cell 1&quot;).SetStrikethrough(Stroke.Solid, Color.Blue);
+        // Add Paragraph to cell and return cell, right aligned, red color:
+        style.SetBackColor(Color.Red);
+        _row4.AddCell().AddTag(&quot;id&quot;).AddParagraphToCell(&quot;Row 4, Cell 2&quot;).SetStyle(style);
+        // Different Fonts in one cell:
+        Paragraph _cellPar51 = new Paragraph();
+        _cellPar51.AddText(&quot;Row 5, &quot;).SetFont(Font.Times(12)).SetFontColor(Color.Blue).SetItalic();
+        _cellPar51.AddText((element) =&gt;
+        {
+            element.SetFont(new Font() { Name = FontNames.Helvetica, Color = Color.Gray }).SetFontSize(8).SetBold(true);
+            element.AddContent(&quot;Cell 1&quot;);
+        });
+        TableRow _row5 = _table.AddRow();
+        _row5.AddCell().SetFont(default).AddParagraph(_cellPar51);
+        _row5.AddCell(&quot;Row 5, Cell 2&quot;);
+ 
+<b>The code above will generate the following:</b>
+<img src="img/TableExampleFonts.png">
+</code></pre>
+</div><div id="open36" style="display:none">
+  <p>Creating table with rowspan and colspan&nbsp;<a href="javascript: showdiv('close36'); hidediv('open36');" onclick="javascript: showdiv('close36'); hidediv('open36');">[show]</a></p>
+</div>
+<div id="close36" style="display:inline">
+  <p>Creating table with rowspan and colspan&nbsp;<a href="javascript: showdiv('open36'); hidediv('close36');" onclick="javascript: showdiv('open36'); hidediv('close36');">[hide]</a></p>
+  <pre class="example" id="example36"><code>        s.AddParagraph().AddTextToParagraph(&quot;Table with RowSpan and ColSpan&quot;).SetAlignment(HorizontalAlignment.Center).SetFont(Font.Courier(14).SetColor(Color.Gray));
+        s.AddTable(table =&gt;
+        {
+            table.SetName(&quot;RowSpan&quot;).SetAlignment(HorizontalAlignment.Center).SetWidth(300);
+            table.ContentRowStyle.SetHorizontalAlignment(HorizontalAlignment.Center).SetVerticalAlignment(VerticalAlignment.Center);
+            table.AltRowStyle = Table.GetDefaultAltRowCellStyle();
+            table.AltRowStyle.SetHorizontalAlignment(HorizontalAlignment.Center);
+ 
+            table.AddRow().AddCellToRow(&quot;England&quot;, 0, 3).AddCellToRow(&quot;Jaguar&quot;).AddCell(&quot;12.000&quot;);
+            table.AddRow().AddCellToRow().AddCellToRow(&quot;Jensen&quot;).AddCell(&quot;24.000&quot;);
+            table.AddRow().AddCellToRow().AddCellToRow(&quot;Triumph&quot;).AddCell(&quot;20.000&quot;);
+            table.AddRow().AddCellToRow(&quot;Japan&quot;).AddCellToRow(&quot;Toyota&quot;).AddCell(&quot;30.000&quot;);
+            table.AddRow().AddCellToRow(&quot;Italy&quot;, 0, 3).AddCellToRow(&quot;Alfa Romeo&quot;).AddCell(&quot;30.000&quot;);
+            table.AddRow().AddCellToRow().AddCellToRow(&quot;Maserati&quot;).AddCell(&quot;60.000&quot;);
+            table.AddRow().AddCellToRow().AddCellToRow(&quot;FIAT&quot;).AddCell(&quot;10.000&quot;);
+            table.AddRow().AddCell(&quot;Total cars - 7 &quot;, 2).SetHorizontalAlignment(HorizontalAlignment.Right);
+        });
+
+
+<b>The code above will generate the following:</b>
+
+<img src="img/TableExampleRowSpan.png">
+</code></pre>
+</div><div id="open37" style="display:inline">
+  <p>You can achieve the same result using action configurers:&nbsp;<a href="javascript: showdiv('close37'); hidediv('open37');" onclick="javascript: showdiv('close37'); hidediv('open37');">[show]</a></p>
+</div>
+<div id="close37" style="display:none">
+  <p>You can achieve the same result using action configurers:&nbsp;<a href="javascript: showdiv('open37'); hidediv('close37');" onclick="javascript: showdiv('open37'); hidediv('close37');">[hide]</a></p>
+  <pre class="example" id="example37"><code>    builder.AddDefaultSection(s =&gt;
+    {
+            s.AddParagraph().AddTextToParagraph(&quot;Table with RowSpan and ColSpan&quot;).SetAlignment(HorizontalAlignment.Center).SetFont(Font.Courier(14).SetColor(Color.Gray));
+ 
+            s.AddTable(table =&gt;
+            {
+                table.SetName(&quot;RowSpan1&quot;);
+                table.Width = 300;
+                table.SetAlignment(HorizontalAlignment.Center);
+                table.ContentRowStyle.HorizontalAlignment = HorizontalAlignment.Center;
+                table.ContentRowStyle.VerticalAlignment = VerticalAlignment.Center;
+                table.AltRowStyle = Table.GetDefaultAltRowCellStyle();
+                table.AltRowStyle.HorizontalAlignment = HorizontalAlignment.Center;
+ 
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.RowSpan = 3;
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;England&quot;);});
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Jaguar&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;12.000&quot;); });
+                    });
+                });
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell();
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Jensen&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;24.000&quot;); });
+                    });
+                });
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell();
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Triumph&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;20.000&quot;); });
+                    });
+                });
+ 
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Japan&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Toyota&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;30.000&quot;); });
+                    });
+                });
+ 
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.RowSpan = 3;
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Italy&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Alfa Romeo&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;30.000&quot;); });
+                    });
+                });
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell();
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Maserati&quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;60.000&quot;); });
+                    });
+                });
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell();
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;FIAT &quot;); });
+                    });
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;10.000&quot;); });
+                    });
+                });
+ 
+                table.AddRow(row =&gt;
+                {
+                    row.AddCell(cell =&gt;
+                    {
+                        cell.ColSpan = 2;
+                        cell.SetHorizontalAlignment(HorizontalAlignment.Right);
+                        cell.AddParagraph(p =&gt; { p.AddText(&quot;Total cars - 7 &quot;); });
+                    });
+                });
+            });
+
+</code></pre>
+</div><div id="open38" style="display:none">
+  <p>Creating table from datasource&nbsp;<a href="javascript: showdiv('close38'); hidediv('open38');" onclick="javascript: showdiv('close38'); hidediv('open38');">[show]</a></p>
+</div>
+<div id="close38" style="display:inline">
+  <p>Creating table from datasource&nbsp;<a href="javascript: showdiv('open38'); hidediv('close38');" onclick="javascript: showdiv('open38'); hidediv('close38');">[hide]</a></p>
+  <pre class="example" id="example38"><code>    <b>//Columns of the table:</b>
+    [DataContract]
+    public class Customer
+    {
+        [DataMember]
+        public string Id { get; set; }
+        [DataMember]
+        public string CompanyName { get; set; }
+        [DataMember]
+        public string ContactName { get; set; }
+        [DataMember]
+        public string ContactTitle { get; set; }
+        [DataMember]
+        public string Address { get; set; }
+        [DataMember]
+        public string City { get; set; }
+        [DataMember]
+        public string PostalCode { get; set; }
+        [DataMember]
+        public string Country { get; set; }
+        [DataMember]
+        public string Phone { get; set; }
+        [DataMember]
+        public string Fax { get; set; }
+
+        public override string ToString()
+        {
+            return string.Concat($&quot;{Id}\n{CompanyName}\n{ContactName}\n{ContactTitle}\n{Address}\n{City}\n{PostalCode}\n{Country}\n{Phone}\n{Fax}&quot;);
+        }
+    }
+
+    <b>//Fill datasource from json:</b>
+    List&lt;Customer&gt; Customers { get; }
+    string CustomersJsonFile = Path.Combine(ProjectDir, &quot;Content&quot;,&quot;customers.json&quot;)
+    string CustomersJsonContent = File.ReadAllText(CustomersJsonFile);
+    Customers = JsonConvert.DeserializeObject&lt;List&lt;Customer&gt;&gt;(CustomersJsonContent);
+
+    <b>//Add table from datasource with alternating row style</b>
+    builder.AddDefaultSection().AddTable(table =&gt;
+    {
+        table.SetName(&quot;SimpleTable&quot;).SetDataSource(Customers);
+        <b>//Set alternating row style:</b>
+        table.AltRowStyle = Table.GetDefaultAltRowCellStyle();
+    });
+
+<b>The code above will generate the following:</b>
+
+<img src="img/TableExample.png">
+</code></pre>
+</div><div id="open39" style="display:none">
+  <p>Creating table with columns in percents&nbsp;<a href="javascript: showdiv('close39'); hidediv('open39');" onclick="javascript: showdiv('close39'); hidediv('open39');">[show]</a></p>
+</div>
+<div id="close39" style="display:inline">
+  <p>Creating table with columns in percents&nbsp;<a href="javascript: showdiv('open39'); hidediv('close39');" onclick="javascript: showdiv('open39'); hidediv('close39');">[hide]</a></p>
+  <pre class="example" id="example39"><code>    s.AddTable(table =&gt;
+                    {
+                        table.HeaderRowStyle.Border.SetStyle(strokeStyle);
+                        table.ContentRowStyle.Border.SetStyle(strokeStyle);
+ 
+                            table.Width = 300;
+                            table.AddColumn(&quot;25%&quot;, null, c =&gt;
+                            {
+                                c.Width = XUnit.FromPercent(25);
+                            });
+                            table.AddColumn(&quot;75%&quot;, null, c =&gt;
+                            {
+                                c.Width = XUnit.FromPercent(75);
+                            });
+                    });</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

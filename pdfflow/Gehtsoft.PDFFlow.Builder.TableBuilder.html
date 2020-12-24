@@ -1,0 +1,715 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>TableBuilder</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><code>class <b>TableBuilder</b></code></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>Lets you add and configure a table and it's content</p>
+    <p><b>Details</b></p><p>The type defined in the <code>Gehtsoft.PDFFlow.dll</code> assembly.
+The namespace is <a href="Gehtsoft.PDFFlow.Builder.html"><code>Gehtsoft.PDFFlow.Builder</code></a>.</p><p></p>
+<table class="tmain" width="100%">
+  <tr>
+    <td colspan="2" class="thdr"><b>Static Public Methods</b></td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.0.html">AddCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds a cell to the table row and returns row. Has action for configuring cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.1.html">AddCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds a new cell to a row and returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCell.2.html">AddCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds cell with text content. Can set colspan and rowspan. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCellToRow.0.html">AddCellToRow</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new cell to the row. Same as AddCell, but returns TableRow.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddCellToRow.1.html">AddCellToRow</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new cell with text content. Can set colspan and rowspan. Same as AddCell, but returns TableRow.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.0.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds column (with header text as string) to a table and lets you to configure column's properties using Action</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.1.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds column (with header text as array of strings) to a table and lets you to configure column's properties using Action</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.2.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds column with header text to the table</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.3.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds column with header text and column width</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.4.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds column to the table</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumn.5.html">AddColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new column to a table</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddColumnPercent.0.html">AddColumnPercent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds a column with width in percents to a Table</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddContentItem.0.html">AddContentItem</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds content to the table cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddHeaderText.0.html">AddHeaderText</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets text in column's header</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddHeaderTextToColumn.0.html">AddHeaderTextToColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets text in column's header and returns TableColumn</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddImage.0.html">AddImage</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds Image to the table cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddImageColumn.0.html">AddImageColumn</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds to a table a column with images</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraph.0.html">AddParagraph</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds Paragraph to the table cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraph.1.html">AddParagraph</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new empty paragraph to the cell. Returns Paragraph</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraph.2.html">AddParagraph</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds paragraph with text content to the cell. Returns Paragraph</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraph.3.html">AddParagraph</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds existing Paragraph object to the cell. Returns Paragraph</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraphToCell.0.html">AddParagraphToCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds paragraph with text content to the cell. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddParagraphToCell.1.html">AddParagraphToCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds existing Paragraph object to the cell. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddRow.0.html">AddRow</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds a row to the table and allows to configure it using action</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddRow.1.html">AddRow</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new row to a table and returns Row</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTable.0.html">AddTable</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds Table to a Section and helps to set table's properties using tableConfigure Action</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTable.1.html">AddTable</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds new Table to a Section</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTag.1.html">AddTag</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Tag property of the TableRow</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTag.0.html">AddTag</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Tag property of the TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.AddTitleRow.0.html">AddTitleRow</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds to the table a row with TableRowType=Title</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBackColor.0.html">SetBackColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle's background color</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBackColor.1.html">SetBackColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets row's background color</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderColor.0.html">SetBorderColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's border color. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderStyle.1.html">SetBorderStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle.Border stroke style. Returns TableCellStyle</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderStyle.2.html">SetBorderStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle.Border stroke style (separately for left, right, top and bottom). Returns TableCellStyle</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderStyle.0.html">SetBorderStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's border stroke style. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderStyle.3.html">SetBorderStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableRow.CellsStyle.Border stroke style</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetBorderWidth.0.html">SetBorderWidth</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's border width. Returns TableCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetColSpan.0.html">SetColSpan</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets ColSpan property of the cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetDataSource.0.html">SetDataSource</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Adds columns and content of a table from object datasource</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFont.2.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Font to a column</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFont.1.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Font property of TableCellStyle</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFont.3.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Font of row's CellsStyle</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFont.0.html">SetFont</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets Font to cell's style</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFontStrikethrough.0.html">SetFontStrikethrough</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's strikethrough style (None, Solid, Dashed, Dotted or Double)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetFontStrikethroughColor.0.html">SetFontStrikethroughColor</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's strikethrough color</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetHorizontalAlignment.2.html">SetHorizontalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableColumn.Style.HorizontalAlignment (left, right or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetHorizontalAlignment.1.html">SetHorizontalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle.HorizontalAlignment (left, right or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetHorizontalAlignment.0.html">SetHorizontalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCell.Style.HorizontalAlignment (left, right or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetHorizontalAlignment.3.html">SetHorizontalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableRow.CellsStyle.HorizontalAlignment (left, right or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetItalic.0.html">SetItalic</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle.Font to italic or not</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetItalic.1.html">SetItalic</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableRow.CellsStyle.Font to italic or not</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetMinHeight.0.html">SetMinHeight</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle's minimum height</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetName.0.html">SetName</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableName property of a Table</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetOverflowAction.0.html">SetOverflowAction</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TextOverflowAction of the cells to Truncate, Hidden, Ellipsis or Throw</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetPadding.2.html">SetPadding</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets column's padding (left,right,top,bottom)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetPadding.0.html">SetPadding</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets cell's padding (left,right,top,bottom)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetPadding.1.html">SetPadding</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Set's Padding property of TableCellStyle (left,right,top,bottom)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetPartialBorders.0.html">SetPartialBorders</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets PartialTableBorders to True or False</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetRepeatHeaders.0.html">SetRepeatHeaders</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Whether to show table headers at every page or not</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetRowSpan.0.html">SetRowSpan</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets RowSpan property of the cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStrikethrough.0.html">SetStrikethrough</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets strikethrough for the whole cell or for the text only, depending on the boolean parameter isWholeCell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStrikethrough.1.html">SetStrikethrough</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets strikethrough of the row. Depending on the boolean parameter isWholeCell, strikethrough line can be made for the whole cell or for the text only</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStrikethroughTextOnly.0.html">SetStrikethroughTextOnly</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets strikethrough style and/or color for text in the cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStrikethroughWholeCell.0.html">SetStrikethroughWholeCell</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets strikethrough style and/or color for the whole cell (from left border to right border), not only for text.</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStyle.1.html">SetStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle to a column</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetStyle.0.html">SetStyle</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle to a cell</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetVerticalAlignment.1.html">SetVerticalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableColumn.Style.VerticalAlignment (top, bottom or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetVerticalAlignment.0.html">SetVerticalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableCellStyle.VerticalAlignment (top, bottom or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetVerticalAlignment.2.html">SetVerticalAlignment</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets TableRow.CellsStyle.VerticalAlignment (top, bottom or center)</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetWidth.0.html">SetWidth</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets table width</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetWidth.1.html">SetWidth</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets width of table column</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="tmain_nw">
+      <p><a href="Gehtsoft.PDFFlow.Builder.TableBuilder.SetWidthPercent.0.html">SetWidthPercent</a></p>
+    </td>
+    <td class="tmain" width="69%">
+      <p>Sets column's width in percents</p>
+    </td>
+  </tr>
+</table><p>
+      <center><a href="Gehtsoft.PDFFlow.Builder.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    <title>Quick Start</title><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Quick Start</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>The article describes how to quickly create your first PDF document.</p>
+    <p><b>Details</b></p><p>To create a new document,</p><ul class="main">
+  <li><p><a href="howToAdd.html">Add a PDF Flow Library to the project</a>.</p></li>
+  <li><p>Call method <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.New.0.html"><code>New</code></a> to <a href="howToCreate.html">Create a Document</a>.</p></li>
+  <li><p><a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddSection.0.html"><code>AddSection</code></a> or several sections to the document.</p>
+<p>You can also quickly <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.AddDefaultSection.0.html"><code>AddDefaultSection</code></a> with the default settings
+(margins 50, paper size A4, portrait orientation and Arabic numeration style)</p>
+<p>See <a href="howToConfigureSection.html">Configuring section</a> for more information.</p></li>
+  <li><p>Add content to every section.</p><ul class="main">
+  <li><p>Add <a href="howToConfigureParagraph.html">Paragraph</a>.</p></li>
+  <li><p>Add <a href="howToConfigureImage.html">Image</a>.</p></li>
+  <li><p>Add <a href="howToConfigureTable.html">Table</a></p></li>
+  <li><p>Add <a href="howToCreateMultilevelList.html">Multilevel List</a>.</p></li>
+  <li><p>Add <a href="howToConfigureRepeatingArea.html">Repeating Areas</a> to the section to show headers and/or footers.</p></li>
+  <li><p>Add <a href="howToCreateLine.html">Line</a></p></li>
+  <li><p>Add <a href="howToCreateStackFlow.html">StackFlow</a></p></li>
+</ul></li>
+  <li><p>Create <a href="howToCreateOutline.html">Outline</a> for the document.</p></li>
+  <li><p>Call <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.1.html"><code>Build</code></a> with a destination fileName
+or <a href="Gehtsoft.PDFFlow.Builder.DocumentBuilder.Build.0.html"><code>Build</code></a> with a stream as a parameter to generate a document.</p></li>
+</ul><p>See <a href="howToCreate.html">Creating Document</a> for more information.</p>
+<p><b>Examples</b></p><div id="open1" style="display:none">
+  <p>Quick start&nbsp;<a href="javascript: showdiv('close1'); hidediv('open1');" onclick="javascript: showdiv('close1'); hidediv('open1');">[show]</a></p>
+</div>
+<div id="close1" style="display:inline">
+  <p>Quick start&nbsp;<a href="javascript: showdiv('open1'); hidediv('close1');" onclick="javascript: showdiv('open1'); hidediv('close1');">[hide]</a></p>
+  <pre class="example" id="example1"><code>    <b>// New document:</b>
+ 
+    DocumentBuilder builder = DocumentBuilder.New();
+ 
+    <b>// Add section:</b>
+ 
+    // Default configuration (margins 50, paper size A4, portrait orientation and arabic numeration style):
+    Section s = builder.AddDefaultSection()
+    // Customize settings:
+                .SetMargins(20).SetSize(PaperSize.A5).SetOrientation(PageOrientation.Landscape).SetNumerationStyle(NumerationStyle.UpperRoman);
+ 
+    <b>// Add paragraph:</b>
+ 
+    s.AddParagraph(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&quot;)
+        .SetAlignment(HorizontalAlignment.Left).SetFirstLineIndent(20).SetJustifyAlignment(true).SetMargins(10)
+        .SetFont(Font.Courier(16)).SetFontColor(Color.Red).SetBold().SetBackColor(Color.Green)
+        .SetBorderStyle(Stroke.Solid).SetBorderWidth(3).SetBorderColor(Color.FromRgba(0.6, 0.4, 0.7))
+        .SetIsOutline().SetOutlineLevel(0)
+        .AddText(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&quot;)
+        .SetBackgroundColor(Color.Yellow).SetStrikethrough(Stroke.Solid, Color.Blue);
+ 
+    <b>// Add tabulation:</b>
+ 
+    s.AddParagraph().AddTabSymbol().AddTextToParagraph(&quot;RIGHT300&quot;).AddTabulation(300, TabulationType.Right);
+ 
+    <b>// Add page number:</b>
+ 
+    s.AddParagraph(&quot;Page #&quot;).AddPageNumber().AddTextToParagraph(&quot; | &quot;).AddText(&quot;My first document&quot;).SetBold();
+ 
+    <b>// Add image:</b>
+ 
+    s.AddImage(imageUrl).SetWidth(200).SetHeight(100).SetScale(ScalingMode.Normal).SetBorderStyle(Stroke.Dotted);
+ 
+    <b>// Add inline image:</b>
+ 
+    s.AddParagraph(&quot;Inline &quot;).SetAlignment(HorizontalAlignment.Left).AddInlineImage(imageExclamationMark, ScalingMode.Stretch, 15, 15).AddText(&quot; image&quot;);
+ 
+    <b>// Add URL:</b>
+ 
+    // Underlined and Blue color by default:
+    s.AddParagraph().AddUrl(&quot;http://www.gehtsoftusa.com/&quot;, &quot;GehtSoft LLC.&quot;);
+    // Customize:
+    s.AddParagraph().AddUrl(&quot;http://www.gehtsoftusa.com/&quot;).SetFontColor(Color.Green).SetUnderlineColor(Color.Red);
+ 
+    <b>// Add table:</b>
+ 
+    Table table = s.AddTable();
+    table.SetName(&quot;RowSpan&quot;).SetAlignment(HorizontalAlignment.Center).SetWidth(300)
+       .ContentRowStyle.SetHorizontalAlignment(HorizontalAlignment.Center).SetVerticalAlignment(VerticalAlignment.Center);
+    table.AddRow().AddCellToRow(&quot;England&quot;, 0, 3).AddCellToRow(&quot;Jaguar&quot;).AddCell(&quot;12.000&quot;);
+    table.AddRow().AddCellToRow().AddCellToRow(&quot;Jensen&quot;).AddCell(&quot;24.000&quot;);
+    table.AddRow().AddCellToRow().AddCellToRow(&quot;Triumph&quot;).AddCell(&quot;20.000&quot;);
+    table.AddRow().AddCell(&quot;Total cars - 3 &quot;, 2).SetHorizontalAlignment(HorizontalAlignment.Right);
+ 
+    <b>// Add MultiLevel list:</b>
+ 
+    s.AddParagraph(&quot;Level = 0. Item 1.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+    s.AddParagraph(&quot;Level = 0. Item 2.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+    s.AddParagraph(&quot;Level = 1. Item 1.&quot;).SetFont(font).SetFontSize(16).SetListNumbered(NumerationStyle.Arabic, 1, leftIndent);
+    s.AddParagraph(&quot;Level = 2. Item 1.&quot;).SetFont(font).SetFontSize(12).SetListNumbered(NumerationStyle.UpperLatin, 2, leftIndent);
+    s.AddParagraph(&quot;Level = 2. Item 2.&quot;).SetFont(font).SetFontSize(12).SetListNumbered(NumerationStyle.UpperLatin, 2, leftIndent);
+    s.AddParagraph(&quot;Level = 1. Item 2.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetFontSize(16).SetListNumbered(NumerationStyle.Arabic, 1, leftIndent);
+    s.AddParagraph(&quot;Level = 0. Item 3.&quot;).SetAlignment(HorizontalAlignment.Left).SetFont(font).SetListBulleted(ListBullet.Bullet, 0, leftIndent);
+ 
+    <b>// Add line:</b>
+ 
+    s.AddLine().SetWidth(1f).SetLength(300).SetColor(Color.Blue).SetStyle(Stroke.Dashed).SetMargins(top: 0, left: 0, right: 0, bottom: 30);
+    s.AddLine().SetWidth(5f).SetColor(Color.Red).SetStyle(Stroke.Dotted);
+ 
+    <b>// Build a document:</b>
+ 
+    builder.Build(&quot;QuickStart.pdf&quot;);
+ 
+
+    <b>The code above will generate you the following:</b>
+
+    <img src="img/QuickStartExample.png"></code></pre>
+</div><p><br></p><div id="open2" style="display:inline">
+  <p>How to use configurer actions:&nbsp;<a href="javascript: showdiv('close2'); hidediv('open2');" onclick="javascript: showdiv('close2'); hidediv('open2');">[show]</a></p>
+</div>
+<div id="close2" style="display:none">
+  <p>How to use configurer actions:&nbsp;<a href="javascript: showdiv('open2'); hidediv('close2');" onclick="javascript: showdiv('open2'); hidediv('close2');">[hide]</a></p>
+  <pre class="example" id="example2"><code>var file = Path.Combine(folderPath, &quot;fileName.pdf&quot;);
+if (File.Exists(file))
+   File.Delete(file);
+ 
+   <b>// New document:</b>
+ 
+   DocumentBuilder.New()
+ 
+   <b>// Add first section:</b>
+ 
+   .AddSection(s =&gt;
+   {
+ 
+       <b>// Configure section:</b>
+ 
+       s.SetMargins(20);
+       s.SetSize(() =&gt; PaperSize.A4);
+       s.SetOrientation(() =&gt; PageOrientation.Portrait);
+       s.SetNumerationStyle(NumerationStyle.Arabic);
+ 
+       <b>// Add paragraph:</b>
+ 
+       s.AddParagraph(p =&gt;
+       {
+            p.AddText(&quot;Some text&quot;);
+            p.SetFont(new Font {Name = &quot;Courier&quot;, Size = 16f, Color = Color.White});
+            p.Alignment = HorizontalAlignment.Center;
+            p.BackgroundColor = Color.Blue;
+            p.SetBorder(b =&gt;
+            {
+                b.SetWidth(3);
+                b.SetStyle(Stroke.Solid);
+                b.SetColor(Color.FromRgba(0.6, 0.4, 0.7));
+            });
+            p.IsOutline = true;
+            p.OutlineLevel = 0;
+       });
+ 
+       <b>// Add paragraph with inline image:</b>
+ 
+       s.AddParagraph(p =&gt;
+       {
+            p.Alignment = HorizontalAlignment.Left;
+            p.AddContent(() =&gt; GenerateTextElements(1, 1, 3));
+            p.AddInlineImage(image =&gt;
+            {
+                image.Height = 15;
+                image.Width = 15;
+                image.SetFile(inlineImagePath);
+                image.Scale = ScalingMode.Stretch;
+            });
+            p.AddContent(() =&gt; GenerateTextElements(1, 1, 3));
+       });
+ 
+       <b>// Add image:</b>
+ 
+       s.AddImage(imageUrl, image =&gt;
+       {
+            image.Width = 1000;
+            image.SetMargins(10, 10, 0, 0);
+            image.SetScale(ScalingMode.Stretch);
+            image.SetBorder(b =&gt; b.SetStyle(Stroke.Dotted).SetColor(Color.Black));
+       });
+ 
+       <b>// Add URL:</b>
+ 
+       s.AddParagraph(p =&gt;
+       {
+            p.AddContent(() =&gt; new List&lt;ParagraphElement&gt;
+            {
+                new Url
+                {
+                    DisplayText = &quot;GehtSoft LLC.&quot;,
+                    Value = &quot;http://www.gehtsoftusa.com/&quot;,
+                    Font = new Font
+                    {
+                        Name = FontNames.Courier,
+                        Bold = true,
+                        Size = 16,
+                        Color = Color.Green,
+                        Underline = Stroke.Solid,
+                        UnderlineColor = Color.Red
+                    }
+                }
+            });
+       });
+   })
+ 
+   <b>// Add second section:</b>
+ 
+   .AddSecondSection()
+ 
+   <b>// Build a document:</b>
+ 
+   .Build(file);
+ 
+ 
+   internal static DocumentBuilder AddSecondSection(this DocumentBuilder builder)
+   {
+       builder.AddDefaultSection(s =&gt;
+       {
+       	// Add some content here...
+       });
+    return builder;
+    }
+   }
+
+</code></pre>
+</div><p>
+      <center><a href="tutorials.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>

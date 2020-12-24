@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Practical Examples</title><script type="text/javascript">
+       if (!window.location.href.indexOf('mk:') == 0) {
+               var head = document.getElementsByTagName('head')[0];
+
+               var script1 = document.createElement('script');
+               script1.type = 'text/javascript';
+               script1.src = 'highlighter/highlight.pack.js';
+               head.appendChild(script1);
+
+               var script2 = document.createElement('script');
+               script2.type = 'text/javascript';
+               script2.src = 'highlighter/highlight.cshtml.js';
+               head.appendChild(script2);
+
+               window.onload=function() {
+                   hljs.registerLanguage('cshtml-razor', window.hljsDefineCshtmlRazor);
+                   x = document.querySelectorAll('pre code');
+                   for (var i = 0; i < x.length; i++) {
+                        if (x[i].hasAttribute('class')) {
+                            hljs.highlightBlock(x[i]);
+                       }
+                   }
+               };
+           }
+    </script><script language="javascript" type="text/javascript">
+function hidediv( divname )
+{
+    document.getElementById( divname ).style.display = 'none';
+}
+
+function showdiv( divname )
+{
+    document.getElementById( divname ).style.display = 'inline';
+}
+</script><link rel="stylesheet" href="highlighter/default.css">
+<style type="text/css">
+    body
+    {
+        color:#444444;
+        background-color:white;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+    }
+    A:link
+    {
+        color:#0068be;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    A:visited
+    {
+        color:#039CCF;
+        font-family:Trebuchet MS, Arial;
+        font-size:10pt;
+        cursor:pointer;
+    }
+    p, h1, h2, h3, h4, h5, h6
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+
+    pre.example
+    {
+        background-color : #f1f1f1;
+    }
+
+    ul, ul.main
+    {
+        list-style-type : disc;
+        margin-left: 18pt;
+    }
+    ol, ol.main
+    {
+        list-style-type: decimal;
+        margin-left: 18pt;
+    }
+    li
+    {
+        font-family : Trebuchet MS, Arial;
+    }
+    ul.hhc
+    {
+        list-style-type : none;
+        margin-left : 1em;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    li.hhc
+    {
+        font-family : Trebuchet MS, Arial;
+        margin-left : 0;
+        padding : 0;
+        padding-left : 0;
+        text-indent : 0;
+    }
+    
+    table, table.tmain
+    {
+        font-size:10pt;
+        border-collapse : collapse;
+        border : 1px solid;
+        border-color : #dfe3e7;
+    }
+    td.tmain, td.tmain_nw, td.thdr
+    {
+        border : 1px solid;
+        border-color : #dfe3e7;
+        background-color : rgb(255, 255, 255);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+    }
+    td.tmain p, td.tmain_nw p, td.thdr p
+    {
+        margin-bottom : 6pt;
+    }
+    td.tmain_nw
+    {
+        white-space : nowrap;
+    }
+    td.thdr
+    {
+        font-size:10pt;
+        background-color : #f1f1f1;
+    }
+    table.decl
+    {
+        border : 0px none;
+        background-color : rgb(192, 192, 192);
+        vertical-align : top;
+        padding : 3px;
+        font-family : Trebuchet MS, Arial;
+        width : 100%;
+    }
+</style></head>
+  <body>
+    <p>
+      <font size="+1"><b>Practical Examples</b></font>
+    </p>
+    <p><b>Brief</b></p>
+    <p>Article shows a few examples of using API provided by this package</p>
+    <p><b>Details</b></p><p>Create a questionnaire body</p><div id="open1" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close1'); hidediv('open1');" onclick="javascript: showdiv('close1'); hidediv('open1');">[show]</a></p>
+</div>
+<div id="close1" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open1'); hidediv('close1');" onclick="javascript: showdiv('open1'); hidediv('close1');">[hide]</a></p>
+  <pre class="example" id="example1"><code class="cs"> QuestionnaireBody questionnaire;
+ questionnaire = new QuestionnaireBody();
+ questionnaire[0].Name = &quot;Login Data&quot;;
+ questionnaire.Add(new QuestionnaireGroup()
+ {
+     Name = &quot;Personal Data&quot;,
+     Semantics = &quot;personal&quot;
+ });
+ questionnaire.Add(new QuestionnaireGroup()
+ {
+     Name = &quot;Home Address&quot;,
+     Semantics = &quot;home-address&quot;
+ });
+ questionnaire.Add(new QuestionnaireGroup()
+ {
+     Name = &quot;Additional People&quot;,
+     Semantics = &quot;morepeople&quot;,
+     Repeatable = true
+ });
+ questionnaire[0].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;Usename&quot;,
+     Semantics = &quot;authid&quot;,
+     DataType = QuestionDataType.String,
+     Searchable = true
+ });
+ QuestionnaireQuestion question;
+ questionnaire[1].Add(question = new QuestionnaireQuestion()
+ {
+     Name = &quot;First Name&quot;,
+     Semantics = &quot;firstname&quot;,
+     DataType = QuestionDataType.String,
+     Searchable = true
+ });
+ question.ValidateExpression = new FunctionExpression(Function.Match, ConstantExpression.Create(@&quot;^\w+$&quot;), new ValueExpression(&quot;value&quot;));
+ question.ValidateMessage = &quot;Must be a word&quot;;
+ questionnaire[1].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;Last Name&quot;,
+     Semantics = &quot;lastname&quot;,
+     DataType = QuestionDataType.String,
+     Searchable = true
+ });
+ questionnaire[1].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;Nickname&quot;,
+     Semantics = &quot;nickname&quot;,
+     DataType = QuestionDataType.String,
+     Repeatable = true,
+     Searchable = true
+ });
+ questionnaire[2].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;Street Address&quot;,
+     Semantics = &quot;street&quot;,
+     DataType = QuestionDataType.String
+ });
+ questionnaire[2].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;City&quot;,
+     Semantics = &quot;city&quot;,
+     DataType = QuestionDataType.String
+ });
+ questionnaire[2].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;ZIP&quot;,
+     Semantics = &quot;zip&quot;,
+     DataType = QuestionDataType.Integer,
+     Searchable = true
+ });
+ questionnaire[2].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;State&quot;,
+     Semantics = &quot;state&quot;,
+     DataType = QuestionDataType.String
+ });
+ questionnaire[3].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;First Name&quot;,
+     Semantics = &quot;firstname&quot;,
+     DataType = QuestionDataType.String,
+     Searchable = false
+ });
+ questionnaire[3].Add(new QuestionnaireQuestion()
+ {
+     Name = &quot;Last Name&quot;,
+     Semantics = &quot;lastname&quot;,
+     DataType = QuestionDataType.String,
+     Searchable = false
+ });</code></pre>
+</div><p>Create a answers body</p><div id="open2" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close2'); hidediv('open2');" onclick="javascript: showdiv('close2'); hidediv('open2');">[show]</a></p>
+</div>
+<div id="close2" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open2'); hidediv('close2');" onclick="javascript: showdiv('open2'); hidediv('close2');">[hide]</a></p>
+  <pre class="example" id="example2"><code class="cs"> QuestionnaireAnswersBody answers;
+ answers = new QuestionnaireAnswersBody();
+ answers[&quot;authid&quot;] = &quot;user1&quot;;
+ answers[&quot;authkey&quot;] = &quot;password1&quot;;
+ answers[&quot;personal.firstname&quot;] = &quot;John&quot;;
+ answers[&quot;personal.lastname&quot;] = &quot;Doe&quot;;
+ answers[&quot;personal.birthdate&quot;] = new DateTime(1970, 1, 2);
+ answers[&quot;personal.nickname&quot;] = &quot;Buck&quot;;
+ answers[&quot;personal.nickname(1)&quot;] = &quot;Usual&quot;;
+ answers[&quot;personal.nickname(2)&quot;] = &quot;Strange&quot;;
+ answers[&quot;home-address.street&quot;] = &quot;6200 Eastern Blvd&quot;;
+ answers[&quot;home-address.city&quot;] = &quot;Raleigh&quot;;
+ answers[&quot;home-address.zip&quot;] = 27606;
+ answers[&quot;home-address.state&quot;] = &quot;NC&quot;;
+ answers[&quot;morepeople.firstname&quot;] = &quot;Jane&quot;;
+ answers[&quot;morepeople.lastname&quot;] = &quot;Doe&quot;;
+ answers[&quot;morepeople(1).firstname&quot;] = &quot;James&quot;;
+ answers[&quot;morepeople(1).lastname&quot;] = &quot;Doe&quot;;
+</code></pre>
+</div><p>Reading the answer value with generating the full answer semantics</p><div id="open3" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close3'); hidediv('open3');" onclick="javascript: showdiv('close3'); hidediv('open3');">[show]</a></p>
+</div>
+<div id="close3" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open3'); hidediv('close3');" onclick="javascript: showdiv('open3'); hidediv('close3');">[hide]</a></p>
+  <pre class="example" id="example3"><code class="cs"> foreach (var groupAnswer in answers)
+ {
+     int groupOccurrence = answers.Occurrence(groupAnswer);
+     foreach (var questionAnswer in groupAnswer)
+     {
+         int questionOccurrence = groupAnswer.Occurrence(questionAnswer);
+         Semantics answerSemantics = new Semantics(groupAnswer.GroupSemantics, groupAnswer.GroupIndex, groupOccurrence, questionAnswer.QuestionSemantics, questionAnswer.QuestionIndex, questionOccurrence);
+         string key = answerSemantics.Key;
+         object value = questionAnswer.Value;
+     }
+ }</code></pre>
+</div><p>Validating the answers using associated questionnaire.</p><div id="open4" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close4'); hidediv('open4');" onclick="javascript: showdiv('close4'); hidediv('open4');">[show]</a></p>
+</div>
+<div id="close4" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open4'); hidediv('close4');" onclick="javascript: showdiv('open4'); hidediv('close4');">[hide]</a></p>
+  <pre class="example" id="example4"><code class="cs"> foreach (var groupAnswer in answers)
+ {
+     var group = questionnaire.FindGroup(groupAnswer);
+     if (!(group.ValidateExpression?.IsTrue(answers, null) ?? true))
+         throw new ArgumentException(group.ValidateMessage);
+     foreach (var questionAnswer in groupAnswer)
+     {
+         var answerSemantics = new Semantics(groupAnswer.GroupSemantics, groupAnswer.GroupIndex, questionAnswer.QuestionSemantics, questionAnswer.QuestionIndex);
+         questionnaire.Find(answerSemantics, out QuestionnaireGroup group1, out QuestionnaireQuestion question);
+         if (question.IsOptionalExpression?.IsTrue(answers, questionAnswer.Value) ?? true)
+             continue;
+         if (!(question.ValidateExpression?.IsTrue(answers, questionAnswer.Value) ?? true))
+             throw new ArgumentException(question.ValidateMessage);
+     }
+ }</code></pre>
+</div><p>Updating answers body to a new version</p><div id="open5" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close5'); hidediv('open5');" onclick="javascript: showdiv('close5'); hidediv('open5');">[show]</a></p>
+</div>
+<div id="close5" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open5'); hidediv('close5');" onclick="javascript: showdiv('open5'); hidediv('close5');">[hide]</a></p>
+  <pre class="example" id="example5"><code class="cs"> Regex isEmail = new Regex(@&quot;^([\w\d_\.]+)\@(([\w\d_]+)\.)?(([\w\d_]+)\.)?([\w\d_]+)\.([\w\d]+)$&quot;);
+ QuestionnaireUpdateRules rules = new QuestionnaireUpdateRules();
+ rules
+     /* Renaming rule. */
+     .AddRule(&quot;personal:callsign&quot;, &quot;personal:nickname&quot;)
+     /* Complex rule. */
+     .AddRule(&quot;common:email&quot;, (body) =&gt;
+     {
+         string authId = body[&quot;common:authid&quot;] as string;
+         if (isEmail.IsMatch(authId))
+             return authId;
+         else
+             return null;
+     });
+ var newVersionAnswers = newVersionQuestionnaire.UpdateAnswers(oldVersionAnswers, rules);</code></pre>
+</div><p>Filtering and sorting answers by searchable answers</p><div id="open6" style="display:none">
+  <p>Example&nbsp;<a href="javascript: showdiv('close6'); hidediv('open6');" onclick="javascript: showdiv('close6'); hidediv('open6');">[show]</a></p>
+</div>
+<div id="close6" style="display:inline">
+  <p>Example&nbsp;<a href="javascript: showdiv('open6'); hidediv('close6');" onclick="javascript: showdiv('open6'); hidediv('close6');">[hide]</a></p>
+  <pre class="example" id="example6"><code class="cs"> var filter = new QuestionnaireAnswersAccessor.Filter();
+ filter.Version = questionnareVersion;
+ filter.QuestionnaireFilters.Add((&quot;personal:firstname&quot;, CmpOp.Eq, &quot;John&quot;));
+ filter.QuestionnaireFilters.Add((&quot;personal:birthdate&quot;, CmpOp.Gt, new DateTime(1980, 1, 1)));
+ var sortOrder = new QuestionnaireAnswersAccessor.SortOrder[]
+ {
+     new QuestionnaireAnswersAccessor.SortOrder(true, &quot;personal:lastname&quot;, SortDir.Desc)
+ };
+ EntityCollection&lt;QuestionnaireAnswers&gt; answers = dao.QuestionnaireAnswersAccessor.Read(filter, sortOrder, null, null);</code></pre>
+</div><p>
+      <center><a href="Gehtsoft.Questionnaire.P.html">back</a></center>
+    </p><script language="javascript" type="text/javascript">if(window.parent.frames[0]) window.parent.frames[0].selectItem(window.location.href);</script></body>
+</html>
